@@ -1,0 +1,96 @@
+﻿<Page
+    x:Class="Udalosti.Registracia"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Udalosti"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+<Frame>
+    <Frame.ContentTransitions>
+        <TransitionCollection>
+            <NavigationThemeTransition />
+        </TransitionCollection>
+    </Frame.ContentTransitions>
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="../Assets/images/udalosti_pozadie.jpg"/>
+            </Grid.Background>
+            <Grid VerticalAlignment="center"
+                  Margin="60,0,60,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="45" />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Text="Registrovať"
+                    FontFamily="Raleway"
+                    FontSize="60"
+                    VerticalAlignment="Stretch"
+                    TextAlignment="Center"/>
+                <TextBlock
+                    Grid.Row="1"
+                    Text="Staňte sa naším členom ešte dnes, udalosť spája všetkých!"
+                    FontFamily="Raleway"
+                    FontSize="16"
+                    TextWrapping="Wrap"
+                    VerticalAlignment="Stretch"
+                    TextAlignment="Center"
+                    Margin="0,15,0,40"/>
+                <TextBox x:ConnectionId='2' 
+                    x:Name="meno"
+                    Grid.Row="2"
+                    PlaceholderText="Meno"
+                    FontFamily="Raleway"
+                    FontSize="18"
+                    Margin="0,0,0,20"/>
+                <TextBox x:ConnectionId='3' 
+                    x:Name="email"
+                    Grid.Row="3"
+                    PlaceholderText="Email"
+                    FontFamily="Raleway"
+                    FontSize="18"
+                    Margin="0,0,0,20"/>
+                <PasswordBox x:ConnectionId='4' 
+                    x:Name="heslo"
+                    Grid.Row="4"
+                    PlaceholderText="Heslo"
+                    FontFamily="Raleway"
+                    FontSize="18"
+                    Margin="0,0,0,20"/>
+                <PasswordBox x:ConnectionId='5' 
+                    x:Name="potvrd"
+                    Grid.Row="5"
+                    PlaceholderText="Potvrdte heslo"
+                    FontFamily="Raleway"
+                    FontSize="18"
+                    Margin="0,0,0,20"/>
+                <Grid 
+                    Grid.Row="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition 
+                            Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:ConnectionId='6' 
+                        x:Name="registrovatSa"
+                        Grid.Column="0"
+                        Content="Registrovať"
+                        FontFamily="Raleway"
+                        FontSize="18"
+                        Foreground="White"
+                        Background="#0397d6"
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch"                    />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Frame>
+</Page>
+

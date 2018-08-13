@@ -212,3 +212,8 @@ C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Autentifikacia\Prihlase
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Autentifikacia\Prihlasenie.g.cs
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Autentifikacia\Prihlasenie.xaml
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Autentifikacia\Prihlasenie.xbf
+C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\Autentifikacia\Registracia.xbf
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Autentifikacia\Registracia.g.i.cs
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Autentifikacia\Registracia.g.cs
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Autentifikacia\Registracia.xaml
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Autentifikacia\Registracia.xbf

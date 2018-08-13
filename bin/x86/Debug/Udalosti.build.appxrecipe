@@ -645,6 +645,9 @@
     <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\Autentifikacia\Prihlasenie.xbf">
       <PackagePath>Autentifikacia\Prihlasenie.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\Autentifikacia\Registracia.xbf">
+      <PackagePath>Autentifikacia\Registracia.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>

@@ -46,14 +46,14 @@
                 VerticalAlignment="Stretch"
                 TextAlignment="Center"
                 Margin="0,15,0,40"/>
-            <TextBox x:ConnectionId='2' 
+            <TextBox x:ConnectionId='3' 
                 x:Name="email"
                 Grid.Row="2"
                 PlaceholderText="Email"
                 FontFamily="Raleway"
                 FontSize="18"
                 Margin="0,0,0,20"/>
-            <PasswordBox x:ConnectionId='3' 
+            <PasswordBox x:ConnectionId='4' 
                 x:Name="heslo"
                 Grid.Row="3"
                 PlaceholderText="Heslo"
@@ -66,7 +66,7 @@
                     <ColumnDefinition 
                         Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button x:ConnectionId='4' 
+                <Button x:ConnectionId='5' 
                     x:Name="prihlasitSa"
                     Grid.Column="0"
                     Content="Prihlásiť sa"
@@ -75,7 +75,7 @@
                     Foreground="White"
                     Background="#0397d6"
                     VerticalAlignment="Stretch"
-                    HorizontalAlignment="Stretch"/>
+                    HorizontalAlignment="Stretch"                  />
             </Grid>
         </Grid>
         <Grid>
@@ -92,7 +92,8 @@
                 FontSize="15"
                 HorizontalAlignment="Center"
                 Margin="0,0,0,5"/>
-            <Button 
+            <Button x:ConnectionId='2' 
+                x:Name="tlacidloRegistrovat"
                 Grid.Row="2"
                 Content="Zaregistrovať sa"
                 FontFamily="Raleway"
@@ -100,7 +101,7 @@
                 HorizontalAlignment="Center"
                 Foreground="#0397d6"
                 Background="Transparent"
-                Margin="0,0,0,20"/>
+                Margin="0,0,0,20"                              />
         </Grid>
     </Grid>
 </Page>
