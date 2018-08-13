@@ -25,7 +25,7 @@ namespace Udalosti
 
         private void tlacidloRegistrovatSa(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Registracia));
+            this.Frame.Navigate(typeof(Registracia), null, new DrillInNavigationTransitionInfo());
         }
 
         private void prihlasit(object sender, RoutedEventArgs e)

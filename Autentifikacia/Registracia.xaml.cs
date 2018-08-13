@@ -11,7 +11,6 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 namespace Udalosti
@@ -25,21 +24,21 @@ namespace Udalosti
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += prihlasanie;
         }
 
+        private void prihlasanie(object sender, Windows.UI.Core.BackRequestedEventArgs e)
+        {
+            Frame registracia = Window.Current.Content as Frame;
+            if (registracia == null)
+                return;
+            if (registracia.CanGoBack && e.Handled == false)
+            {
+                e.Handled = true;
+                registracia.GoBack();
+            }
+        }
+
         private void registrovat(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void prihlasanie(object sender, Windows.UI.Core.BackRequestedEventArgs e)
-        {
-            Frame prihlasenie = Window.Current.Content as Frame;
-            if (prihlasenie == null)
-                return;
-            if (prihlasenie.CanGoBack && e.Handled == false)
-            {
-                e.Handled = true;
-                prihlasenie.GoBack();
-            }
         }
     }
 }
