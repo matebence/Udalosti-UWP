@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DeviceId>E492D437-B7BB-4156-85F3-84D94C3A5AA0</DeviceId>
+    <UseEmulator>true</UseEmulator>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Source>C:\Users\ecneb\Documents\udalosti_logo.png</Source>
+    <SmallTileSource>C:\Users\ecneb\Documents\udalosti_logo.png</SmallTileSource>
+    <MediumTileSource>C:\Users\ecneb\Documents\udalosti_logo.png</MediumTileSource>
+    <WideTileSource>C:\Users\ecneb\Documents\udalosti_logo.png</WideTileSource>
+    <LargeTileSource>C:\Users\ecneb\Documents\udalosti_logo.png</LargeTileSource>
+    <AppIconSource>C:\Users\ecneb\Documents\udalosti_logo.png</AppIconSource>
+    <SplashScreenSource>C:\Users\ecneb\Documents\udalosti_logo.png</SplashScreenSource>
+    <BadgeLogoSource>C:\Users\ecneb\Documents\udalosti_logo.png</BadgeLogoSource>
+    <PackageLogoSource>C:\Users\ecneb\Documents\udalosti_logo.png</PackageLogoSource>
+  </PropertyGroup>
+</Project>
