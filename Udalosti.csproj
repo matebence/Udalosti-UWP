@@ -95,8 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Autentifikacia\Prihlasenie.xaml.cs">
+      <DependentUpon>Prihlasenie.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -104,6 +104,24 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\Fonts\Raleway-Black.ttf" />
+    <Content Include="Assets\Fonts\Raleway-BlackItalic.ttf" />
+    <Content Include="Assets\Fonts\Raleway-Bold.ttf" />
+    <Content Include="Assets\Fonts\Raleway-BoldItalic.ttf" />
+    <Content Include="Assets\Fonts\Raleway-ExtraBold.ttf" />
+    <Content Include="Assets\Fonts\Raleway-ExtraBoldItalic.ttf" />
+    <Content Include="Assets\Fonts\Raleway-ExtraLight.ttf" />
+    <Content Include="Assets\Fonts\Raleway-ExtraLightItalic.ttf" />
+    <Content Include="Assets\Fonts\Raleway-Italic.ttf" />
+    <Content Include="Assets\Fonts\Raleway-Light.ttf" />
+    <Content Include="Assets\Fonts\Raleway-LightItalic.ttf" />
+    <Content Include="Assets\Fonts\Raleway-Medium.ttf" />
+    <Content Include="Assets\Fonts\Raleway-MediumItalic.ttf" />
+    <Content Include="Assets\Fonts\Raleway-Regular.ttf" />
+    <Content Include="Assets\Fonts\Raleway-SemiBold.ttf" />
+    <Content Include="Assets\Fonts\Raleway-SemiBoldItalic.ttf" />
+    <Content Include="Assets\Fonts\Raleway-Thin.ttf" />
+    <Content Include="Assets\Fonts\Raleway-ThinItalic.ttf" />
     <None Include="Udalosti_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +130,7 @@
     <Content Include="Assets\BadgeLogo.scale-150.png" />
     <Content Include="Assets\BadgeLogo.scale-200.png" />
     <Content Include="Assets\BadgeLogo.scale-400.png" />
+    <Content Include="Assets\Images\udalosti_logo.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
@@ -148,6 +167,7 @@
     <Content Include="Assets\StoreLogo.scale-150.png" />
     <Content Include="Assets\StoreLogo.scale-200.png" />
     <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Images\udalosti_pozadie.jpg" />
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
@@ -165,7 +185,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="Autentifikacia\Prihlasenie.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -175,6 +195,7 @@
       <Version>6.1.5</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

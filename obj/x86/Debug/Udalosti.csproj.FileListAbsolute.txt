@@ -1,5 +1,4 @@
 C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\App.xbf
-C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\MainPage.xbf
 C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\Udalosti.xr.xml
 C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\Udalosti.exe
 C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\Udalosti.pdb
@@ -125,13 +124,9 @@ C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\System.Xml.XmlSerialize
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Udalosti.csprojAssemblyReference.cache
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\App.g.i.cs
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\App.g.cs
-C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\MainPage.g.i.cs
-C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\MainPage.g.cs
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\XamlTypeInfo.g.cs
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\App.xaml
-C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\MainPage.xaml
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\App.xbf
-C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\MainPage.xbf
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\XamlSaveStateFile.xml
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Udalosti.csproj.CoreCompileInputs.cache
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Udalosti.csproj.CopyComplete
@@ -212,3 +207,8 @@ C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\qualifiers.txt
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\Autentifikacia\Prihlasenie.xbf
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Autentifikacia\Prihlasenie.g.i.cs
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Autentifikacia\Prihlasenie.g.cs
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Autentifikacia\Prihlasenie.xaml
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Autentifikacia\Prihlasenie.xbf

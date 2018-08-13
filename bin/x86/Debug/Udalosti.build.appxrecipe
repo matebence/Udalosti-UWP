@@ -370,6 +370,60 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.xml.xmlserializer\4.0.11\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-Black.ttf">
+      <PackagePath>Assets\Fonts\Raleway-Black.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-BlackItalic.ttf">
+      <PackagePath>Assets\Fonts\Raleway-BlackItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-Bold.ttf">
+      <PackagePath>Assets\Fonts\Raleway-Bold.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-BoldItalic.ttf">
+      <PackagePath>Assets\Fonts\Raleway-BoldItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-ExtraBold.ttf">
+      <PackagePath>Assets\Fonts\Raleway-ExtraBold.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-ExtraBoldItalic.ttf">
+      <PackagePath>Assets\Fonts\Raleway-ExtraBoldItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-ExtraLight.ttf">
+      <PackagePath>Assets\Fonts\Raleway-ExtraLight.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-ExtraLightItalic.ttf">
+      <PackagePath>Assets\Fonts\Raleway-ExtraLightItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-Italic.ttf">
+      <PackagePath>Assets\Fonts\Raleway-Italic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-Light.ttf">
+      <PackagePath>Assets\Fonts\Raleway-Light.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-LightItalic.ttf">
+      <PackagePath>Assets\Fonts\Raleway-LightItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-Medium.ttf">
+      <PackagePath>Assets\Fonts\Raleway-Medium.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-MediumItalic.ttf">
+      <PackagePath>Assets\Fonts\Raleway-MediumItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-Regular.ttf">
+      <PackagePath>Assets\Fonts\Raleway-Regular.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-SemiBold.ttf">
+      <PackagePath>Assets\Fonts\Raleway-SemiBold.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-SemiBoldItalic.ttf">
+      <PackagePath>Assets\Fonts\Raleway-SemiBoldItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-Thin.ttf">
+      <PackagePath>Assets\Fonts\Raleway-Thin.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-ThinItalic.ttf">
+      <PackagePath>Assets\Fonts\Raleway-ThinItalic.ttf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\BadgeLogo.scale-100.png">
       <PackagePath>Assets\BadgeLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -389,6 +443,9 @@
     <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\BadgeLogo.scale-400.png">
       <PackagePath>Assets\BadgeLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Images\udalosti_logo.png">
+      <PackagePath>Assets\Images\udalosti_logo.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\LargeTile.scale-100.png">
       <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
@@ -573,6 +630,9 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Images\udalosti_pozadie.jpg">
+      <PackagePath>Assets\Images\udalosti_pozadie.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
@@ -582,8 +642,8 @@
     <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\MainPage.xbf">
-      <PackagePath>MainPage.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\Autentifikacia\Prihlasenie.xbf">
+      <PackagePath>Autentifikacia\Prihlasenie.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>

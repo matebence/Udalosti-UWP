@@ -190,12 +190,12 @@ namespace Udalosti.Udalosti_XamlTypeInfo
         private void InitTypeTables()
         {
             _typeNameTable = new string[3];
-            _typeNameTable[0] = "Udalosti.MainPage";
+            _typeNameTable[0] = "Udalosti.Prihlasenie";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
 
             _typeTable = new global::System.Type[3];
-            _typeTable[0] = typeof(global::Udalosti.MainPage);
+            _typeTable[0] = typeof(global::Udalosti.Prihlasenie);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
         }
@@ -232,7 +232,7 @@ namespace Udalosti.Udalosti_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_MainPage() { return new global::Udalosti.MainPage(); }
+        private object Activate_0_Prihlasenie() { return new global::Udalosti.Prihlasenie(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -244,9 +244,9 @@ namespace Udalosti.Udalosti_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  Udalosti.MainPage
+            case 0:   //  Udalosti.Prihlasenie
                 userType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_MainPage;
+                userType.Activator = Activate_0_Prihlasenie;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
