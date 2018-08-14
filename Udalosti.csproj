@@ -104,6 +104,9 @@
       <DependentUpon>Registracia.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Udaje\Data\SQLiteDatabaza.cs" />
+    <Compile Include="Udaje\Data\Tabulka\Miesto.cs" />
+    <Compile Include="Udaje\Data\Tabulka\Pouzivatel.cs" />
     <Compile Include="Udaje\Nastavenia\Nastavenia.cs" />
     <Compile Include="Udaje\Siet\Model\Autentifikator\Autentifikator.cs" />
     <Compile Include="Udaje\Siet\Model\Autentifikator\Pouzivatel.cs" />
@@ -208,14 +211,23 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.1.5</Version>
+      <Version>6.1.7</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>11.0.2</Version>
     </PackageReference>
+    <PackageReference Include="SQLite.Net-PCL">
+      <Version>3.1.1</Version>
+    </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Udaje\Data\" />
+    <SDKReference Include="Microsoft.VCLibs, Version=14.0">
+      <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
+    </SDKReference>
+    <SDKReference Include="SQLite.UWP.2015, Version=3.24.0">
+      <Name>SQLite for Universal Windows Platform</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

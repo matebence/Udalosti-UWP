@@ -48,33 +48,33 @@ namespace Udalosti.Autentifikacia.Data
                 {
                     if (autentifikator.validacia.oznam != null)
                     {
-                        odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.oznam, Nastavenia.AUTENTIFIKACIA_REGISTRACIA, null);
+                        await odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.oznam, Nastavenia.AUTENTIFIKACIA_REGISTRACIA, null);
                     }
                     else if (autentifikator.validacia.meno != null)
                     {
-                        odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.meno, Nastavenia.AUTENTIFIKACIA_REGISTRACIA, null);
+                        await odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.meno, Nastavenia.AUTENTIFIKACIA_REGISTRACIA, null);
                     }
                     else if (autentifikator.validacia.email != null)
                     {
-                        odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.email, Nastavenia.AUTENTIFIKACIA_REGISTRACIA, null);
+                        await odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.email, Nastavenia.AUTENTIFIKACIA_REGISTRACIA, null);
                     }
                     else if (autentifikator.validacia.heslo != null)
                     {
-                        odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.heslo, Nastavenia.AUTENTIFIKACIA_REGISTRACIA, null);               
+                        await odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.heslo, Nastavenia.AUTENTIFIKACIA_REGISTRACIA, null);               
                     }
                     else if (autentifikator.validacia.potvrd != null)
                     {
-                        odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.potvrd, Nastavenia.AUTENTIFIKACIA_REGISTRACIA, null);
+                        await odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.potvrd, Nastavenia.AUTENTIFIKACIA_REGISTRACIA, null);
                     }
                 }
                 else
                 {
-                    odpovedeOdServera.odpovedServeraAsync(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.AUTENTIFIKACIA_REGISTRACIA, null);
+                    await odpovedeOdServera.odpovedServeraAsync(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.AUTENTIFIKACIA_REGISTRACIA, null);
                 }
             }
             else
             {
-                odpovedeOdServera.odpovedServeraAsync("Server je momentalne nedostupný!",Nastavenia.AUTENTIFIKACIA_REGISTRACIA, null);
+                await odpovedeOdServera.odpovedServeraAsync("Server je momentalne nedostupný!",Nastavenia.AUTENTIFIKACIA_REGISTRACIA, null);
             }
         }
 

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.IO;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -9,6 +11,10 @@ namespace Udalosti
 {
     sealed partial class App : Application
     {
+        public static string databaza = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "udalosti.sqlite"));
+        public static string udalostiAdresa = "http://192.168.247.131/udalosti/index.php/";
+        public static string geoAdresa = "http://ip-api.com/";
+
         public App()
         {
             this.InitializeComponent();

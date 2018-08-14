@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4" IgnorableNamespaces="uap mp uap4">
   <Identity Name="469a554d-455a-4f71-bc8b-992060ae52fe" Publisher="CN=ecneb" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="469a554d-455a-4f71-bc8b-992060ae52fe" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
@@ -34,5 +34,6 @@
   <Capabilities>
     <Capability Name="internetClient" />
     <Capability Name="internetClientServer" />
+    <uap4:Capability Name="userDataTasks" />
   </Capabilities>
 </Package>

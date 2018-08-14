@@ -228,3 +228,5 @@ C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\FxResources.System.Comp
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\FxResources.System.ComponentModel.TypeConverter.SR.resw
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\FxResources.System.Runtime.InteropServices.RuntimeInformation.SR.resw
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\FxResources.System.Runtime.Serialization.Formatters.SR.resw
+C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\SQLite.Net.Platform.WinRT.dll
+C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\SQLite.Net.dll
