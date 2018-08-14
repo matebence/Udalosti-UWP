@@ -8,7 +8,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="../Assets/images/udalosti_pozadie.jpg"/>
+            <ImageBrush ImageSource="../../Assets/images/udalosti_pozadie.jpg"/>
         </Grid.Background>
         <Grid VerticalAlignment="center"
               Margin="60,0,60,0">
@@ -37,28 +37,28 @@
                 VerticalAlignment="Stretch"
                 TextAlignment="Center"
                 Margin="0,15,0,40"/>
-            <TextBox x:ConnectionId='2' 
+            <TextBox 
                 x:Name="meno"
                 Grid.Row="2"
                 PlaceholderText="Meno"
                 FontFamily="Raleway"
                 FontSize="18"
                 Margin="0,0,0,20"/>
-            <TextBox x:ConnectionId='3' 
+            <TextBox 
                 x:Name="email"
                 Grid.Row="3"
                 PlaceholderText="Email"
                 FontFamily="Raleway"
                 FontSize="18"
                 Margin="0,0,0,20"/>
-            <PasswordBox x:ConnectionId='4' 
+            <PasswordBox 
                 x:Name="heslo"
                 Grid.Row="4"
                 PlaceholderText="Heslo"
                 FontFamily="Raleway"
                 FontSize="18"
                 Margin="0,0,0,20"/>
-            <PasswordBox x:ConnectionId='5' 
+            <PasswordBox 
                 x:Name="potvrd"
                 Grid.Row="5"
                 PlaceholderText="Potvrdte heslo"
@@ -71,7 +71,7 @@
                     <ColumnDefinition 
                         Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button x:ConnectionId='6' 
+                <Button 
                     x:Name="registrovatSa"
                     Grid.Column="0"
                     Content="Registrovať"
@@ -80,9 +80,8 @@
                     Foreground="White"
                     Background="#0397d6"
                     VerticalAlignment="Stretch"
-                    HorizontalAlignment="Stretch"                    />
+                    HorizontalAlignment="Stretch" Click="registrovat"/>
             </Grid>
         </Grid>
     </Grid>
 </Page>
-

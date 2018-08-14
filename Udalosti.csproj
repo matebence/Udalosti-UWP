@@ -95,10 +95,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Autentifikacia\Prihlasenie.xaml.cs">
+    <Compile Include="Autentifikacia\Data\Class1.cs" />
+    <Compile Include="Autentifikacia\UI\Prihlasenie.xaml.cs">
       <DependentUpon>Prihlasenie.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Autentifikacia\Registracia.xaml.cs">
+    <Compile Include="Autentifikacia\UI\Registracia.xaml.cs">
       <DependentUpon>Registracia.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -188,11 +189,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Autentifikacia\Prihlasenie.xaml">
+    <Page Include="Autentifikacia\UI\Prihlasenie.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Autentifikacia\Registracia.xaml">
+    <Page Include="Autentifikacia\UI\Registracia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -200,6 +201,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.5</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />

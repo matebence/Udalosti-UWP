@@ -1,8 +1,14 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
+using Udalosti.Autentifikacia.Data;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -16,11 +22,10 @@ using Windows.UI.Xaml.Navigation;
 namespace Udalosti
 {
     public sealed partial class Registracia : Page
-    {
+    {   
         public Registracia()
         {
             this.InitializeComponent();
-
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += prihlasanie;
         }
 
@@ -36,9 +41,10 @@ namespace Udalosti
             }
         }
 
-        private void registrovat(object sender, RoutedEventArgs e)
+        private async void registrovat(object sender, RoutedEventArgs e)
         {
 
         }
     }
 }
+
