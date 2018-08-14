@@ -66,6 +66,12 @@
       <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Udalosti.Prihlasenie" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Frame">
+      <RootProperty Name="ContentTransitions" />
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.TransitionCollection" />
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.NavigationThemeTransition" />
     <RootType FullName="Udalosti.Registracia" />
   </Roots.RootTypes>
 </Roots>

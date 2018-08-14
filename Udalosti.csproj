@@ -95,7 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Autentifikacia\Data\Class1.cs" />
+    <Compile Include="Autentifikacia\Data\AutentifkaciaImplementacia.cs" />
+    <Compile Include="Autentifikacia\Data\AutentifkaciaUdaje.cs" />
     <Compile Include="Autentifikacia\UI\Prihlasenie.xaml.cs">
       <DependentUpon>Prihlasenie.xaml</DependentUpon>
     </Compile>
@@ -103,6 +104,13 @@
       <DependentUpon>Registracia.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Udaje\Nastavenia\Nastavenia.cs" />
+    <Compile Include="Udaje\Siet\Model\Autentifikator\Autentifikator.cs" />
+    <Compile Include="Udaje\Siet\Model\Autentifikator\Pouzivatel.cs" />
+    <Compile Include="Udaje\Siet\Model\Autentifikator\Validacia.cs" />
+    <Compile Include="Udaje\Siet\Model\KommunikaciaData.cs" />
+    <Compile Include="Udaje\Siet\Model\KommunikaciaOdpoved.cs" />
+    <Compile Include="Udaje\Siet\Request.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -206,7 +214,9 @@
       <Version>11.0.2</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Udaje\Data\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
