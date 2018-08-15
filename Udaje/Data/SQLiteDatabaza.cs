@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Udalosti.Udaje.Data.Tabulka;
+using SQLite.Net.Platform.WinRT;
+using SQLite.Net;
 
 namespace Udalosti.Udaje.Data
 {
@@ -12,9 +14,9 @@ namespace Udalosti.Udaje.Data
         {
             if (!tabulkaExistuje(App.databaza).Result)
             {
-                using (SQLite.Net.SQLiteConnection tabulka = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), App.databaza))
+                using (SQLiteConnection tabulka = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
                 {
-                    tabulka.CreateTable<Pouzivatel>();
+                    tabulka.CreateTable<Pouzivatelia>();
                     tabulka.CreateTable<Miesto>();
 
                 }
@@ -34,27 +36,27 @@ namespace Udalosti.Udaje.Data
             }
         }
 
-        public void novePouzivatelskeUdaje(Pouzivatel pouzivatel)
+        public void novePouzivatelskeUdaje(Pouzivatelia pouzivatelia)
         {
-            using (SQLite.Net.SQLiteConnection databaza = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), App.databaza))
+            using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
                 databaza.RunInTransaction(() =>
                 {
-                    databaza.Insert(pouzivatel);
+                    databaza.Insert(pouzivatelia);
                 });
             }
         }
 
-        public void aktualizujPouzivatelskeUdaje(Pouzivatel pouzivatel)
+        public void aktualizujPouzivatelskeUdaje(Pouzivatelia pouzivatelia)
         {
-            using (SQLite.Net.SQLiteConnection databaza = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), App.databaza))
+            using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
-                var existujuciPouzivatel = databaza.Query<Pouzivatel>("SELECT * FROM Pouzivatel WHERE email =" + pouzivatel.email).FirstOrDefault();
+                var existujuciPouzivatel = databaza.Query<Pouzivatelia>("SELECT * FROM Pouzivatelia WHERE email =" + pouzivatelia.email).FirstOrDefault();
                 if (existujuciPouzivatel != null)
                 {
                     databaza.RunInTransaction(() =>
                     {
-                        databaza.Update(pouzivatel);
+                        databaza.Update(pouzivatelia);
                     });
                 }
             }
@@ -62,9 +64,9 @@ namespace Udalosti.Udaje.Data
 
         public void odstranPouzivatelskeUdaje(String email)
         {
-            using (SQLite.Net.SQLiteConnection databaza = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), App.databaza))
+            using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
-                var existujuciPouzivatel = databaza.Query<Pouzivatel>("SELECT * FROM Pouzivatel WHERE email =" + email).FirstOrDefault();
+                var existujuciPouzivatel = databaza.Query<Pouzivatelia>("SELECT * FROM Pouzivatelia WHERE email =" + email).FirstOrDefault();
                 if (existujuciPouzivatel != null)
                 {
                     databaza.RunInTransaction(() =>
@@ -77,12 +79,12 @@ namespace Udalosti.Udaje.Data
 
         public bool pouzivatelskeUdaje()
         {
-            using (SQLite.Net.SQLiteConnection databaza = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), App.databaza))
+            using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
-                var pouzivatel = databaza.Query<Pouzivatel>("SELECT email FROM Pouzivatel").FirstOrDefault();
-                if (pouzivatel != null)
+                var pouzivatelia = databaza.Query<Pouzivatelia>("SELECT email FROM Pouzivatelia").FirstOrDefault();
+                if (pouzivatelia != null)
                 {
-                    if (pouzivatel.email != null)
+                    if (pouzivatelia.email != null)
                     {
                         return true;
                     }
@@ -98,14 +100,14 @@ namespace Udalosti.Udaje.Data
         public Dictionary<string, string> vratAktualnehoPouzivatela()
         {
             Dictionary<string, string> pouzivatelskeUdaje;
-            using (SQLite.Net.SQLiteConnection databaza = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), App.databaza))
+            using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
-                var pouzivatel = databaza.Query<Pouzivatel>("SELECT email, heslo FROM Pouzivatel").FirstOrDefault();
-                if (pouzivatel != null)
+                var pouzivatelia = databaza.Query<Pouzivatelia>("SELECT email, heslo FROM Pouzivatelia").FirstOrDefault();
+                if (pouzivatelia != null)
                 {
                     pouzivatelskeUdaje = new Dictionary<string, string>();
-                    pouzivatelskeUdaje.Add("email", pouzivatel.email);
-                    pouzivatelskeUdaje.Add("heslo", pouzivatel.heslo);
+                    pouzivatelskeUdaje.Add("email", pouzivatelia.email);
+                    pouzivatelskeUdaje.Add("heslo", pouzivatelia.heslo);
                     return pouzivatelskeUdaje;
                 }
                 else
@@ -117,7 +119,7 @@ namespace Udalosti.Udaje.Data
 
         public void noveMiestoPrihlasenia(Miesto miesto)
         {
-            using (SQLite.Net.SQLiteConnection databaza = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), App.databaza))
+            using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
                 databaza.RunInTransaction(() =>
                 {
@@ -128,7 +130,7 @@ namespace Udalosti.Udaje.Data
 
         public void aktualizujMiestoPrihlasenia(Miesto miesto)
         {
-            using (SQLite.Net.SQLiteConnection databaza = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), App.databaza))
+            using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
                 var existujuceMiesto = databaza.Query<Miesto>("SELECT * FROM Miesto WHERE idMiesto =" + miesto.idMiesto).FirstOrDefault();
                 if (existujuceMiesto != null)
@@ -143,7 +145,7 @@ namespace Udalosti.Udaje.Data
 
         public void odstranMiestoPrihlasenia(int idMiesto)
         {
-            using (SQLite.Net.SQLiteConnection databaza = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), App.databaza))
+            using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
                 var existujuceMiesto = databaza.Query<Miesto>("SELECT * FROM Miesto WHERE idMiesto =" + idMiesto).FirstOrDefault();
                 if (existujuceMiesto != null)
@@ -158,7 +160,7 @@ namespace Udalosti.Udaje.Data
 
         public bool miestoPrihlasenia()
         {
-            using (SQLite.Net.SQLiteConnection databaza = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), App.databaza))
+            using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
                 var miesto = databaza.Query<Miesto>("SELECT stat FROM Miesto").FirstOrDefault();
                 if (miesto != null)
@@ -179,7 +181,7 @@ namespace Udalosti.Udaje.Data
         public Dictionary<string, string> vratMiestoPrihlasenia()
         {
             Dictionary<string, string> miestoPrihlasenia;
-            using (SQLite.Net.SQLiteConnection databaza = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), App.databaza))
+            using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
                 var miesto = databaza.Query<Miesto>("SELECT stat, okres, mesto FROM Miesto").FirstOrDefault();
                 if (miesto != null)
