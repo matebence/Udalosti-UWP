@@ -103,6 +103,7 @@
     <Compile Include="Autentifikacia\UI\Registracia.xaml.cs">
       <DependentUpon>Registracia.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Nastroje\DialogOznameni.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Udaje\Data\SQLiteDatabaza.cs" />
     <Compile Include="Udaje\Data\Tabulka\Miesto.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Udaje\Siet\Model\Autentifikator\Validacia.cs" />
     <Compile Include="Udaje\Siet\Model\KommunikaciaData.cs" />
     <Compile Include="Udaje\Siet\Model\KommunikaciaOdpoved.cs" />
+    <Compile Include="Udaje\Siet\Model\Pozicia\Pozicia.cs" />
     <Compile Include="Udaje\Siet\Request.cs" />
   </ItemGroup>
   <ItemGroup>

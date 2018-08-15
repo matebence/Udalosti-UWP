@@ -26,6 +26,7 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="45" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <TextBlock
                     Grid.Row="0"
@@ -86,8 +87,13 @@
                         Foreground="White"
                         Background="#0397d6"
                         VerticalAlignment="Stretch"
-                        HorizontalAlignment="Stretch" Click="registrovat"/>
+                        HorizontalAlignment="Stretch" Click="registrovatAsync"/>
                 </Grid>
+                <ProgressRing 
+                    x:Name="nacitavanie"
+                    Grid.Row="7"
+                    Foreground="White"
+                    Margin="0,30,0,0"/>
             </Grid>
         </Grid>
     </Frame>

@@ -12,9 +12,9 @@ namespace Udalosti.Autentifikacia.Data
 
         void ulozPrihlasovacieUdajeDoDatabazy(String email, String heslo);
 
-        void miestoPrihlasenia(String email, String heslo);
+        Task miestoPrihlaseniaAsync(String email, String heslo);
 
-        void prihlasenie(String email, String heslo, String stat, String okres, String mesto);
+        Task prihlasenieAsync(String email, String heslo, String stat, String okres, String mesto);
 
         Task registraciaAsync(String meno, String email, String heslo, String potvrd);
     }

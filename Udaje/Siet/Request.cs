@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Udalosti.Udaje.Siet
 {
@@ -12,13 +13,20 @@ namespace Udalosti.Udaje.Siet
             this.httpClient = new HttpClient();
         }
 
-        public async System.Threading.Tasks.Task<HttpResponseMessage> novyPostRequestAsync(Dictionary<string, string> obsah, string adresa) {
+        public async Task<HttpResponseMessage> novyPostRequestAsync(Dictionary<string, string> obsah, string adresa)
+        {
             adresa = App.udalostiAdresa + adresa;
 
             var request = new FormUrlEncodedContent(obsah);
             var odpoved = await httpClient.PostAsync(adresa, request);
 
             return odpoved;
+        }
+
+        public async Task<HttpResponseMessage> novyGetRequestAsync(string adresa)
+        {
+            adresa = App.geoAdresa + adresa;
+            return await httpClient.GetAsync(adresa);
         }
     }
 }

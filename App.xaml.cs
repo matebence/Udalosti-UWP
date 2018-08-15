@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Udalosti.Udaje.Data;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Storage;
@@ -18,6 +19,8 @@ namespace Udalosti
         public App()
         {
             this.InitializeComponent();
+            this.prvyStart();
+
             this.Suspending += OnSuspending;
         }
 
@@ -54,6 +57,22 @@ namespace Udalosti
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             deferral.Complete();
+        }
+
+        private void prvyStart()
+        {
+            if (ApplicationData.Current.LocalSettings.Values.ContainsKey("prvyStart"))
+            {
+                if (!(bool)ApplicationData.Current.LocalSettings.Values["prvyStart"])
+                {
+                    SQLiteDatabaza sqliteDatabaza = new SQLiteDatabaza();
+                    sqliteDatabaza.VyvorDatabazu();
+                }
+            }
+            else
+            {
+                ApplicationData.Current.LocalSettings.Values["prvyStart"] = false;
+            }
         }
     }
 }

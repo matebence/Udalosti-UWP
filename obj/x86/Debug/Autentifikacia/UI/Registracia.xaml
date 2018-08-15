@@ -26,6 +26,7 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="45" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <TextBlock
                     Grid.Row="0"
@@ -77,7 +78,7 @@
                         <ColumnDefinition 
                             Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Button x:ConnectionId='7' 
+                    <Button x:ConnectionId='8' 
                         x:Name="registrovatSa"
                         Grid.Column="0"
                         Content="Registrovať"
@@ -86,8 +87,13 @@
                         Foreground="White"
                         Background="#0397d6"
                         VerticalAlignment="Stretch"
-                        HorizontalAlignment="Stretch"                    />
+                        HorizontalAlignment="Stretch"                         />
                 </Grid>
+                <ProgressRing x:ConnectionId='7' 
+                    x:Name="nacitavanie"
+                    Grid.Row="7"
+                    Foreground="White"
+                    Margin="0,30,0,0"/>
             </Grid>
         </Grid>
     </Frame>
