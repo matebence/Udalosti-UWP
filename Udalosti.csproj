@@ -157,6 +157,12 @@
     <Content Include="Assets\BadgeLogo.scale-150.png" />
     <Content Include="Assets\BadgeLogo.scale-200.png" />
     <Content Include="Assets\BadgeLogo.scale-400.png" />
+    <Content Include="Assets\Icons\odhlasit_sa.backup.png" />
+    <Content Include="Assets\Icons\odhlasit_sa.scale-100.png" />
+    <Content Include="Assets\Icons\odhlasit_sa.scale-125.png" />
+    <Content Include="Assets\Icons\odhlasit_sa.scale-150.png" />
+    <Content Include="Assets\Icons\odhlasit_sa.scale-200.png" />
+    <Content Include="Assets\Icons\odhlasit_sa.scale-400.png" />
     <Content Include="Assets\Images\udalosti_logo.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />

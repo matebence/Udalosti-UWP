@@ -6,7 +6,47 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
+        <Pivot
+            x:Name="moznostiObsahy"
+            Title="UDALOSTI"
+            Grid.Row="0"
+            Grid.Column="0"
+            Background="Black">
+            <PivotItem
+                Header="Objavuj">
+                <ListView x:Name="zoznamUdalosti">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+            <PivotItem
+                Header="Podľa pozície">
+            </PivotItem>
+        </Pivot>
+
+        <CommandBar
+            Grid.Row="1"
+            VerticalAlignment="Bottom" Background="#FF005BA6">
+            <AppBarButton Label="Odhlásiť sa">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/odhlasit_sa.png" />
+                </AppBarButton.Icon>
+            </AppBarButton>
+
+            <CommandBar.Content>
+                <TextBlock x:Name="miesto" Text="Miesto" Margin="12,14"/>
+            </CommandBar.Content>
+        </CommandBar>
     </Grid>
 </Page>

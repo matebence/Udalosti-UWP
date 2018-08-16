@@ -474,6 +474,24 @@
       <PackagePath>Assets\BadgeLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.backup.png">
+      <PackagePath>Assets\Icons\odhlasit_sa.backup.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-100.png">
+      <PackagePath>Assets\Icons\odhlasit_sa.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-125.png">
+      <PackagePath>Assets\Icons\odhlasit_sa.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-150.png">
+      <PackagePath>Assets\Icons\odhlasit_sa.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-200.png">
+      <PackagePath>Assets\Icons\odhlasit_sa.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-400.png">
+      <PackagePath>Assets\Icons\odhlasit_sa.scale-400.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Images\udalosti_logo.png">
       <PackagePath>Assets\Images\udalosti_logo.png</PackagePath>
     </AppxPackagedFile>

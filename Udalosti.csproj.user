@@ -5,15 +5,15 @@
     <UseEmulator>true</UseEmulator>
   </PropertyGroup>
   <PropertyGroup>
-    <Source>C:\Users\ecneb\Documents\udalosti_logo.png</Source>
-    <SmallTileSource>C:\Users\ecneb\Documents\udalosti_logo.png</SmallTileSource>
-    <MediumTileSource>C:\Users\ecneb\Documents\udalosti_logo.png</MediumTileSource>
-    <WideTileSource>C:\Users\ecneb\Documents\udalosti_logo.png</WideTileSource>
-    <LargeTileSource>C:\Users\ecneb\Documents\udalosti_logo.png</LargeTileSource>
-    <AppIconSource>C:\Users\ecneb\Documents\udalosti_logo.png</AppIconSource>
-    <SplashScreenSource>C:\Users\ecneb\Documents\udalosti_logo.png</SplashScreenSource>
-    <BadgeLogoSource>C:\Users\ecneb\Documents\udalosti_logo.png</BadgeLogoSource>
-    <PackageLogoSource>C:\Users\ecneb\Documents\udalosti_logo.png</PackageLogoSource>
+    <Source>C:\Users\ecneb\Documents\odhlasit_sa.png</Source>
+    <SmallTileSource>C:\Users\ecneb\Documents\odhlasit_sa.png</SmallTileSource>
+    <MediumTileSource>C:\Users\ecneb\Documents\odhlasit_sa.png</MediumTileSource>
+    <WideTileSource>C:\Users\ecneb\Documents\odhlasit_sa.png</WideTileSource>
+    <LargeTileSource>C:\Users\ecneb\Documents\odhlasit_sa.png</LargeTileSource>
+    <AppIconSource>C:\Users\ecneb\Documents\odhlasit_sa.png</AppIconSource>
+    <SplashScreenSource>C:\Users\ecneb\Documents\odhlasit_sa.png</SplashScreenSource>
+    <BadgeLogoSource>C:\Users\ecneb\Documents\odhlasit_sa.png</BadgeLogoSource>
+    <PackageLogoSource>C:\Users\ecneb\Documents\odhlasit_sa.png</PackageLogoSource>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <DeviceId>E492D437-B7BB-4156-85F3-84D94C3A5AA0</DeviceId>
