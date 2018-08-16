@@ -1,11 +1,13 @@
 ﻿using System;
 using System.IO;
-using Udalosti.Udaje.Data;
+using Udalosti.Uvod.Data;
+using Udalosti.Uvod.UI;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 namespace Udalosti
@@ -16,10 +18,14 @@ namespace Udalosti
         public static string udalostiAdresa = "http://192.168.247.131/udalosti/index.php/";
         public static string geoAdresa = "http://ip-api.com/";
 
+        private UvodnaObrazovkaUdaje uvodnaObrazovkaUdaje;
+
         public App()
         {
             this.InitializeComponent();
-            this.prvyStart();
+
+            this.uvodnaObrazovkaUdaje = new UvodnaObrazovkaUdaje();
+            this.uvodnaObrazovkaUdaje.prvyStart();
 
             this.Suspending += OnSuspending;
         }
@@ -42,7 +48,14 @@ namespace Udalosti
             {
                 if (rootFrame.Content == null)
                 {
-                    rootFrame.Navigate(typeof(Prihlasenie), e.Arguments);
+                    if (this.uvodnaObrazovkaUdaje.zistiCiPouzivatelskoKontoExistuje())
+                    {
+                        rootFrame.Navigate(typeof(UvodnaObrazovka), e.Arguments, new DrillInNavigationTransitionInfo());
+                    }
+                    else
+                    {
+                        rootFrame.Navigate(typeof(Prihlasenie), e.Arguments, new DrillInNavigationTransitionInfo());
+                    }
                 }
                 Window.Current.Activate();
             }
@@ -57,22 +70,6 @@ namespace Udalosti
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             deferral.Complete();
-        }
-
-        private void prvyStart()
-        {
-            if (ApplicationData.Current.LocalSettings.Values.ContainsKey("prvyStart"))
-            {
-                if (!(bool)ApplicationData.Current.LocalSettings.Values["prvyStart"])
-                {
-                    SQLiteDatabaza sqliteDatabaza = new SQLiteDatabaza();
-                    sqliteDatabaza.VyvorDatabazu();
-                }
-            }
-            else
-            {
-                ApplicationData.Current.LocalSettings.Values["prvyStart"] = false;
-            }
         }
     }
 }

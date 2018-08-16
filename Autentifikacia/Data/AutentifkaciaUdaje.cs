@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Udalosti.Udaje.Data;
 using Udalosti.Udaje.Data.Tabulka;
+using Udalosti.Udaje.Data;
 using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
 using Udalosti.Udaje.Siet.Autentifikator;
@@ -155,11 +155,19 @@ namespace Udalosti.Autentifikacia.Data
 
         public void ucetJeNePristupny(string email)
         {
+            sqliteDataza.odstranPouzivatelskeUdaje(email);
         }
 
         public void ulozPrihlasovacieUdajeDoDatabazy(string email, string heslo)
         {
+            if (sqliteDataza.pouzivatelskeUdaje())
+            {
+                sqliteDataza.aktualizujPouzivatelskeUdaje(new Pouzivatelia(email, heslo));
+            }
+            else
+            {
+                sqliteDataza.novePouzivatelskeUdaje(new Pouzivatelia(email, heslo));
+            }
         }
-
     }
 }

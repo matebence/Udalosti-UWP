@@ -230,3 +230,13 @@ C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\FxResources.System.Runt
 C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\FxResources.System.Runtime.Serialization.Formatters.SR.resw
 C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\SQLite.Net.Platform.WinRT.dll
 C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\SQLite.Net.dll
+C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\Udalosti\UI\ZoznamUdalosti.xbf
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Udalosti\UI\ZoznamUdalosti.g.i.cs
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Udalosti\UI\ZoznamUdalosti.g.cs
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Udalosti\UI\ZoznamUdalosti.xaml
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Udalosti\UI\ZoznamUdalosti.xbf
+C:\Users\ecneb\Documents\Udalosti\Udalosti\bin\x86\Debug\Uvod\UI\UvodnaObrazovka.xbf
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Uvod\UI\UvodnaObrazovka.g.i.cs
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Uvod\UI\UvodnaObrazovka.g.cs
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Uvod\UI\UvodnaObrazovka.xaml
+C:\Users\ecneb\Documents\Udalosti\Udalosti\obj\x86\Debug\Uvod\UI\UvodnaObrazovka.xbf

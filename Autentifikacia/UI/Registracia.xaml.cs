@@ -7,15 +7,19 @@ using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Core;
+using Windows.UI.Xaml.Navigation;
 
 namespace Udalosti
 {
     public sealed partial class Registracia : Page, KommunikaciaOdpoved
     {
+        private AutentifkaciaUdaje autentifkaciaUdaje;
+
         public Registracia()
         {
             this.InitializeComponent();
-            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += prihlasanie;
+            this.autentifkaciaUdaje = new AutentifkaciaUdaje(this);
         }
 
         public async Task odpovedServera(string odpoved, string od, Dictionary<string, string> udaje)
@@ -38,12 +42,15 @@ namespace Udalosti
             }
         }
 
-        private void prihlasanie(object sender, Windows.UI.Core.BackRequestedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e) {
+            SystemNavigationManager.GetForCurrentView().BackRequested += spatNaPrihlasanie;
+            base.OnNavigatedTo(e);
+        }
+
+        private void spatNaPrihlasanie(object sender, BackRequestedEventArgs e)
         {
             Frame registracia = Window.Current.Content as Frame;
-            if (registracia == null)
-                return;
-            if (registracia.CanGoBack && e.Handled == false)
+            if (registracia.CanGoBack)
             {
                 e.Handled = true;
                 registracia.GoBack();
@@ -57,7 +64,7 @@ namespace Udalosti
                 nacitavanie.IsActive = true;
                 nacitavanie.Visibility = Visibility.Visible;
 
-                await new AutentifkaciaUdaje(this).registraciaAsync(meno.Text, email.Text, heslo.Password, potvrd.Password);
+                await autentifkaciaUdaje.registraciaAsync(meno.Text, email.Text, heslo.Password, potvrd.Password);
             }
             else
             {

@@ -1,0 +1,41 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="Udalosti.Uvod.UI.UvodnaObrazovka"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"                                >
+
+    <Frame x:ConnectionId='2' x:Name="uvodnaObrazovka">
+        <Frame.ContentTransitions>
+            <TransitionCollection>
+                <NavigationThemeTransition />
+            </TransitionCollection>
+        </Frame.ContentTransitions>
+        <Grid
+            Background="#FF005BA6"
+            HorizontalAlignment="Stretch"
+            Grid.Column="1"
+            Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image
+                Source="../../Assets/Square44x44Logo.scale-200.png"
+                Grid.Column="1" 
+                Grid.Row="0"
+                Stretch="None"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" />
+            <ProgressRing x:ConnectionId='3' 
+                x:Name="nacitavanie"
+                Grid.Column="1" 
+                Grid.Row="1"
+                Foreground="White"
+                Margin="0,130,0,0"/>
+        </Grid>
+    </Frame>
+</Page>
+

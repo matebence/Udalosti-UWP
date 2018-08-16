@@ -51,7 +51,7 @@ namespace Udalosti.Udaje.Data
         {
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
-                var existujuciPouzivatel = databaza.Query<Pouzivatelia>("SELECT * FROM Pouzivatelia WHERE email =" + pouzivatelia.email).FirstOrDefault();
+                var existujuciPouzivatel = databaza.Query<Pouzivatelia>("SELECT * FROM Pouzivatelia WHERE email ='" + pouzivatelia.email+"'").FirstOrDefault();
                 if (existujuciPouzivatel != null)
                 {
                     databaza.RunInTransaction(() =>
@@ -66,7 +66,7 @@ namespace Udalosti.Udaje.Data
         {
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
-                var existujuciPouzivatel = databaza.Query<Pouzivatelia>("SELECT * FROM Pouzivatelia WHERE email =" + email).FirstOrDefault();
+                var existujuciPouzivatel = databaza.Query<Pouzivatelia>("SELECT * FROM Pouzivatelia WHERE email ='" + email+"'").FirstOrDefault();
                 if (existujuciPouzivatel != null)
                 {
                     databaza.RunInTransaction(() =>

@@ -189,17 +189,21 @@ namespace Udalosti.Udalosti_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[4];
+            _typeNameTable = new string[6];
             _typeNameTable[0] = "Udalosti.Prihlasenie";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "Udalosti.Registracia";
+            _typeNameTable[4] = "Udalosti.Udalosti.UI.ZoznamUdalosti";
+            _typeNameTable[5] = "Udalosti.Uvod.UI.UvodnaObrazovka";
 
-            _typeTable = new global::System.Type[4];
+            _typeTable = new global::System.Type[6];
             _typeTable[0] = typeof(global::Udalosti.Prihlasenie);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::Udalosti.Registracia);
+            _typeTable[4] = typeof(global::Udalosti.Udalosti.UI.ZoznamUdalosti);
+            _typeTable[5] = typeof(global::Udalosti.Uvod.UI.UvodnaObrazovka);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -236,6 +240,8 @@ namespace Udalosti.Udalosti_XamlTypeInfo
 
         private object Activate_0_Prihlasenie() { return new global::Udalosti.Prihlasenie(); }
         private object Activate_3_Registracia() { return new global::Udalosti.Registracia(); }
+        private object Activate_4_ZoznamUdalosti() { return new global::Udalosti.Udalosti.UI.ZoznamUdalosti(); }
+        private object Activate_5_UvodnaObrazovka() { return new global::Udalosti.Uvod.UI.UvodnaObrazovka(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -265,6 +271,20 @@ namespace Udalosti.Udalosti_XamlTypeInfo
             case 3:   //  Udalosti.Registracia
                 userType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_3_Registracia;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  Udalosti.Udalosti.UI.ZoznamUdalosti
+                userType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_4_ZoznamUdalosti;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 5:   //  Udalosti.Uvod.UI.UvodnaObrazovka
+                userType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_5_UvodnaObrazovka;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

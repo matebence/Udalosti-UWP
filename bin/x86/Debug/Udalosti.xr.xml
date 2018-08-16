@@ -4,6 +4,7 @@
     <RootType FullName="Windows.UI.Xaml.Application" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Content" />
+      <RootEvent Name="Loaded" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Frame">
       <RootProperty Name="ContentTransitions" />
@@ -74,8 +75,13 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Source" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Stretch" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Udalosti.Prihlasenie" />
     <RootType FullName="Udalosti.Registracia" />
+    <RootType FullName="Udalosti.Udalosti.UI.ZoznamUdalosti" />
+    <RootType FullName="Udalosti.Uvod.UI.UvodnaObrazovka" />
   </Roots.RootTypes>
 </Roots>

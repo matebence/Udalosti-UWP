@@ -74,4 +74,6 @@ App.xbf
 Autentifikacia\UI\Prihlasenie.xbf
 Autentifikacia\UI\Registracia.xbf
 Udalosti.xr.xml
+Udalosti\UI\ZoznamUdalosti.xbf
+Uvod\UI\UvodnaObrazovka.xbf
 Properties\Default.rd.xml

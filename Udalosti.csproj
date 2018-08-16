@@ -107,7 +107,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Udaje\Data\SQLiteDatabaza.cs" />
     <Compile Include="Udaje\Data\Tabulka\Miesto.cs" />
-    <Compile Include="Udaje\Data\Tabulka\Pouzivatel.cs" />
+    <Compile Include="Udaje\Data\Tabulka\Pouzivatelia.cs" />
     <Compile Include="Udaje\Nastavenia\Nastavenia.cs" />
     <Compile Include="Udaje\Siet\Model\Autentifikator\Autentifikator.cs" />
     <Compile Include="Udaje\Siet\Model\Autentifikator\Pouzivatel.cs" />
@@ -116,6 +116,16 @@
     <Compile Include="Udaje\Siet\Model\KommunikaciaOdpoved.cs" />
     <Compile Include="Udaje\Siet\Model\Pozicia\Pozicia.cs" />
     <Compile Include="Udaje\Siet\Request.cs" />
+    <Compile Include="Udalosti\Data\UdalostiImplementacia.cs" />
+    <Compile Include="Udalosti\Data\UdalostiUdaje.cs" />
+    <Compile Include="Udalosti\UI\ZoznamUdalosti.xaml.cs">
+      <DependentUpon>ZoznamUdalosti.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Uvod\Data\UvodnaObrazovkaImplementacia.cs" />
+    <Compile Include="Uvod\Data\UvodnaObrazovkaUdaje.cs" />
+    <Compile Include="Uvod\UI\UvodnaObrazovka.xaml.cs">
+      <DependentUpon>UvodnaObrazovka.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -207,6 +217,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Autentifikacia\UI\Registracia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Udalosti\UI\ZoznamUdalosti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Uvod\UI\UvodnaObrazovka.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
