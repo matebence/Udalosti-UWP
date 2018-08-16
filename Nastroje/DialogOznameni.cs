@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
@@ -10,6 +11,8 @@ namespace Udalosti.Nastroje
     {
         public static async Task kommunikaciaAsync(String titul, String odpoved, String tlacidlo, bool uspech, Frame frame)
         {
+            Debug.WriteLine("Metoda kommunikaciaAsync bola vykonana");
+
             MessageDialog dialog = new MessageDialog(odpoved);
             dialog.Title = titul;
             dialog.Commands.Add(new UICommand(tlacidlo) { Id = 0 });

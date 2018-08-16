@@ -9,6 +9,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Navigation;
+using System.Diagnostics;
 
 namespace Udalosti
 {
@@ -49,6 +50,8 @@ namespace Udalosti
 
         private void spatNaPrihlasanie(object sender, BackRequestedEventArgs e)
         {
+            Debug.WriteLine("Metoda spatNaPrihlasanie bola vykonana");
+
             Frame registracia = Window.Current.Content as Frame;
             if (registracia.CanGoBack)
             {
@@ -59,6 +62,8 @@ namespace Udalosti
 
         private async void registrovatAsync(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("Metoda registrovatAsync bola vykonana");
+
             if (NetworkInterface.GetIsNetworkAvailable())
             {
                 nacitavanie.IsActive = true;

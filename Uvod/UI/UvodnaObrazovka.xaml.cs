@@ -9,6 +9,7 @@ using Udalosti.Uvod.Data;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml;
+using System.Diagnostics;
 
 namespace Udalosti.Uvod.UI
 {
@@ -47,6 +48,7 @@ namespace Udalosti.Uvod.UI
 
         private async void automatickePrihlasenie(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("Metoda automatickePrihlasenie bola vykonana");
             if (NetworkInterface.GetIsNetworkAvailable())
             {
                 nacitavanie.IsActive = true;

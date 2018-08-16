@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Udalosti.Udaje.Data.Tabulka;
 using SQLite.Net.Platform.WinRT;
 using SQLite.Net;
+using System.Diagnostics;
 
 namespace Udalosti.Udaje.Data
 {
@@ -12,6 +13,8 @@ namespace Udalosti.Udaje.Data
     {
         public void VyvorDatabazu()
         {
+            Debug.WriteLine("Metoda VyvorDatabazu bola vykonana");
+
             if (!tabulkaExistuje(App.databaza).Result)
             {
                 using (SQLiteConnection tabulka = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
@@ -25,6 +28,8 @@ namespace Udalosti.Udaje.Data
 
         private async Task<bool> tabulkaExistuje(string fileName)
         {
+            Debug.WriteLine("Metoda tabulkaExistuje bola vykonana");
+
             try
             {
                 var udaje = await Windows.Storage.ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
@@ -38,6 +43,8 @@ namespace Udalosti.Udaje.Data
 
         public void novePouzivatelskeUdaje(Pouzivatelia pouzivatelia)
         {
+            Debug.WriteLine("Metoda novePouzivatelskeUdaje bola vykonana");
+
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
                 databaza.RunInTransaction(() =>
@@ -49,6 +56,8 @@ namespace Udalosti.Udaje.Data
 
         public void aktualizujPouzivatelskeUdaje(Pouzivatelia pouzivatelia)
         {
+            Debug.WriteLine("Metoda aktualizujPouzivatelskeUdaje bola vykonana");
+
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
                 var existujuciPouzivatel = databaza.Query<Pouzivatelia>("SELECT * FROM Pouzivatelia WHERE email ='" + pouzivatelia.email+"'").FirstOrDefault();
@@ -64,6 +73,8 @@ namespace Udalosti.Udaje.Data
 
         public void odstranPouzivatelskeUdaje(String email)
         {
+            Debug.WriteLine("Metoda odstranPouzivatelskeUdaje bola vykonana");
+
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
                 var existujuciPouzivatel = databaza.Query<Pouzivatelia>("SELECT * FROM Pouzivatelia WHERE email ='" + email+"'").FirstOrDefault();
@@ -79,6 +90,8 @@ namespace Udalosti.Udaje.Data
 
         public bool pouzivatelskeUdaje()
         {
+            Debug.WriteLine("Metoda pouzivatelskeUdaje bola vykonana");
+
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
                 var pouzivatelia = databaza.Query<Pouzivatelia>("SELECT email FROM Pouzivatelia").FirstOrDefault();
@@ -99,6 +112,8 @@ namespace Udalosti.Udaje.Data
 
         public Dictionary<string, string> vratAktualnehoPouzivatela()
         {
+            Debug.WriteLine("Metoda vratAktualnehoPouzivatela bola vykonana");
+
             Dictionary<string, string> pouzivatelskeUdaje;
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
@@ -119,6 +134,8 @@ namespace Udalosti.Udaje.Data
 
         public void noveMiestoPrihlasenia(Miesto miesto)
         {
+            Debug.WriteLine("Metoda noveMiestoPrihlasenia bola vykonana");
+
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
                 databaza.RunInTransaction(() =>
@@ -130,6 +147,8 @@ namespace Udalosti.Udaje.Data
 
         public void aktualizujMiestoPrihlasenia(Miesto miesto)
         {
+            Debug.WriteLine("Metoda aktualizujMiestoPrihlasenia bola vykonana");
+
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
                 var existujuceMiesto = databaza.Query<Miesto>("SELECT * FROM Miesto WHERE idMiesto =" + miesto.idMiesto).FirstOrDefault();
@@ -145,6 +164,8 @@ namespace Udalosti.Udaje.Data
 
         public void odstranMiestoPrihlasenia(int idMiesto)
         {
+            Debug.WriteLine("Metoda odstranMiestoPrihlasenia bola vykonana");
+
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
                 var existujuceMiesto = databaza.Query<Miesto>("SELECT * FROM Miesto WHERE idMiesto =" + idMiesto).FirstOrDefault();
@@ -160,6 +181,8 @@ namespace Udalosti.Udaje.Data
 
         public bool miestoPrihlasenia()
         {
+            Debug.WriteLine("Metoda miestoPrihlasenia bola vykonana");
+
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
                 var miesto = databaza.Query<Miesto>("SELECT stat FROM Miesto").FirstOrDefault();
@@ -180,6 +203,8 @@ namespace Udalosti.Udaje.Data
 
         public Dictionary<string, string> vratMiestoPrihlasenia()
         {
+            Debug.WriteLine("Metoda vratMiestoPrihlasenia bola vykonana");
+
             Dictionary<string, string> miestoPrihlasenia;
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {

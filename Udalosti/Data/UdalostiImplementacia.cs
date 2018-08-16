@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Udalosti.Udalosti.Data
 {
@@ -11,7 +12,7 @@ namespace Udalosti.Udalosti.Data
 
         void automatickePrihlasenieVypnute(String email);
 
-        void odhlasenie(String email);
+        Task odhlasenieAsync(String email);
 
         Dictionary<string, string> miestoPrihlasenia();
     }

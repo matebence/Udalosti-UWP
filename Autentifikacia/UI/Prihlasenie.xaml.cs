@@ -48,6 +48,8 @@ namespace Udalosti
 
         private void tlacidloRegistrovatSa(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("Metoda tlacidloRegistrovatSa bola vykonana");
+
             this.Frame.Navigate(typeof(Registracia));
         }
 
@@ -71,6 +73,8 @@ namespace Udalosti
 
         private async void prihlasitAsync(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("Metoda prihlasitAsync bola vykonana");
+
             if (NetworkInterface.GetIsNetworkAvailable())
             {
                 nacitavanie.IsActive = true;

@@ -9,6 +9,7 @@ using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
 using Udalosti.Udaje.Siet.Autentifikator;
 using Udalosti.Udaje.Siet.Model.Pozicia;
+using System.Diagnostics;
 
 namespace Udalosti.Autentifikacia.Data
 {
@@ -25,6 +26,8 @@ namespace Udalosti.Autentifikacia.Data
 
         public async Task miestoPrihlaseniaAsync(string email, string heslo)
         {
+            Debug.WriteLine("Metoda miestoPrihlaseniaAsync bola vykonana");
+
             HttpResponseMessage odpoved = await new Request().novyGetRequestAsync("json");
             String stat, okres, mesto;
             stat = okres = mesto = "";
@@ -60,6 +63,8 @@ namespace Udalosti.Autentifikacia.Data
 
         public async Task prihlasenieAsync(string email, string heslo, string stat, string okres, string mesto)
         {
+            Debug.WriteLine("Metoda prihlasenieAsync bola vykonana");
+
             var obsah = new Dictionary<string, string>
             {
                { "email", email },
@@ -106,6 +111,8 @@ namespace Udalosti.Autentifikacia.Data
 
         public async Task registraciaAsync(string meno, string email, string heslo, string potvrd)
         {
+            Debug.WriteLine("Metoda registraciaAsync bola vykonana");
+
             var obsah = new Dictionary<string, string>
             {
                { "meno", meno },
@@ -155,11 +162,15 @@ namespace Udalosti.Autentifikacia.Data
 
         public void ucetJeNePristupny(string email)
         {
+            Debug.WriteLine("Metoda ucetJeNePristupny bola vykonana");
+
             sqliteDataza.odstranPouzivatelskeUdaje(email);
         }
 
         public void ulozPrihlasovacieUdajeDoDatabazy(string email, string heslo)
         {
+            Debug.WriteLine("Metoda ulozPrihlasovacieUdajeDoDatabazy bola vykonana");
+
             if (sqliteDataza.pouzivatelskeUdaje())
             {
                 sqliteDataza.aktualizujPouzivatelskeUdaje(new Pouzivatelia(email, heslo));

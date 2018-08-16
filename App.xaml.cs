@@ -1,5 +1,12 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
+using Udalosti.Udaje.Nastavenia;
+using Udalosti.Udaje.Siet;
+using Udalosti.Udalosti.Data;
 using Udalosti.Uvod.Data;
 using Udalosti.Uvod.UI;
 using Windows.ApplicationModel;
@@ -12,22 +19,24 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Udalosti
 {
-    sealed partial class App : Application
+    sealed partial class App : Application, KommunikaciaOdpoved, KommunikaciaData
     {
         public static string databaza = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "udalosti.sqlite"));
         public static string udalostiAdresa = "http://192.168.247.131/udalosti/index.php/";
         public static string geoAdresa = "http://ip-api.com/";
 
         private UvodnaObrazovkaUdaje uvodnaObrazovkaUdaje;
+        private UdalostiUdaje udalostiUdaje;
 
         public App()
         {
             this.InitializeComponent();
 
             this.uvodnaObrazovkaUdaje = new UvodnaObrazovkaUdaje();
-            this.uvodnaObrazovkaUdaje.prvyStart();
+            this.udalostiUdaje = new UdalostiUdaje(this, this);
 
-            this.Suspending += OnSuspending;
+            this.uvodnaObrazovkaUdaje.prvyStart();
+            this.Suspending += OnSuspendingAsync;
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs e)
@@ -66,10 +75,29 @@ namespace Udalosti
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        private async void OnSuspendingAsync(object sender, SuspendingEventArgs e)
         {
+            await this.udalostiUdaje.odhlasenieAsync(this.uvodnaObrazovkaUdaje.prihlasPouzivatela()["email"]);
             var deferral = e.SuspendingOperation.GetDeferral();
             deferral.Complete();
+        }
+
+        public async Task odpovedServera(string odpoved, string od, Dictionary<string, string> udaje)
+        {
+            switch (od)
+            {
+                case Nastavenia.AUTENTIFIKACIA_ODHLASENIE:
+                    if (odpoved.Equals(Nastavenia.VSETKO_V_PORIADKU))
+                    {
+                        Debug.WriteLine("Systém odhlásil");
+                    }
+                    break;
+            }
+        }
+
+        public void dataZoServera(string odpoved, string od, ArrayList udaje)
+        {
+            throw new NotImplementedException();
         }
     }
 }
