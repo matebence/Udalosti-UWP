@@ -717,8 +717,8 @@
     <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Fonts\Raleway-ThinItalic.ttf">
       <PackagePath>Assets\Fonts\Raleway-ThinItalic.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Images\g.jpg">
-      <PackagePath>Assets\Images\g.jpg</PackagePath>
+    <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Images\udalosti_chyba_obrazka.jpg">
+      <PackagePath>Assets\Images\udalosti_chyba_obrazka.jpg</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Documents\Udalosti\Udalosti\Assets\Images\udalosti_pozadie.jpg">
       <PackagePath>Assets\Images\udalosti_pozadie.jpg</PackagePath>

@@ -6,7 +6,7 @@ namespace Udalosti.Udalosti.Data
 {
     interface UdalostiImplementacia
     {
-        void zoznamUdalosti(String email, String stat, String token);
+        Task zoznamUdalostiAsync(String email, String stat, String token);
 
         void zoznamUdalostiPodlaPozicie(String email, String stat, String okres, String mesto, String token);
 

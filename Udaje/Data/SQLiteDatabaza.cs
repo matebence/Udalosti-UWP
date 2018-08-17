@@ -60,14 +60,12 @@ namespace Udalosti.Udaje.Data
 
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
-                var existujuciPouzivatel = databaza.Query<Pouzivatelia>("SELECT * FROM Pouzivatelia WHERE email ='" + pouzivatelia.email+"'").FirstOrDefault();
-                if (existujuciPouzivatel != null)
-                {
-                    databaza.RunInTransaction(() =>
-                    {
-                        databaza.Update(pouzivatelia);
-                    });
-                }
+                String dotazNaAktualizaciu = "UPDATE Pouzivatelia " +
+                    "SET email = '" + pouzivatelia.email + "', " +
+                    "heslo = '" + pouzivatelia.heslo + "', " +
+                    "token = '" + pouzivatelia.token + "' " +
+                    "WHERE email ='" + pouzivatelia.email + "'";
+                databaza.Execute(dotazNaAktualizaciu);
             }
         }
 
@@ -77,14 +75,9 @@ namespace Udalosti.Udaje.Data
 
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
-                var existujuciPouzivatel = databaza.Query<Pouzivatelia>("SELECT * FROM Pouzivatelia WHERE email ='" + email+"'").FirstOrDefault();
-                if (existujuciPouzivatel != null)
-                {
-                    databaza.RunInTransaction(() =>
-                    {
-                        databaza.Delete(existujuciPouzivatel);
-                    });
-                }
+                String dotazNaOdstranenie = "DELETE FROM Pouzivatelia " +
+                    "WHERE email = '"+email+"'";
+                databaza.Execute(dotazNaOdstranenie);
             }
         }
 
@@ -117,12 +110,13 @@ namespace Udalosti.Udaje.Data
             Dictionary<string, string> pouzivatelskeUdaje;
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
-                var pouzivatelia = databaza.Query<Pouzivatelia>("SELECT email, heslo FROM Pouzivatelia").FirstOrDefault();
+                var pouzivatelia = databaza.Query<Pouzivatelia>("SELECT email, heslo, token FROM Pouzivatelia").FirstOrDefault();
                 if (pouzivatelia != null)
                 {
                     pouzivatelskeUdaje = new Dictionary<string, string>();
                     pouzivatelskeUdaje.Add("email", pouzivatelia.email);
                     pouzivatelskeUdaje.Add("heslo", pouzivatelia.heslo);
+                    pouzivatelskeUdaje.Add("token", pouzivatelia.token);
                     return pouzivatelskeUdaje;
                 }
                 else
@@ -151,31 +145,12 @@ namespace Udalosti.Udaje.Data
 
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
-                var existujuceMiesto = databaza.Query<Miesto>("SELECT * FROM Miesto WHERE idMiesto =" + miesto.idMiesto).FirstOrDefault();
-                if (existujuceMiesto != null)
-                {
-                    databaza.RunInTransaction(() =>
-                    {
-                        databaza.Update(miesto);
-                    });
-                }
-            }
-        }
-
-        public void odstranMiestoPrihlasenia(int idMiesto)
-        {
-            Debug.WriteLine("Metoda odstranMiestoPrihlasenia bola vykonana");
-
-            using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
-            {
-                var existujuceMiesto = databaza.Query<Miesto>("SELECT * FROM Miesto WHERE idMiesto =" + idMiesto).FirstOrDefault();
-                if (existujuceMiesto != null)
-                {
-                    databaza.RunInTransaction(() =>
-                    {
-                        databaza.Delete(existujuceMiesto);
-                    });
-                }
+                String dotazNaAktualizaciu = "UPDATE Miesto " +
+                    "SET stat = '" + miesto.stat + "', " +
+                    "okres = '" + miesto.okres + "', " +
+                    "mesto = '" + miesto.mesto + "' " +
+                    "WHERE idMiesto = 1";
+                databaza.Execute(dotazNaAktualizaciu);
             }
         }
 

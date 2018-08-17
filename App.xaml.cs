@@ -95,7 +95,7 @@ namespace Udalosti
             }
         }
 
-        public void dataZoServera(string odpoved, string od, ArrayList udaje)
+        public Task dataZoServeraAsync(string odpoved, string od, ArrayList udaje)
         {
             throw new NotImplementedException();
         }

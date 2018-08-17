@@ -7,6 +7,7 @@ using Udalosti.Udaje.Data;
 using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
 using Udalosti.Udaje.Siet.Autentifikator;
+using Udalosti.Udaje.Siet.Model.Obsah;
 
 namespace Udalosti.Udalosti.Data
 {
@@ -27,7 +28,7 @@ namespace Udalosti.Udalosti.Data
         {
             Debug.WriteLine("Metoda automatickePrihlasenieVypnute bola vykonana");
 
-            throw new System.NotImplementedException();
+            sqliteDatabaza.odstranPouzivatelskeUdaje(email);
         }
 
         public Dictionary<string, string> miestoPrihlasenia()
@@ -71,11 +72,30 @@ namespace Udalosti.Udalosti.Data
             }
         }
 
-        public void zoznamUdalosti(string email, string stat, string token)
+        public async Task zoznamUdalostiAsync(string email, string stat, string token)
         {
             Debug.WriteLine("Metoda zoznamUdalosti bola vykonana");
+            Debug.WriteLine(email);
+            Debug.WriteLine(token);
+            Debug.WriteLine(token);
 
-            throw new System.NotImplementedException();
+            var obsah = new Dictionary<string, string>
+            {
+               { "email", email },
+               { "stat", stat },
+               { "token", token }
+            };
+
+            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "udalosti");
+            if (odpoved.IsSuccessStatusCode)
+            {
+                Obsah data = JsonConvert.DeserializeObject<Obsah>(await odpoved.Content.ReadAsStringAsync());
+                await udajeZoServera.dataZoServeraAsync(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.UDALOSTI_OBJAVUJ, data.udalosti);
+            }
+            else
+            {
+                await udajeZoServera.dataZoServeraAsync("Server je momentalne nedostupný!", Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, null);
+            }
         }
 
         public void zoznamUdalostiPodlaPozicie(string email, string stat, string okres, string mesto, string token)

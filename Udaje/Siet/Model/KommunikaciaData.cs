@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
+using System.Threading.Tasks;
 
 namespace Udalosti.Udaje.Siet
 {
     interface KommunikaciaData
     {
-        void dataZoServera(String odpoved, String od, ArrayList udaje);
+        Task dataZoServeraAsync(String odpoved, String od, ArrayList udaje);
     }
 }

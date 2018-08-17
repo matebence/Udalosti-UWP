@@ -114,6 +114,7 @@
     <Compile Include="Udaje\Siet\Model\Autentifikator\Validacia.cs" />
     <Compile Include="Udaje\Siet\Model\KommunikaciaData.cs" />
     <Compile Include="Udaje\Siet\Model\KommunikaciaOdpoved.cs" />
+    <Compile Include="Udaje\Siet\Model\Obsah\Obsah.cs" />
     <Compile Include="Udaje\Siet\Model\Pozicia\Pozicia.cs" />
     <Compile Include="Udaje\Siet\Request.cs" />
     <Compile Include="Udalosti\Data\UdalostiImplementacia.cs" />
@@ -176,7 +177,6 @@
     <Content Include="Assets\Icons\podla_pozicie.scale-150.png" />
     <Content Include="Assets\Icons\podla_pozicie.scale-200.png" />
     <Content Include="Assets\Icons\podla_poziciescale-400.png" />
-    <Content Include="Assets\Images\g.jpg" />
     <Content Include="Assets\Images\udalosti_chyba_obrazka.jpg" />
     <Content Include="Assets\Images\udalosti_logo.png" />
     <Content Include="Assets\Images\udalosti_pozadie.jpg" />

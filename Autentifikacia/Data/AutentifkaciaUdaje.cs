@@ -167,17 +167,20 @@ namespace Udalosti.Autentifikacia.Data
             sqliteDataza.odstranPouzivatelskeUdaje(email);
         }
 
-        public void ulozPrihlasovacieUdajeDoDatabazy(string email, string heslo)
+        public void ulozPrihlasovacieUdajeDoDatabazy(string email, string heslo, string token)
         {
             Debug.WriteLine("Metoda ulozPrihlasovacieUdajeDoDatabazy bola vykonana");
 
             if (sqliteDataza.pouzivatelskeUdaje())
             {
-                sqliteDataza.aktualizujPouzivatelskeUdaje(new Pouzivatelia(email, heslo));
+                Debug.WriteLine(email);
+                Debug.WriteLine(heslo);
+                Debug.WriteLine(token);
+                sqliteDataza.aktualizujPouzivatelskeUdaje(new Pouzivatelia(email, heslo, token));
             }
             else
             {
-                sqliteDataza.novePouzivatelskeUdaje(new Pouzivatelia(email, heslo));
+                sqliteDataza.novePouzivatelskeUdaje(new Pouzivatelia(email, heslo, token));
             }
         }
     }

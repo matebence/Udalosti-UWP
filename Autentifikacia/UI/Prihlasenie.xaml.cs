@@ -35,7 +35,7 @@ namespace Udalosti
                 case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
                     if (odpoved.Equals(Nastavenia.VSETKO_V_PORIADKU))
                     {
-                        this.autentifkaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(email.Text, heslo.Password);
+                        this.autentifkaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(email.Text, heslo.Password, udaje["token"]);
                         prihlasenie.Navigate(typeof(ZoznamUdalosti), null, new DrillInNavigationTransitionInfo());
                     }
                     else

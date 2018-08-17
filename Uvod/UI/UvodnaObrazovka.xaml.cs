@@ -36,6 +36,7 @@ namespace Udalosti.Uvod.UI
                 case Nastavenia.AUTENTIFIKACIA_PRIHLASENIE:
                     if (odpoved.Equals(Nastavenia.VSETKO_V_PORIADKU))
                     {
+                        this.autentifkaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(udaje["email"], udaje["heslo"], udaje["token"]);
                         uvodnaObrazovka.Navigate(typeof(ZoznamUdalosti), new DrillInNavigationTransitionInfo());
                     }
                     else
