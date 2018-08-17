@@ -72,7 +72,7 @@ namespace Udalosti.Autentifikacia.Data
                { "pokus_o_prihlasenie", Guid.NewGuid().ToString() }
             };
 
-            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "prihlasenie");
+            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/prihlasenie");
             if (odpoved.IsSuccessStatusCode)
             {
                 Autentifikator autentifikator = JsonConvert.DeserializeObject<Autentifikator>(await odpoved.Content.ReadAsStringAsync());
@@ -122,7 +122,7 @@ namespace Udalosti.Autentifikacia.Data
                { "nova_registracia", Guid.NewGuid().ToString() }
             };
 
-            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "registracia");
+            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/registracia");
             if (odpoved.IsSuccessStatusCode)
             {
                 Autentifikator autentifikator = JsonConvert.DeserializeObject<Autentifikator>(await odpoved.Content.ReadAsStringAsync());
@@ -173,9 +173,6 @@ namespace Udalosti.Autentifikacia.Data
 
             if (sqliteDataza.pouzivatelskeUdaje())
             {
-                Debug.WriteLine(email);
-                Debug.WriteLine(heslo);
-                Debug.WriteLine(token);
                 sqliteDataza.aktualizujPouzivatelskeUdaje(new Pouzivatelia(email, heslo, token));
             }
             else

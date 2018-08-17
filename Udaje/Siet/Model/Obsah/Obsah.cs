@@ -1,15 +1,16 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
+using Udalosti.Udalosti.Zoznam;
 
 namespace Udalosti.Udaje.Siet.Model.Obsah
 {
-    class Obsah
+   public class Obsah
     {
-        public Obsah(ArrayList udalosti)
+        public Obsah(List<Udalost> udalosti)
         {
             this.udalosti = udalosti;
         }
 
-        public ArrayList udalosti { get; set; }
+        public List<Udalost> udalosti { get; set; }
 
         public override string ToString()
         {

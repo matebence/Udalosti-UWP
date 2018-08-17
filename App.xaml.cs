@@ -6,7 +6,9 @@ using System.IO;
 using System.Threading.Tasks;
 using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
+using Udalosti.Udaje.Siet.Model.Obsah;
 using Udalosti.Udalosti.Data;
+using Udalosti.Udalosti.Zoznam;
 using Udalosti.Uvod.Data;
 using Udalosti.Uvod.UI;
 using Windows.ApplicationModel;
@@ -22,7 +24,7 @@ namespace Udalosti
     sealed partial class App : Application, KommunikaciaOdpoved, KommunikaciaData
     {
         public static string databaza = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "udalosti.sqlite"));
-        public static string udalostiAdresa = "https://bmate18.student.ki.fpv.ukf.sk/udalosti/index.php/";
+        public static string udalostiAdresa = "https://bmate18.student.ki.fpv.ukf.sk/udalosti/";
         public static string geoAdresa = "http://ip-api.com/";
 
         private UvodnaObrazovkaUdaje uvodnaObrazovkaUdaje;
@@ -95,7 +97,7 @@ namespace Udalosti
             }
         }
 
-        public Task dataZoServeraAsync(string odpoved, string od, ArrayList udaje)
+        public Task dataZoServeraAsync(string odpoved, string od, List<Udalost> udaje)
         {
             throw new NotImplementedException();
         }

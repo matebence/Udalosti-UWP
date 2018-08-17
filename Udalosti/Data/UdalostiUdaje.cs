@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -8,6 +9,7 @@ using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
 using Udalosti.Udaje.Siet.Autentifikator;
 using Udalosti.Udaje.Siet.Model.Obsah;
+using Udalosti.Udalosti.Zoznam;
 
 namespace Udalosti.Udalosti.Data
 {
@@ -55,7 +57,7 @@ namespace Udalosti.Udalosti.Data
                { "email", email }
             };
 
-            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "prihlasenie/odhlasit_sa");
+            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/prihlasenie/odhlasit_sa");
             if (odpoved.IsSuccessStatusCode)
             {
                 Autentifikator autentifikator = JsonConvert.DeserializeObject<Autentifikator>(await odpoved.Content.ReadAsStringAsync());
@@ -75,9 +77,6 @@ namespace Udalosti.Udalosti.Data
         public async Task zoznamUdalostiAsync(string email, string stat, string token)
         {
             Debug.WriteLine("Metoda zoznamUdalosti bola vykonana");
-            Debug.WriteLine(email);
-            Debug.WriteLine(token);
-            Debug.WriteLine(token);
 
             var obsah = new Dictionary<string, string>
             {
@@ -86,7 +85,7 @@ namespace Udalosti.Udalosti.Data
                { "token", token }
             };
 
-            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "udalosti");
+            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/udalosti");
             if (odpoved.IsSuccessStatusCode)
             {
                 Obsah data = JsonConvert.DeserializeObject<Obsah>(await odpoved.Content.ReadAsStringAsync());
@@ -94,7 +93,7 @@ namespace Udalosti.Udalosti.Data
             }
             else
             {
-                await udajeZoServera.dataZoServeraAsync("Server je momentalne nedostupný!", Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, null);
+                await udajeZoServera.dataZoServeraAsync("Server je momentalne nedostupný!", Nastavenia.UDALOSTI_OBJAVUJ, null);
             }
         }
 

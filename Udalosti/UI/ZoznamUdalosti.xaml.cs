@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using Udalosti.Udaje.Nastavenia;
 using Udalosti.Uvod.Data;
 using System.Diagnostics;
+using Udalosti.Udaje.Siet.Model.Obsah;
 
 namespace Udalosti.Udalosti.UI
 {
@@ -27,12 +28,12 @@ namespace Udalosti.Udalosti.UI
 
             this.udalostiUdaje = new UdalostiUdaje(this, this);
             this.uvodnaObrazovkaUdaje = new UvodnaObrazovkaUdaje();
-    
+
             this.pouzivatelskeUdaje = uvodnaObrazovkaUdaje.prihlasPouzivatela();
             this.miestoPrihlasenia = udalostiUdaje.miestoPrihlasenia();
         }
 
-        public async Task dataZoServeraAsync(string odpoved, string od, ArrayList udaje)
+        public async Task dataZoServeraAsync(string odpoved, string od, List<Udalost> udaje)
         {
             switch (od)
             {
@@ -56,7 +57,7 @@ namespace Udalosti.Udalosti.UI
             throw new System.NotImplementedException();
         }
 
-        private async Task ziskajUdalostiAsync(ArrayList udaje)
+        private async Task ziskajUdalostiAsync(List<Udalost> udaje)
         {
             Debug.WriteLine("Metoda ziskajUdalostiAsync bola vykonana");
 
@@ -65,8 +66,13 @@ namespace Udalosti.Udalosti.UI
             foreach (Udalost __o in udaje)
             {
                 string obrazok = (string)__o.obrazok;
-                if (!(await obrazokJeDostupnnyAsync(obrazok))) {
+                if (!(await obrazokJeDostupnnyAsync(obrazok)))
+                {
                     __o.obrazok = "../../Assets/Images/udalosti_chyba_obrazka.jpg";
+                }
+                else
+                {
+                    __o.obrazok = App.udalostiAdresa+__o.obrazok;
                 }
                 udalosti.Add(__o);
             }
@@ -83,8 +89,8 @@ namespace Udalosti.Udalosti.UI
         public async Task<bool> obrazokJeDostupnnyAsync(string adresa)
         {
             Debug.WriteLine("Metoda obrazokJeDostupnnyAsync bola vykonana");
-
-            WebRequest request = WebRequest.Create(adresa);
+            Debug.WriteLine(App.udalostiAdresa + adresa);
+            WebRequest request = WebRequest.Create(App.udalostiAdresa + adresa);
             WebResponse odpoved;
             try
             {

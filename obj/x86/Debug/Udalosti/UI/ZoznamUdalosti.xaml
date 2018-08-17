@@ -104,7 +104,8 @@
                                         Foreground="#005ba6"
                                         FontFamily="Raleway"
                                         FontSize="20"
-                                        TextWrapping="Wrap"/>
+                                        TextWrapping="Wrap"
+                                        Margin="0,0,8,0"/>
 
                                         <TextBlock
                                         Text="{Binding miesto}"
