@@ -34,7 +34,15 @@ namespace Udalosti.Udalosti.Data
         {
             Debug.WriteLine("Metoda miestoPrihlasenia bola vykonana");
 
-            throw new System.NotImplementedException();
+            Dictionary<string, string> miestoPrihlasenia = sqliteDatabaza.vratMiestoPrihlasenia();
+            if (miestoPrihlasenia != null)
+            {
+                return miestoPrihlasenia;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public async Task odhlasenieAsync(string email)

@@ -23,7 +23,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Image
-                Source="../../Assets/Square44x44Logo.scale-200.png"
+                Source="ms-appx:///Assets/Square44x44Logo.scale-200.png"
                 Grid.Column="1" 
                 Grid.Row="0"
                 Stretch="None"

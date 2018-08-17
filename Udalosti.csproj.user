@@ -5,15 +5,15 @@
     <UseEmulator>true</UseEmulator>
   </PropertyGroup>
   <PropertyGroup>
-    <Source>C:\Users\ecneb\Documents\odhlasit_sa.png</Source>
-    <SmallTileSource>C:\Users\ecneb\Documents\odhlasit_sa.png</SmallTileSource>
-    <MediumTileSource>C:\Users\ecneb\Documents\odhlasit_sa.png</MediumTileSource>
-    <WideTileSource>C:\Users\ecneb\Documents\odhlasit_sa.png</WideTileSource>
-    <LargeTileSource>C:\Users\ecneb\Documents\odhlasit_sa.png</LargeTileSource>
-    <AppIconSource>C:\Users\ecneb\Documents\odhlasit_sa.png</AppIconSource>
-    <SplashScreenSource>C:\Users\ecneb\Documents\odhlasit_sa.png</SplashScreenSource>
-    <BadgeLogoSource>C:\Users\ecneb\Documents\odhlasit_sa.png</BadgeLogoSource>
-    <PackageLogoSource>C:\Users\ecneb\Documents\odhlasit_sa.png</PackageLogoSource>
+    <Source>C:\Users\ecneb\Downloads\udalosti_pozadie.jpg</Source>
+    <SmallTileSource>C:\Users\ecneb\Downloads\udalosti_pozadie.jpg</SmallTileSource>
+    <MediumTileSource>C:\Users\ecneb\Downloads\udalosti_pozadie.jpg</MediumTileSource>
+    <WideTileSource>C:\Users\ecneb\Downloads\udalosti_pozadie.jpg</WideTileSource>
+    <LargeTileSource>C:\Users\ecneb\Downloads\udalosti_pozadie.jpg</LargeTileSource>
+    <AppIconSource>C:\Users\ecneb\Downloads\udalosti_pozadie.jpg</AppIconSource>
+    <SplashScreenSource>C:\Users\ecneb\Downloads\udalosti_pozadie.jpg</SplashScreenSource>
+    <BadgeLogoSource>C:\Users\ecneb\Downloads\udalosti_pozadie.jpg</BadgeLogoSource>
+    <PackageLogoSource>C:\Users\ecneb\Downloads\udalosti_pozadie.jpg</PackageLogoSource>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <DeviceId>E492D437-B7BB-4156-85F3-84D94C3A5AA0</DeviceId>

@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Loaded="nacitajZoznam">
 
     <Grid Background="Black">
         <Grid.RowDefinitions>
@@ -22,10 +22,120 @@
             Grid.Column="0"
             Background="Black">
             <PivotItem
-                Header="Objavuj">
-                <ListView x:Name="zoznamUdalosti">
+                Header="Objavuj"
+                Margin="-10,0,-10,0">
+                <ListView 
+                    x:Name="zoznamUdalosti"
+                    Margin="0,10,0,0"
+                    SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
+                            <Grid 
+                                Background="#333333" 
+                                Margin="0,0,0,30">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="250"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Height="250"
+                                Source="{Binding obrazok}"
+                                VerticalAlignment="Top"
+                                Stretch="UniformToFill"/>
+
+                                <StackPanel
+                                Grid.Row="1"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Margin="20,5,0,5">
+
+                                    <TextBlock
+                                    Text="{Binding den}"
+                                    Foreground="#c33939"
+                                    FontFamily="Raleway"
+                                    FontWeight="Bold"
+                                    FontSize="25"
+                                    TextWrapping="Wrap"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Center"/>
+
+                                    <TextBlock
+                                    Text="{Binding mesiac}"
+                                    Foreground="White"
+                                    FontFamily="Raleway"
+                                    FontSize="20"
+                                    TextWrapping="Wrap"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Center"/>
+                                </StackPanel>
+
+                                <StackPanel
+                                Grid.Row="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="0,0,20,0" >
+
+                                    <TextBlock
+                                    Text="{Binding nazov}"
+                                    Foreground="White"
+                                    FontFamily="Raleway"
+                                    FontSize="20"
+                                    TextWrapping="Wrap"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Center"/>
+
+                                    <StackPanel
+                                     Orientation="Horizontal">
+                                        <Image
+                                        Width="20"
+                                        Height="20"
+                                        Source="ms-appx:///Assets/Icons/podla_pozicie.png"/>
+
+                                        <TextBlock
+                                        Text="{Binding mesto}"
+                                        FontWeight="Bold"
+                                        Foreground="#005ba6"
+                                        FontFamily="Raleway"
+                                        FontSize="20"
+                                        TextWrapping="Wrap"/>
+
+                                        <TextBlock
+                                        Text="{Binding miesto}"
+                                        Foreground="White"
+                                        FontFamily="Raleway"
+                                        FontSize="20"
+                                        TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                                <StackPanel
+                                Grid.Row="1"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Margin="0,5,20,5">
+
+                                    <TextBlock
+                                    Text="{Binding cas}"
+                                    Foreground="White"
+                                    FontFamily="Raleway"
+                                    FontSize="20"
+                                    TextWrapping="Wrap"
+                                    TextAlignment="Left"
+                                    HorizontalAlignment="Center"/>
+
+                                    <Image
+                                    Width="20"
+                                    Height="20"
+                                    Source="ms-appx:///Assets/Icons/cas.png"/>
+                                </StackPanel>
+                            </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

@@ -121,6 +121,7 @@
     <Compile Include="Udalosti\UI\ZoznamUdalosti.xaml.cs">
       <DependentUpon>ZoznamUdalosti.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Udalosti\Zoznam\Udalost.cs" />
     <Compile Include="Uvod\Data\UvodnaObrazovkaImplementacia.cs" />
     <Compile Include="Uvod\Data\UvodnaObrazovkaUdaje.cs" />
     <Compile Include="Uvod\UI\UvodnaObrazovka.xaml.cs">
@@ -131,6 +132,11 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\BadgeLogo.scale-125.png" />
+    <Content Include="Assets\BadgeLogo.scale-150.png" />
+    <Content Include="Assets\BadgeLogo.scale-200.png" />
+    <Content Include="Assets\BadgeLogo.scale-400.png" />
     <Content Include="Assets\Fonts\Raleway-Black.ttf" />
     <Content Include="Assets\Fonts\Raleway-BlackItalic.ttf" />
     <Content Include="Assets\Fonts\Raleway-Bold.ttf" />
@@ -152,23 +158,34 @@
     <None Include="Udalosti_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\BadgeLogo.scale-100.png" />
-    <Content Include="Assets\BadgeLogo.scale-125.png" />
-    <Content Include="Assets\BadgeLogo.scale-150.png" />
-    <Content Include="Assets\BadgeLogo.scale-200.png" />
-    <Content Include="Assets\BadgeLogo.scale-400.png" />
+    <Content Include="Assets\Icons\cas.backup.png" />
+    <Content Include="Assets\Icons\cas.scale-100.png" />
+    <Content Include="Assets\Icons\cas.scale-125.png" />
+    <Content Include="Assets\Icons\cas.scale-150.png" />
+    <Content Include="Assets\Icons\cas.scale-200.png" />
+    <Content Include="Assets\Icons\cas.scale-400.png" />
     <Content Include="Assets\Icons\odhlasit_sa.backup.png" />
     <Content Include="Assets\Icons\odhlasit_sa.scale-100.png" />
     <Content Include="Assets\Icons\odhlasit_sa.scale-125.png" />
     <Content Include="Assets\Icons\odhlasit_sa.scale-150.png" />
     <Content Include="Assets\Icons\odhlasit_sa.scale-200.png" />
     <Content Include="Assets\Icons\odhlasit_sa.scale-400.png" />
+    <Content Include="Assets\Icons\podla_pozicie.backup.png" />
+    <Content Include="Assets\Icons\podla_pozicie.scale-100.png" />
+    <Content Include="Assets\Icons\podla_pozicie.scale-125.png" />
+    <Content Include="Assets\Icons\podla_pozicie.scale-150.png" />
+    <Content Include="Assets\Icons\podla_pozicie.scale-200.png" />
+    <Content Include="Assets\Icons\podla_poziciescale-400.png" />
+    <Content Include="Assets\Images\g.jpg" />
+    <Content Include="Assets\Images\udalosti_chyba_obrazka.jpg" />
     <Content Include="Assets\Images\udalosti_logo.png" />
+    <Content Include="Assets\Images\udalosti_pozadie.jpg" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SmallTile.scale-100.png" />
     <Content Include="Assets\SmallTile.scale-125.png" />
     <Content Include="Assets\SmallTile.scale-150.png" />
@@ -177,10 +194,12 @@
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-125.png" />
     <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-400.png" />
     <Content Include="Assets\Square150x150Logo.scale-100.png" />
     <Content Include="Assets\Square150x150Logo.scale-125.png" />
     <Content Include="Assets\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-400.png" />
     <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
     <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
@@ -189,29 +208,26 @@
     <Content Include="Assets\Square44x44Logo.scale-100.png" />
     <Content Include="Assets\Square44x44Logo.scale-125.png" />
     <Content Include="Assets\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.scale-400.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\StoreLogo.backup.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-125.png" />
     <Content Include="Assets\StoreLogo.scale-150.png" />
     <Content Include="Assets\StoreLogo.scale-200.png" />
     <Content Include="Assets\StoreLogo.scale-400.png" />
-    <Content Include="Assets\Images\udalosti_pozadie.jpg" />
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

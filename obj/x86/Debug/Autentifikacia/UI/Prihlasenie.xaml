@@ -14,7 +14,7 @@
         </Frame.ContentTransitions>
         <Grid>
             <Grid.Background>
-                <ImageBrush ImageSource="../../Assets/images/udalosti_pozadie.jpg"/>
+                <ImageBrush ImageSource="ms-appx:///Assets/Images/udalosti_pozadie.jpg"/>
             </Grid.Background>
             <Grid VerticalAlignment="center"
                 Margin="60,0,60,0">
@@ -35,7 +35,7 @@
                     </Grid.ColumnDefinitions>
                     <Image 
                     Grid.Column="0"
-                    Source="../../Assets/images/udalosti_logo.png"
+                    Source="ms-appx:///Assets/Images/udalosti_logo.png"
                     Margin="0,0,15,0"/>
                     <TextBlock
                     Grid.Column="1"

@@ -14,7 +14,7 @@
         </Frame.ContentTransitions>
         <Grid>
             <Grid.Background>
-                <ImageBrush ImageSource="../../Assets/images/udalosti_pozadie.jpg"/>
+                <ImageBrush ImageSource="ms-appx:///Assets/Images/udalosti_pozadie.jpg"/>
             </Grid.Background>
             <Grid VerticalAlignment="center"
                   Margin="60,0,60,0">
