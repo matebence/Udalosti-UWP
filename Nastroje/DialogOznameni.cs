@@ -23,7 +23,7 @@ namespace Udalosti.Nastroje
             {
                 if (uspech)
                 {
-                    frame.Navigate(typeof(Prihlasenie), null, new DrillInNavigationTransitionInfo());
+                    frame.GoBack();
                 }
             }
         }

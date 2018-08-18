@@ -33,7 +33,7 @@ namespace Udalosti
                 case Nastavenia.AUTENTIFIKACIA_REGISTRACIA:
                     if (odpoved.Equals(Nastavenia.VSETKO_V_PORIADKU))
                     {
-                        await DialogOznameni.kommunikaciaAsync("Úspech", "Registrácia prebehla úspesne! Možete sa prihlásiť.", "Ďalej", true, registracia);
+                        await DialogOznameni.kommunikaciaAsync("Úspech", "Registrácia prebehla úspesne! Možete sa prihlásiť.", "Ďalej", true, this.Frame);
                     }
                     else
                     {
@@ -45,6 +45,7 @@ namespace Udalosti
 
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             SystemNavigationManager.GetForCurrentView().BackRequested += spatNaPrihlasanie;
+            registracia.IsEnabled = this.Frame.CanGoBack;
             base.OnNavigatedTo(e);
         }
 
@@ -52,11 +53,10 @@ namespace Udalosti
         {
             Debug.WriteLine("Metoda spatNaPrihlasanie bola vykonana");
 
-            Frame registracia = Window.Current.Content as Frame;
-            if (registracia.CanGoBack)
+            if (this.Frame.CanGoBack)
             {
                 e.Handled = true;
-                registracia.GoBack();
+                this.Frame.GoBack();
             }
         }
 

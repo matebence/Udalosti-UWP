@@ -41,7 +41,7 @@ namespace Udalosti.Uvod.UI
                     }
                     else
                     {
-                        this.Frame.Navigate(typeof(Prihlasenie), "neUspesnePrihlasenie");
+                        this.Frame.Navigate(typeof(Prihlasenie), "neUspesnePrihlasenie", new DrillInNavigationTransitionInfo());
                     }
                     break;
             }
@@ -60,7 +60,7 @@ namespace Udalosti.Uvod.UI
             }
             else
             {
-                this.Frame.Navigate(typeof(Prihlasenie), "chyba");
+                this.Frame.Navigate(typeof(Prihlasenie), "chyba", new DrillInNavigationTransitionInfo());
             }
         }
     }

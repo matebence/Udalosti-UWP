@@ -79,7 +79,10 @@ namespace Udalosti
 
         private async void OnSuspendingAsync(object sender, SuspendingEventArgs e)
         {
-            await this.udalostiUdaje.odhlasenieAsync(this.uvodnaObrazovkaUdaje.prihlasPouzivatela()["email"]);
+            if (uvodnaObrazovkaUdaje.zistiCiPouzivatelskoKontoExistuje())
+            {
+                await this.udalostiUdaje.odhlasenieAsync(this.uvodnaObrazovkaUdaje.prihlasPouzivatela()["email"]);
+            }
             var deferral = e.SuspendingOperation.GetDeferral();
             deferral.Complete();
         }

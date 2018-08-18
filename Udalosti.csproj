@@ -122,7 +122,7 @@
     <Compile Include="Udalosti\UI\ZoznamUdalosti.xaml.cs">
       <DependentUpon>ZoznamUdalosti.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Udalosti\Zoznam\Udalost.cs" />
+    <Compile Include="Zoznam\Udalost.cs" />
     <Compile Include="Uvod\Data\UvodnaObrazovkaImplementacia.cs" />
     <Compile Include="Uvod\Data\UvodnaObrazovkaUdaje.cs" />
     <Compile Include="Uvod\UI\UvodnaObrazovka.xaml.cs">
@@ -180,6 +180,7 @@
     <Content Include="Assets\Images\udalosti_chyba_obrazka.jpg" />
     <Content Include="Assets\Images\udalosti_logo.png" />
     <Content Include="Assets\Images\udalosti_pozadie.jpg" />
+    <Content Include="Assets\Images\udalosti_ziadne_udalosti.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />

@@ -8,7 +8,7 @@ namespace Udalosti.Udalosti.Data
     {
         Task zoznamUdalostiAsync(String email, String stat, String token);
 
-        void zoznamUdalostiPodlaPozicie(String email, String stat, String okres, String mesto, String token);
+        Task zoznamUdalostiPodlaPozicieAsync(String email, String stat, String okres, String mesto, String token);
 
         void automatickePrihlasenieVypnute(String email);
 

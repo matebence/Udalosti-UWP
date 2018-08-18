@@ -67,8 +67,8 @@ namespace Udalosti
                 {
                     await DialogOznameni.kommunikaciaAsync("Chyba", "Nastala chyba, prosím prihláste sa!", "Zatvoriť", false, prihlasenie);
                 }
+                this.Frame.BackStack.Clear();
             }
-            this.Frame.BackStack.Clear();
         }
 
         private async void prihlasitAsync(object sender, RoutedEventArgs e)

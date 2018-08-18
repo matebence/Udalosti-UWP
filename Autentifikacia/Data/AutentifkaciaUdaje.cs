@@ -51,7 +51,7 @@ namespace Udalosti.Autentifikacia.Data
 
                 if (sqliteDataza.miestoPrihlasenia())
                 {
-                    sqliteDataza.aktualizujMiestoPrihlasenia(new Miesto(stat, okres, mesto));
+                    sqliteDataza.aktualizujMiestoPrihlasenia(new Miesto(stat, okres, mesto), 1);
                 }
                 else
                 {
@@ -173,7 +173,7 @@ namespace Udalosti.Autentifikacia.Data
 
             if (sqliteDataza.pouzivatelskeUdaje())
             {
-                sqliteDataza.aktualizujPouzivatelskeUdaje(new Pouzivatelia(email, heslo, token));
+                sqliteDataza.aktualizujPouzivatelskeUdaje(new Pouzivatelia(email, heslo, token), email);
             }
             else
             {

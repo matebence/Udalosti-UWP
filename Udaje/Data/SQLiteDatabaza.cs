@@ -54,18 +54,24 @@ namespace Udalosti.Udaje.Data
             }
         }
 
-        public void aktualizujPouzivatelskeUdaje(Pouzivatelia pouzivatelia)
+        public void aktualizujPouzivatelskeUdaje(Pouzivatelia pouzivatelia, String email)
         {
             Debug.WriteLine("Metoda aktualizujPouzivatelskeUdaje bola vykonana");
 
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
-                String dotazNaAktualizaciu = "UPDATE Pouzivatelia " +
-                    "SET email = '" + pouzivatelia.email + "', " +
-                    "heslo = '" + pouzivatelia.heslo + "', " +
-                    "token = '" + pouzivatelia.token + "' " +
-                    "WHERE email ='" + pouzivatelia.email + "'";
-                databaza.Execute(dotazNaAktualizaciu);
+                var existujuciPouzivatel = databaza.Query<Pouzivatelia>("SELECT * FROM Pouzivatelia WHERE email ='" + email + "'").FirstOrDefault();
+                if (existujuciPouzivatel != null)
+                {
+                    existujuciPouzivatel.email = pouzivatelia.email;
+                    existujuciPouzivatel.heslo = pouzivatelia.heslo;
+                    existujuciPouzivatel.token = pouzivatelia.token;
+
+                    databaza.RunInTransaction(() =>
+                    {
+                        databaza.Update(existujuciPouzivatel);
+                    });
+                }
             }
         }
 
@@ -75,9 +81,14 @@ namespace Udalosti.Udaje.Data
 
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
-                String dotazNaOdstranenie = "DELETE FROM Pouzivatelia " +
-                    "WHERE email = '"+email+"'";
-                databaza.Execute(dotazNaOdstranenie);
+                var existujuciPouzivatel = databaza.Query<Pouzivatelia>("SELECT * FROM Pouzivatelia WHERE email ='" + email + "'").FirstOrDefault();
+                if (existujuciPouzivatel != null)
+                {
+                    databaza.RunInTransaction(() =>
+                    {
+                        databaza.Delete(existujuciPouzivatel);
+                    });
+                }
             }
         }
 
@@ -139,18 +150,41 @@ namespace Udalosti.Udaje.Data
             }
         }
 
-        public void aktualizujMiestoPrihlasenia(Miesto miesto)
+        public void aktualizujMiestoPrihlasenia(Miesto miesto, int idMiesto)
         {
             Debug.WriteLine("Metoda aktualizujMiestoPrihlasenia bola vykonana");
 
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
-                String dotazNaAktualizaciu = "UPDATE Miesto " +
-                    "SET stat = '" + miesto.stat + "', " +
-                    "okres = '" + miesto.okres + "', " +
-                    "mesto = '" + miesto.mesto + "' " +
-                    "WHERE idMiesto = 1";
-                databaza.Execute(dotazNaAktualizaciu);
+                var existujuceMesto = databaza.Query<Miesto>("SELECT * FROM Miesto WHERE idMiesto =" + idMiesto).FirstOrDefault();
+                if (existujuceMesto != null)
+                {
+                    existujuceMesto.stat = miesto.stat;
+                    existujuceMesto.okres = miesto.okres;
+                    existujuceMesto.mesto = miesto.mesto;
+
+                    databaza.RunInTransaction(() =>
+                    {
+                        databaza.Update(existujuceMesto);
+                    });
+                }
+            }
+        }
+
+        public void odstranMiestoPrihlasenia(int idMiesto)
+        {
+            Debug.WriteLine("Metoda odstranMiestoPrihlasenia bola vykonana");
+
+            using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
+            {
+                var existujuceMesto = databaza.Query<Miesto>("SELECT * FROM Miesto WHERE idMiesto =" + idMiesto).FirstOrDefault();
+                if (existujuceMesto != null)
+                {
+                    databaza.RunInTransaction(() =>
+                    {
+                        databaza.Delete(existujuceMesto);
+                    });
+                }
             }
         }
 

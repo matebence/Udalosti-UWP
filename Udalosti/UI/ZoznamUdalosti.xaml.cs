@@ -5,12 +5,13 @@ using Windows.UI.Xaml.Controls;
 using System.Threading.Tasks;
 using Udalosti.Udalosti.Data;
 using Udalosti.Udaje.Siet;
-using System.Collections;
 using System.Collections.Generic;
 using Udalosti.Udaje.Nastavenia;
 using Udalosti.Uvod.Data;
 using System.Diagnostics;
-using Udalosti.Udaje.Siet.Model.Obsah;
+using Windows.UI.Xaml;
+using System.Text;
+using Windows.UI.Xaml.Media.Animation;
 
 namespace Udalosti.Udalosti.UI
 {
@@ -22,6 +23,9 @@ namespace Udalosti.Udalosti.UI
         private Dictionary<string, string> pouzivatelskeUdaje;
         private Dictionary<string, string> miestoPrihlasenia;
 
+        private ObservableCollection<Udalost> udalost;
+        private ObservableCollection<Udalost> udalostPodlaPozicie;
+
         public ZoznamUdalosti()
         {
             this.InitializeComponent();
@@ -31,6 +35,9 @@ namespace Udalosti.Udalosti.UI
 
             this.pouzivatelskeUdaje = uvodnaObrazovkaUdaje.prihlasPouzivatela();
             this.miestoPrihlasenia = udalostiUdaje.miestoPrihlasenia();
+
+            this.udalost = new ObservableCollection<Udalost>();
+            this.udalostPodlaPozicie = new ObservableCollection<Udalost>();
         }
 
         public async Task dataZoServeraAsync(string odpoved, string od, List<Udalost> udaje)
@@ -42,26 +49,61 @@ namespace Udalosti.Udalosti.UI
                     {
                         if (udaje != null)
                         {
-                            await ziskajUdalostiAsync(udaje);
+                            nacitavanieUdalosti.IsActive = false;
+                            nacitavanieUdalosti.Visibility = Visibility.Collapsed;
+
+                            zoznamUdalosti.Visibility = Visibility.Visible;
+                            ziadneUdalosti.Visibility = Visibility.Collapsed;
+
+                            await ziskajUdalostiAsync(udaje, zoznamUdalosti, udalost);
                         }
                         else
                         {
+                            zoznamUdalosti.Visibility = Visibility.Collapsed;
+                            ziadneUdalosti.Visibility = Visibility.Visible;
+                        }
+                    }
+                    break;
+                case Nastavenia.UDALOSTI_PODLA_POZICIE:
+                    if (odpoved.Equals(Nastavenia.VSETKO_V_PORIADKU))
+                    {
+                        if (udaje != null)
+                        {
+                            nacitavaniePodlaPozicie.IsActive = false;
+                            nacitavaniePodlaPozicie.Visibility = Visibility.Collapsed;
+
+                            zoznamUdalostiPodlaPozicie.Visibility = Visibility.Visible;
+                            ziadneUdalostiPodlaPozicie.Visibility = Visibility.Collapsed;
+
+                            await ziskajUdalostiAsync(udaje, zoznamUdalostiPodlaPozicie, udalostPodlaPozicie);
+                        }
+                        else
+                        {
+                            zoznamUdalostiPodlaPozicie.Visibility = Visibility.Collapsed;
+                            ziadneUdalostiPodlaPozicie.Visibility = Visibility.Visible;
                         }
                     }
                     break;
             }
         }
 
-        public Task odpovedServera(string odpoved, string od, Dictionary<string, string> udaje)
+        public async Task odpovedServera(string odpoved, string od, Dictionary<string, string> udaje)
         {
-            throw new System.NotImplementedException();
+            switch (od)
+            {
+                case Nastavenia.AUTENTIFIKACIA_ODHLASENIE:
+                    if (odpoved.Equals(Nastavenia.VSETKO_V_PORIADKU))
+                    {
+                        udalostiUdaje.automatickePrihlasenieVypnute(pouzivatelskeUdaje["email"]);
+                        udalosti.Navigate(typeof(Prihlasenie), null , new DrillInNavigationTransitionInfo());
+                    }
+                    break;
+            }
         }
 
-        private async Task ziskajUdalostiAsync(List<Udalost> udaje)
+        private async Task ziskajUdalostiAsync(List<Udalost> udaje, ListView zoznam, ObservableCollection<Udalost> obsah)
         {
             Debug.WriteLine("Metoda ziskajUdalostiAsync bola vykonana");
-
-            ObservableCollection<Udalost> udalosti = new ObservableCollection<Udalost>();
 
             foreach (Udalost __o in udaje)
             {
@@ -72,24 +114,17 @@ namespace Udalosti.Udalosti.UI
                 }
                 else
                 {
-                    __o.obrazok = App.udalostiAdresa+__o.obrazok;
+                    __o.obrazok = App.udalostiAdresa + __o.obrazok;
                 }
-                udalosti.Add(__o);
+                obsah.Add(__o);
             }
-            zoznamUdalosti.ItemsSource = udalosti;
-        }
-
-        private async void nacitajZoznam(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            Debug.WriteLine("Metoda nacitajZoznam bola vykonana");
-
-            await this.udalostiUdaje.zoznamUdalostiAsync(pouzivatelskeUdaje["email"], miestoPrihlasenia["stat"], pouzivatelskeUdaje["token"]);
+            zoznam.ItemsSource = obsah;
         }
 
         public async Task<bool> obrazokJeDostupnnyAsync(string adresa)
         {
             Debug.WriteLine("Metoda obrazokJeDostupnnyAsync bola vykonana");
-            Debug.WriteLine(App.udalostiAdresa + adresa);
+
             WebRequest request = WebRequest.Create(App.udalostiAdresa + adresa);
             WebResponse odpoved;
             try
@@ -101,6 +136,40 @@ namespace Udalosti.Udalosti.UI
                 return false;
             }
             return true;
+        }
+
+        private void aktualnyPivot(object sender, SelectionChangedEventArgs e)
+        {
+            switch (moznostiObsahu.SelectedIndex)
+            {
+                case 0:
+                    miesto.Text = miestoPrihlasenia["stat"];
+                    break;
+                case 1:
+                    miesto.Text = miestoPrihlasenia["mesto"];
+                    break;
+            }
+        }
+
+        private async void odhlasitSa(object sender, RoutedEventArgs e)
+        {
+            await udalostiUdaje.odhlasenieAsync(pouzivatelskeUdaje["email"]);
+        }
+
+        private async void nacitajZoznamPodlaPozicii(object sender, RoutedEventArgs e)
+        {
+            nacitavaniePodlaPozicie.IsActive = true;
+            nacitavaniePodlaPozicie.Visibility = Visibility.Visible;
+
+            await this.udalostiUdaje.zoznamUdalostiPodlaPozicieAsync(pouzivatelskeUdaje["email"], miestoPrihlasenia["stat"], miestoPrihlasenia["okres"], miestoPrihlasenia["mesto"], pouzivatelskeUdaje["token"]);
+        }
+
+        private async void nacitajZoznam(object sender, RoutedEventArgs e)
+        {
+            nacitavanieUdalosti.IsActive = true;
+            nacitavanieUdalosti.Visibility = Visibility.Visible;
+
+            await this.udalostiUdaje.zoznamUdalostiAsync(pouzivatelskeUdaje["email"], miestoPrihlasenia["stat"], pouzivatelskeUdaje["token"]);
         }
     }
 }

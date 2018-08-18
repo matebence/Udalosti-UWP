@@ -97,11 +97,29 @@ namespace Udalosti.Udalosti.Data
             }
         }
 
-        public void zoznamUdalostiPodlaPozicie(string email, string stat, string okres, string mesto, string token)
+        public async Task zoznamUdalostiPodlaPozicieAsync(string email, string stat, string okres, string mesto, string token)
         {
             Debug.WriteLine("Metoda zoznamUdalostiPodlaPozicie bola vykonana");
 
-            throw new System.NotImplementedException();
+            var obsah = new Dictionary<string, string>
+            {
+               { "email", email },
+               { "stat", stat },
+               { "okres", okres },
+               { "mesto", mesto },
+               { "token", token }
+            };
+
+            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/udalosti/udalosti_podla_pozicie");
+            if (odpoved.IsSuccessStatusCode)
+            {
+                Obsah data = JsonConvert.DeserializeObject<Obsah>(await odpoved.Content.ReadAsStringAsync());
+                await udajeZoServera.dataZoServeraAsync(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.UDALOSTI_PODLA_POZICIE, data.udalosti);
+            }
+            else
+            {
+                await udajeZoServera.dataZoServeraAsync("Server je momentalne nedostupný!", Nastavenia.UDALOSTI_PODLA_POZICIE, null);
+            }
         }
     }
 }
