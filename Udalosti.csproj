@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="Nastroje\DialogOznameni.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Udaje\Data\SQLDataImplementacia.cs" />
     <Compile Include="Udaje\Data\SQLiteDatabaza.cs" />
     <Compile Include="Udaje\Data\Tabulka\Miesto.cs" />
     <Compile Include="Udaje\Data\Tabulka\Pouzivatelia.cs" />
@@ -122,7 +123,7 @@
     <Compile Include="Udalosti\UI\ZoznamUdalosti.xaml.cs">
       <DependentUpon>ZoznamUdalosti.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Zoznam\Udalost.cs" />
+    <Compile Include="Udalosti\Zoznam\Udalost.cs" />
     <Compile Include="Uvod\Data\UvodnaObrazovkaImplementacia.cs" />
     <Compile Include="Uvod\Data\UvodnaObrazovkaUdaje.cs" />
     <Compile Include="Uvod\UI\UvodnaObrazovka.xaml.cs">

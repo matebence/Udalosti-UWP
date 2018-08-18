@@ -21,7 +21,11 @@ namespace Udalosti.Uvod.UI
         public UvodnaObrazovka()
         {
             this.InitializeComponent();
+            this.init();
+        }
 
+        private void init()
+        {
             this.uvodnaObrazovkaUdaje = new UvodnaObrazovkaUdaje();
             this.autentifkaciaUdaje = new AutentifkaciaUdaje(this);
         }

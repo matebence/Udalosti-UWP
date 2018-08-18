@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Frame x:Name="udalosti">
+    <Frame 
+        x:Name="udalosti">
         <Frame.ContentTransitions>
             <TransitionCollection>
                 <NavigationThemeTransition />
@@ -24,20 +25,23 @@
 
             <Pivot
                 x:Name="moznostiObsahu"
-                Title="UDALOSTI"
+                SelectionChanged="aktualnyPivot"
                 Grid.Row="0"
                 Grid.Column="0"
-                Background="Black" SelectionChanged="aktualnyPivot">
+                Title="UDALOSTI"
+                Background="Black">
+                
                 <PivotItem
+                    Loaded="nacitajZoznam"
                     Header="Objavuj"
-                    Margin="-10,0,-10,0" Loaded="nacitajZoznam">
+                    Margin="-10,0,-10,0">
+                    
                     <RelativePanel>
-
                         <Image
                             x:Name="ziadneUdalosti"
                             Width="100"
-                            Visibility="Collapsed"
                             Source= "ms-appx:///Assets/Images/udalosti_ziadne_udalosti.png"
+                            Visibility="Collapsed"
                             RelativePanel.AlignHorizontalCenterWithPanel="True"
                             RelativePanel.AlignVerticalCenterWithPanel="True"/>
 
@@ -53,6 +57,7 @@
                             Visibility="Collapsed"
                             SelectionMode="None"
                             Margin="0,10,0,0">
+                            
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid 
@@ -72,8 +77,8 @@
                                         Grid.Column="0"
                                         Height="250"
                                         Source="{Binding obrazok}"
-                                        VerticalAlignment="Top"
-                                        Stretch="UniformToFill"/>
+                                        Stretch="UniformToFill"
+                                        VerticalAlignment="Top"/>
 
                                         <StackPanel
                                         Grid.Row="1"
@@ -167,16 +172,18 @@
                         </ListView>
                     </RelativePanel>
                 </PivotItem>
+                
                 <PivotItem
+                    Loaded="nacitajZoznamPodlaPozicii"
                     Header="Podľa pozície"
-                                Margin="-10,0,-10,0" Loaded="nacitajZoznamPodlaPozicii">
+                    Margin="-10,0,-10,0">
+                    
                     <RelativePanel>
-
                         <Image
                             x:Name="ziadneUdalostiPodlaPozicie"
                             Width="100"
-                            Visibility="Collapsed"
                             Source= "ms-appx:///Assets/Images/udalosti_ziadne_udalosti.png"
+                            Visibility="Collapsed"
                             RelativePanel.AlignHorizontalCenterWithPanel="True"
                             RelativePanel.AlignVerticalCenterWithPanel="True"/>
 
@@ -192,6 +199,7 @@
                             Visibility="Collapsed"
                             SelectionMode="None"
                             Margin="0,10,0,0">
+                            
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid 
@@ -310,15 +318,23 @@
 
             <CommandBar
                 Grid.Row="1"
-                VerticalAlignment="Bottom" Background="#FF005BA6">
-                <AppBarButton Label="Odhlásiť sa" Click="odhlasitSa">
+                Background="#FF005BA6"
+                VerticalAlignment="Bottom">
+                
+                <AppBarButton
+                    Click="odhlasitSa"
+                    Label="Odhlásiť sa">
                     <AppBarButton.Icon>
-                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/odhlasit_sa.png" />
+                        <BitmapIcon
+                            UriSource="ms-appx:///Assets/Icons/odhlasit_sa.png" />
                     </AppBarButton.Icon>
                 </AppBarButton>
 
                 <CommandBar.Content>
-                    <TextBlock x:Name="miesto" Text="Miesto" Margin="12,14"/>
+                    <TextBlock 
+                        x:Name="miesto"
+                        Text="Miesto"
+                        Margin="12,14"/>
                 </CommandBar.Content>
             </CommandBar>
         </Grid>

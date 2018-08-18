@@ -1,16 +1,15 @@
-﻿using System.Collections.ObjectModel;
-using System.Net;
-using Udalosti.Udalosti.Zoznam;
-using Windows.UI.Xaml.Controls;
-using System.Threading.Tasks;
-using Udalosti.Udalosti.Data;
-using Udalosti.Udaje.Siet;
-using System.Collections.Generic;
-using Udalosti.Udaje.Nastavenia;
-using Udalosti.Uvod.Data;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Net;
+using System.Threading.Tasks;
+using Udalosti.Udaje.Nastavenia;
+using Udalosti.Udaje.Siet;
+using Udalosti.Udalosti.Data;
+using Udalosti.Udalosti.Zoznam;
+using Udalosti.Uvod.Data;
 using Windows.UI.Xaml;
-using System.Text;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 
 namespace Udalosti.Udalosti.UI
@@ -29,7 +28,11 @@ namespace Udalosti.Udalosti.UI
         public ZoznamUdalosti()
         {
             this.InitializeComponent();
+            this.init();
+        }
 
+        private void init()
+        {
             this.udalostiUdaje = new UdalostiUdaje(this, this);
             this.uvodnaObrazovkaUdaje = new UvodnaObrazovkaUdaje();
 
@@ -49,13 +52,7 @@ namespace Udalosti.Udalosti.UI
                     {
                         if (udaje != null)
                         {
-                            nacitavanieUdalosti.IsActive = false;
-                            nacitavanieUdalosti.Visibility = Visibility.Collapsed;
-
-                            zoznamUdalosti.Visibility = Visibility.Visible;
-                            ziadneUdalosti.Visibility = Visibility.Collapsed;
-
-                            await ziskajUdalostiAsync(udaje, zoznamUdalosti, udalost);
+                            await this.nacitaveniaUdalostiAsync(udaje);
                         }
                         else
                         {
@@ -69,13 +66,7 @@ namespace Udalosti.Udalosti.UI
                     {
                         if (udaje != null)
                         {
-                            nacitavaniePodlaPozicie.IsActive = false;
-                            nacitavaniePodlaPozicie.Visibility = Visibility.Collapsed;
-
-                            zoznamUdalostiPodlaPozicie.Visibility = Visibility.Visible;
-                            ziadneUdalostiPodlaPozicie.Visibility = Visibility.Collapsed;
-
-                            await ziskajUdalostiAsync(udaje, zoznamUdalostiPodlaPozicie, udalostPodlaPozicie);
+                            await this.nacitaveniaUdalostiPodlaPozicieAsync(udaje);
                         }
                         else
                         {
@@ -97,6 +88,21 @@ namespace Udalosti.Udalosti.UI
                         udalostiUdaje.automatickePrihlasenieVypnute(pouzivatelskeUdaje["email"]);
                         udalosti.Navigate(typeof(Prihlasenie), null , new DrillInNavigationTransitionInfo());
                     }
+                    break;
+            }
+        }
+
+        private void aktualnyPivot(object sender, SelectionChangedEventArgs e)
+        {
+            Debug.WriteLine("Metoda aktualnyPivot bola vykonana");
+
+            switch (moznostiObsahu.SelectedIndex)
+            {
+                case 0:
+                    miesto.Text = miestoPrihlasenia["stat"];
+                    break;
+                case 1:
+                    miesto.Text = miestoPrihlasenia["mesto"];
                     break;
             }
         }
@@ -138,26 +144,36 @@ namespace Udalosti.Udalosti.UI
             return true;
         }
 
-        private void aktualnyPivot(object sender, SelectionChangedEventArgs e)
+        private async Task nacitaveniaUdalostiAsync(List<Udalost> udaje)
         {
-            switch (moznostiObsahu.SelectedIndex)
-            {
-                case 0:
-                    miesto.Text = miestoPrihlasenia["stat"];
-                    break;
-                case 1:
-                    miesto.Text = miestoPrihlasenia["mesto"];
-                    break;
-            }
+            Debug.WriteLine("Metoda nacitaveniaUdalostiAsync bola vykonana");
+
+            nacitavanieUdalosti.IsActive = false;
+            nacitavanieUdalosti.Visibility = Visibility.Collapsed;
+
+            zoznamUdalosti.Visibility = Visibility.Visible;
+            ziadneUdalosti.Visibility = Visibility.Collapsed;
+
+            await ziskajUdalostiAsync(udaje, zoznamUdalosti, udalost);
         }
 
-        private async void odhlasitSa(object sender, RoutedEventArgs e)
+        private async Task nacitaveniaUdalostiPodlaPozicieAsync(List<Udalost> udaje)
         {
-            await udalostiUdaje.odhlasenieAsync(pouzivatelskeUdaje["email"]);
+            Debug.WriteLine("Metoda nacitaveniaUdalostiPodlaPozicieAsync bola vykonana");
+
+            nacitavaniePodlaPozicie.IsActive = false;
+            nacitavaniePodlaPozicie.Visibility = Visibility.Collapsed;
+
+            zoznamUdalostiPodlaPozicie.Visibility = Visibility.Visible;
+            ziadneUdalostiPodlaPozicie.Visibility = Visibility.Collapsed;
+
+            await ziskajUdalostiAsync(udaje, zoznamUdalostiPodlaPozicie, udalostPodlaPozicie);
         }
 
         private async void nacitajZoznamPodlaPozicii(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("Metoda nacitajZoznamPodlaPozicii bola vykonana");
+
             nacitavaniePodlaPozicie.IsActive = true;
             nacitavaniePodlaPozicie.Visibility = Visibility.Visible;
 
@@ -166,10 +182,19 @@ namespace Udalosti.Udalosti.UI
 
         private async void nacitajZoznam(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("Metoda nacitajZoznam bola vykonana");
+
             nacitavanieUdalosti.IsActive = true;
             nacitavanieUdalosti.Visibility = Visibility.Visible;
 
             await this.udalostiUdaje.zoznamUdalostiAsync(pouzivatelskeUdaje["email"], miestoPrihlasenia["stat"], pouzivatelskeUdaje["token"]);
+        }
+
+        private async void odhlasitSa(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Metoda odhlasitSa bola vykonana");
+
+            await udalostiUdaje.odhlasenieAsync(pouzivatelskeUdaje["email"]);
         }
     }
 }

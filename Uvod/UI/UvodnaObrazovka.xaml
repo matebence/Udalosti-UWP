@@ -4,31 +4,37 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Loaded="automatickePrihlasenie">
+    mc:Ignorable="d"
+    Loaded="automatickePrihlasenie">
 
-    <Frame x:Name="uvodnaObrazovka">
+    <Frame
+        x:Name="uvodnaObrazovka">
         <Frame.ContentTransitions>
             <TransitionCollection>
                 <NavigationThemeTransition />
             </TransitionCollection>
         </Frame.ContentTransitions>
+        
         <Grid
-            Background="#FF005BA6"
-            HorizontalAlignment="Stretch"
             Grid.Column="1"
-            Grid.Row="0">
+            Grid.Row="0"
+            Background="#FF005BA6"
+            HorizontalAlignment="Stretch">
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+            
             <Image
-                Source="ms-appx:///Assets/Square44x44Logo.scale-200.png"
                 Grid.Column="1" 
                 Grid.Row="0"
+                Source="ms-appx:///Assets/Square44x44Logo.scale-200.png"
                 Stretch="None"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center" />
+            
             <ProgressRing 
                 x:Name="nacitavanie"
                 Grid.Column="1" 

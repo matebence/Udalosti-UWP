@@ -1,15 +1,15 @@
-﻿using System;
+﻿using SQLite.Net;
+using SQLite.Net.Platform.WinRT;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Udalosti.Udaje.Data.Tabulka;
-using SQLite.Net.Platform.WinRT;
-using SQLite.Net;
-using System.Diagnostics;
 
 namespace Udalosti.Udaje.Data
 {
-    class SQLiteDatabaza
+    class SQLiteDatabaza: SQLDataImplementacia
     {
         public void VyvorDatabazu()
         {
@@ -26,7 +26,7 @@ namespace Udalosti.Udaje.Data
             }
         }
 
-        private async Task<bool> tabulkaExistuje(string fileName)
+       public async Task<bool> tabulkaExistuje(string fileName)
         {
             Debug.WriteLine("Metoda tabulkaExistuje bola vykonana");
 

@@ -6,15 +6,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Frame x:Name="registracia">
+    <Frame 
+        x:Name="registracia">
         <Frame.ContentTransitions>
             <TransitionCollection>
                 <NavigationThemeTransition />
             </TransitionCollection>
         </Frame.ContentTransitions>
+        
         <Grid>
             <Grid.Background>
-                <ImageBrush ImageSource="ms-appx:///Assets/Images/udalosti_pozadie.jpg"/>
+                <ImageBrush 
+                    ImageSource="ms-appx:///Assets/Images/udalosti_pozadie.jpg"/>
             </Grid.Background>
             <Grid VerticalAlignment="center"
                   Margin="60,0,60,0">
@@ -28,22 +31,25 @@
                     <RowDefinition Height="45" />
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
+                
                 <TextBlock
                     Grid.Row="0"
                     Text="Registrovať"
                     FontFamily="Raleway"
                     FontSize="60"
-                    VerticalAlignment="Stretch"
-                    TextAlignment="Center"/>
+                    TextAlignment="Center"
+                    VerticalAlignment="Stretch"/>
+                
                 <TextBlock
                     Grid.Row="1"
                     Text="Staňte sa naším členom ešte dnes, udalosť spája všetkých!"
                     FontFamily="Raleway"
                     FontSize="16"
                     TextWrapping="Wrap"
-                    VerticalAlignment="Stretch"
                     TextAlignment="Center"
+                    VerticalAlignment="Stretch"
                     Margin="0,15,0,40"/>
+                
                 <TextBox 
                     x:Name="meno"
                     Grid.Row="2"
@@ -51,6 +57,7 @@
                     FontFamily="Raleway"
                     FontSize="18"
                     Margin="0,0,0,20"/>
+                
                 <TextBox 
                     x:Name="email"
                     Grid.Row="3"
@@ -58,6 +65,7 @@
                     FontFamily="Raleway"
                     FontSize="18"
                     Margin="0,0,0,20"/>
+                
                 <PasswordBox 
                     x:Name="heslo"
                     Grid.Row="4"
@@ -65,6 +73,7 @@
                     FontFamily="Raleway"
                     FontSize="18"
                     Margin="0,0,0,20"/>
+                
                 <PasswordBox 
                     x:Name="potvrd"
                     Grid.Row="5"
@@ -72,14 +81,17 @@
                     FontFamily="Raleway"
                     FontSize="18"
                     Margin="0,0,0,20"/>
+                
                 <Grid 
                     Grid.Row="6">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition 
                             Width="*" />
                     </Grid.ColumnDefinitions>
+                    
                     <Button 
                         x:Name="registrovatSa"
+                        Click="registrovatAsync"
                         Grid.Column="0"
                         Content="Registrovať"
                         FontFamily="Raleway"
@@ -87,8 +99,9 @@
                         Foreground="White"
                         Background="#0397d6"
                         VerticalAlignment="Stretch"
-                        HorizontalAlignment="Stretch" Click="registrovatAsync"/>
+                        HorizontalAlignment="Stretch"/>
                 </Grid>
+                
                 <ProgressRing 
                     x:Name="nacitavanie"
                     Grid.Row="7"

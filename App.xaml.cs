@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
-using Udalosti.Udaje.Siet.Model.Obsah;
 using Udalosti.Udalosti.Data;
 using Udalosti.Udalosti.Zoznam;
 using Udalosti.Uvod.Data;
@@ -23,17 +21,22 @@ namespace Udalosti
 {
     sealed partial class App : Application, KommunikaciaOdpoved, KommunikaciaData
     {
+        private UvodnaObrazovkaUdaje uvodnaObrazovkaUdaje;
+        private UdalostiUdaje udalostiUdaje;
+
         public static string databaza = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "udalosti.sqlite"));
         public static string udalostiAdresa = "https://bmate18.student.ki.fpv.ukf.sk/udalosti/";
         public static string geoAdresa = "http://ip-api.com/";
 
-        private UvodnaObrazovkaUdaje uvodnaObrazovkaUdaje;
-        private UdalostiUdaje udalostiUdaje;
-
         public App()
         {
             this.InitializeComponent();
+            this.init();
 
+        }
+
+        private void init()
+        {
             this.uvodnaObrazovkaUdaje = new UvodnaObrazovkaUdaje();
             this.udalostiUdaje = new UdalostiUdaje(this, this);
 

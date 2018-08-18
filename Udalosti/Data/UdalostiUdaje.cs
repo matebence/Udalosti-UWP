@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -9,7 +8,6 @@ using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
 using Udalosti.Udaje.Siet.Autentifikator;
 using Udalosti.Udaje.Siet.Model.Obsah;
-using Udalosti.Udalosti.Zoznam;
 
 namespace Udalosti.Udalosti.Data
 {

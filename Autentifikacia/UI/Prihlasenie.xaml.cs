@@ -22,6 +22,11 @@ namespace Udalosti
         public Prihlasenie()
         {
             this.InitializeComponent();
+            this.init();
+        }
+
+        private void init()
+        {
             this.autentifkaciaUdaje = new AutentifkaciaUdaje(this);
         }
 
@@ -46,13 +51,6 @@ namespace Udalosti
             }
         }
 
-        private void tlacidloRegistrovatSa(object sender, RoutedEventArgs e)
-        {
-            Debug.WriteLine("Metoda tlacidloRegistrovatSa bola vykonana");
-
-            this.Frame.Navigate(typeof(Registracia));
-        }
-
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             string chyba = (string)e.Parameter;
@@ -69,6 +67,13 @@ namespace Udalosti
                 }
                 this.Frame.BackStack.Clear();
             }
+        }
+
+        private void tlacidloRegistrovatSa(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Metoda tlacidloRegistrovatSa bola vykonana");
+
+            this.Frame.Navigate(typeof(Registracia));
         }
 
         private async void prihlasitAsync(object sender, RoutedEventArgs e)

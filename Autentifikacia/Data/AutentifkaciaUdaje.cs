@@ -1,15 +1,15 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Udalosti.Udaje.Data.Tabulka;
 using Udalosti.Udaje.Data;
+using Udalosti.Udaje.Data.Tabulka;
 using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
 using Udalosti.Udaje.Siet.Autentifikator;
 using Udalosti.Udaje.Siet.Model.Pozicia;
-using System.Diagnostics;
 
 namespace Udalosti.Autentifikacia.Data
 {

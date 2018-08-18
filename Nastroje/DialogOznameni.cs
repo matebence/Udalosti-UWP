@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media.Animation;
 
 namespace Udalosti.Nastroje
 {
@@ -14,9 +13,11 @@ namespace Udalosti.Nastroje
             Debug.WriteLine("Metoda kommunikaciaAsync bola vykonana");
 
             MessageDialog dialog = new MessageDialog(odpoved);
+
             dialog.Title = titul;
             dialog.Commands.Add(new UICommand(tlacidlo) { Id = 0 });
             dialog.DefaultCommandIndex = 0;
+
             var odpovedTlacidlom = await dialog.ShowAsync();
 
             if ((int)odpovedTlacidlom.Id == 0)

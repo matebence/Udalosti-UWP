@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using Udalosti.Autentifikacia.Data;
 using Udalosti.Nastroje;
 using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Core;
 using Windows.UI.Xaml.Navigation;
-using System.Diagnostics;
 
 namespace Udalosti
 {
@@ -20,6 +20,11 @@ namespace Udalosti
         public Registracia()
         {
             this.InitializeComponent();
+            this.init();
+        }
+
+        private void init()
+        {
             this.autentifkaciaUdaje = new AutentifkaciaUdaje(this);
         }
 
