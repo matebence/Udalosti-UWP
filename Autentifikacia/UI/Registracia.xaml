@@ -34,7 +34,7 @@
                 
                 <TextBlock
                     Grid.Row="0"
-                    Text="Registrovať"
+                    Text="Registrácia"
                     FontFamily="ms-appx:///Assets/Fonts/Raleway-Medium.ttf#Raleway"
                     FontSize="60"
                     TextAlignment="Center"
