@@ -1,1 +1,1 @@
-C:\Users\ecneb\Documents\Udalosti\Udalosti\Udalosti.csproj;x86
+C:\Users\ecneb\Downloads\Udalosti\Udalosti\Udalosti.csproj;x86

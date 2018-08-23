@@ -35,7 +35,7 @@
                 <TextBlock
                     Grid.Row="0"
                     Text="Registrovať"
-                    FontFamily="Raleway"
+                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Medium.ttf#Raleway"
                     FontSize="60"
                     TextAlignment="Center"
                     VerticalAlignment="Stretch"/>
@@ -43,7 +43,7 @@
                 <TextBlock
                     Grid.Row="1"
                     Text="Staňte sa naším členom ešte dnes, udalosť spája všetkých!"
-                    FontFamily="Raleway"
+                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Light.ttf#Raleway"
                     FontSize="16"
                     TextWrapping="Wrap"
                     TextAlignment="Center"
@@ -54,7 +54,7 @@
                     x:Name="meno"
                     Grid.Row="2"
                     PlaceholderText="Meno"
-                    FontFamily="Raleway"
+                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                     FontSize="18"
                     Margin="0,0,0,20"/>
                 
@@ -62,7 +62,7 @@
                     x:Name="email"
                     Grid.Row="3"
                     PlaceholderText="Email"
-                    FontFamily="Raleway"
+                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                     FontSize="18"
                     Margin="0,0,0,20"/>
                 
@@ -70,7 +70,7 @@
                     x:Name="heslo"
                     Grid.Row="4"
                     PlaceholderText="Heslo"
-                    FontFamily="Raleway"
+                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                     FontSize="18"
                     Margin="0,0,0,20"/>
                 
@@ -78,7 +78,7 @@
                     x:Name="potvrd"
                     Grid.Row="5"
                     PlaceholderText="Potvrdte heslo"
-                    FontFamily="Raleway"
+                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                     FontSize="18"
                     Margin="0,0,0,20"/>
                 
@@ -94,7 +94,7 @@
                         Click="registrovatAsync"
                         Grid.Column="0"
                         Content="Registrovať"
-                        FontFamily="Raleway"
+                        FontFamily="ms-appx:///Assets/Fonts/Raleway-Medium.ttf#Raleway"
                         FontSize="18"
                         Foreground="White"
                         Background="#0397d6"

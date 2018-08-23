@@ -27,12 +27,14 @@
                 x:Name="moznostiObsahu"
                                                 
                 Grid.Row="0"
+                FontFamily="ms-appx:///Assets/Fonts/Raleway-Medium.ttf#Raleway"
                 Grid.Column="0"
                 Title="UDALOSTI"
                 Background="Black">
                 
                 <PivotItem x:ConnectionId='6'
                                           
+                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                     Header="Objavuj"
                     Margin="-10,0,-10,0">
                     
@@ -89,7 +91,7 @@
                                             <TextBlock
                                             Text="{Binding den}"
                                             Foreground="#c33939"
-                                            FontFamily="Raleway"
+                                            FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                             FontWeight="Bold"
                                             FontSize="25"
                                             TextWrapping="Wrap"
@@ -99,7 +101,7 @@
                                             <TextBlock
                                             Text="{Binding mesiac}"
                                             Foreground="White"
-                                            FontFamily="Raleway"
+                                            FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                             FontSize="20"
                                             TextWrapping="Wrap"
                                             TextAlignment="Left"
@@ -115,7 +117,7 @@
                                             <TextBlock
                                             Text="{Binding nazov}"
                                             Foreground="White"
-                                            FontFamily="Raleway"
+                                            FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                             FontSize="20"
                                             TextWrapping="Wrap"
                                             TextAlignment="Left"
@@ -132,7 +134,7 @@
                                                 Text="{Binding mesto}"
                                                 FontWeight="Bold"
                                                 Foreground="#005ba6"
-                                                FontFamily="Raleway"
+                                                FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                                 FontSize="20"
                                                 TextWrapping="Wrap"
                                                 Margin="0,0,8,0"/>
@@ -140,7 +142,7 @@
                                                 <TextBlock
                                                 Text="{Binding miesto}"
                                                 Foreground="White"
-                                                FontFamily="Raleway"
+                                                FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                                 FontSize="20"
                                                 TextWrapping="Wrap"/>
                                             </StackPanel>
@@ -155,7 +157,7 @@
                                             <TextBlock
                                             Text="{Binding cas}"
                                             Foreground="White"
-                                            FontFamily="Raleway"
+                                            FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                             FontSize="20"
                                             TextWrapping="Wrap"
                                             TextAlignment="Left"
@@ -175,6 +177,7 @@
                 
                 <PivotItem x:ConnectionId='7'
                                                       
+                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                     Header="Podľa pozície"
                     Margin="-10,0,-10,0">
                     
@@ -231,7 +234,7 @@
                                             <TextBlock
                                             Text="{Binding den}"
                                             Foreground="#c33939"
-                                            FontFamily="Raleway"
+                                            FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                             FontWeight="Bold"
                                             FontSize="25"
                                             TextWrapping="Wrap"
@@ -241,7 +244,7 @@
                                             <TextBlock
                                             Text="{Binding mesiac}"
                                             Foreground="White"
-                                            FontFamily="Raleway"
+                                            FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                             FontSize="20"
                                             TextWrapping="Wrap"
                                             TextAlignment="Left"
@@ -257,7 +260,7 @@
                                             <TextBlock
                                             Text="{Binding nazov}"
                                             Foreground="White"
-                                            FontFamily="Raleway"
+                                            FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                             FontSize="20"
                                             TextWrapping="Wrap"
                                             TextAlignment="Left"
@@ -274,7 +277,7 @@
                                                 Text="{Binding mesto}"
                                                 FontWeight="Bold"
                                                 Foreground="#005ba6"
-                                                FontFamily="Raleway"
+                                                FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                                 FontSize="20"
                                                 TextWrapping="Wrap"
                                                 Margin="0,0,8,0"/>
@@ -297,7 +300,7 @@
                                             <TextBlock
                                             Text="{Binding cas}"
                                             Foreground="White"
-                                            FontFamily="Raleway"
+                                            FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                             FontSize="20"
                                             TextWrapping="Wrap"
                                             TextAlignment="Left"
@@ -323,6 +326,7 @@
                 
                 <AppBarButton x:ConnectionId='4'
                                       
+                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                     Label="Odhlásiť sa">
                     <AppBarButton.Icon>
                         <BitmapIcon
@@ -334,6 +338,7 @@
                     <TextBlock x:ConnectionId='5' 
                         x:Name="miesto"
                         Text="Miesto"
+                        FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                         Margin="12,14"/>
                 </CommandBar.Content>
             </CommandBar>

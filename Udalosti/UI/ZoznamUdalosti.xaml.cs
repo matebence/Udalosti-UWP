@@ -45,6 +45,9 @@ namespace Udalosti.Udalosti.UI
 
         public async Task dataZoServeraAsync(string odpoved, string od, List<Udalost> udaje)
         {
+            nacitavaniePodlaPozicie.IsActive = false;
+            nacitavaniePodlaPozicie.Visibility = Visibility.Collapsed;
+
             switch (od)
             {
                 case Nastavenia.UDALOSTI_OBJAVUJ:
@@ -148,9 +151,6 @@ namespace Udalosti.Udalosti.UI
         {
             Debug.WriteLine("Metoda nacitaveniaUdalostiAsync bola vykonana");
 
-            nacitavanieUdalosti.IsActive = false;
-            nacitavanieUdalosti.Visibility = Visibility.Collapsed;
-
             zoznamUdalosti.Visibility = Visibility.Visible;
             ziadneUdalosti.Visibility = Visibility.Collapsed;
 
@@ -160,9 +160,6 @@ namespace Udalosti.Udalosti.UI
         private async Task nacitaveniaUdalostiPodlaPozicieAsync(List<Udalost> udaje)
         {
             Debug.WriteLine("Metoda nacitaveniaUdalostiPodlaPozicieAsync bola vykonana");
-
-            nacitavaniePodlaPozicie.IsActive = false;
-            nacitavaniePodlaPozicie.Visibility = Visibility.Collapsed;
 
             zoznamUdalostiPodlaPozicie.Visibility = Visibility.Visible;
             ziadneUdalostiPodlaPozicie.Visibility = Visibility.Collapsed;

@@ -96,6 +96,7 @@
     <RootType FullName="Udalosti.Prihlasenie" />
     <RootType FullName="Udalosti.Registracia" />
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
+      <RootProperty Name="FontFamily" />
       <RootProperty Name="Title" />
       <RootProperty Name="Background" />
       <RootProperty Name="Items" />
@@ -108,6 +109,7 @@
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
+      <RootProperty Name="FontFamily" />
       <RootProperty Name="Label" />
       <RootProperty Name="Icon" />
       <RootEvent Name="Click" />
@@ -116,6 +118,7 @@
       <RootProperty Name="UriSource" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.PivotItem">
+      <RootProperty Name="FontFamily" />
       <RootProperty Name="Header" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Content" />
