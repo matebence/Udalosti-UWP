@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-08-23T09:21:45.632</Modified>
+      <Modified>2018-08-23T10:01:44.591</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Udalosti.exe">
       <PackagePath>entrypoint\Udalosti.exe</PackagePath>
-      <Modified>2018-08-23T09:21:44.335</Modified>
+      <Modified>2018-08-23T10:01:42.673</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\.nuget\packages\microsoft.csharp\4.3.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -963,23 +963,23 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-08-23T09:21:44.027</Modified>
+      <Modified>2018-08-23T10:01:42.306</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Autentifikacia\UI\Prihlasenie.xbf">
       <PackagePath>Autentifikacia\UI\Prihlasenie.xbf</PackagePath>
-      <Modified>2018-08-23T09:21:44.028</Modified>
+      <Modified>2018-08-23T10:01:42.307</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Autentifikacia\UI\Registracia.xbf">
       <PackagePath>Autentifikacia\UI\Registracia.xbf</PackagePath>
-      <Modified>2018-08-23T09:21:44.029</Modified>
+      <Modified>2018-08-23T10:01:42.308</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Udalosti\UI\ZoznamUdalosti.xbf">
       <PackagePath>Udalosti\UI\ZoznamUdalosti.xbf</PackagePath>
-      <Modified>2018-08-23T09:21:44.030</Modified>
+      <Modified>2018-08-23T10:01:42.309</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Uvod\UI\UvodnaObrazovka.xbf">
       <PackagePath>Uvod\UI\UvodnaObrazovka.xbf</PackagePath>
-      <Modified>2018-08-23T09:21:44.030</Modified>
+      <Modified>2018-08-23T10:01:42.310</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -988,11 +988,11 @@
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-08-23T09:21:45.145</Modified>
+      <Modified>2018-08-23T10:01:43.914</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Core\Udalosti.exe">
       <PackagePath>Udalosti.exe</PackagePath>
-      <Modified>2018-08-23T09:21:45.626</Modified>
+      <Modified>2018-08-23T10:01:44.580</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

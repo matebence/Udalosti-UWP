@@ -26,6 +26,9 @@ namespace Udalosti
         private void init()
         {
             this.autentifkaciaUdaje = new AutentifkaciaUdaje(this);
+
+            var uwpSpat = SystemNavigationManager.GetForCurrentView();
+            uwpSpat.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
 
         public async Task odpovedServera(string odpoved, string od, Dictionary<string, string> udaje)

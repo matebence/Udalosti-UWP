@@ -8,6 +8,7 @@ using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
 using Udalosti.Udalosti.UI;
 using Udalosti.Uvod.Data;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -28,6 +29,7 @@ namespace Udalosti
         private void init()
         {
             this.autentifkaciaUdaje = new AutentifkaciaUdaje(this);
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
 
         public async Task odpovedServera(string odpoved, string od, Dictionary<string, string> udaje)
