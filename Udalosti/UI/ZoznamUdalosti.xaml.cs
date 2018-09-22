@@ -125,9 +125,27 @@ namespace Udalosti.Udalosti.UI
                 {
                     __o.obrazok = App.udalostiAdresa + __o.obrazok;
                 }
+
+                __o.mesiac = dlzkaSlova(__o.mesiac);
+                __o.mesto = dlzkaSlova(__o.mesto);
+                
                 obsah.Add(__o);
             }
             zoznam.ItemsSource = obsah;
+        }
+
+        private string dlzkaSlova(string slovo)
+        {
+            Debug.WriteLine("Metoda dlzkaSlova bola vykonana");
+
+            if (slovo.Length > 5)
+            {
+                return slovo.Substring(0, 4) + "...";
+            }
+            else
+            {
+                return slovo;
+            }
         }
 
         public async Task<bool> obrazokJeDostupnnyAsync(string adresa)

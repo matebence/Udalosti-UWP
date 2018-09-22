@@ -30175,11 +30175,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ecneb\\Downloads\\Udalosti\\Udalosti\\Udalosti.csproj",
+      "projectUniqueName": "C:\\Users\\ecneb\\Downloads\\Windows\\Udalosti\\Udalosti\\Udalosti.csproj",
       "projectName": "Udalosti",
-      "projectPath": "C:\\Users\\ecneb\\Downloads\\Udalosti\\Udalosti\\Udalosti.csproj",
+      "projectPath": "C:\\Users\\ecneb\\Downloads\\Windows\\Udalosti\\Udalosti\\Udalosti.csproj",
       "packagesPath": "C:\\Users\\ecneb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ecneb\\Downloads\\Udalosti\\Udalosti\\obj\\",
+      "outputPath": "C:\\Users\\ecneb\\Downloads\\Windows\\Udalosti\\Udalosti\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

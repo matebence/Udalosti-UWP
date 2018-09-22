@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>469a554d-455a-4f71-bc8b-992060ae52fe</PackageIdentityName>
     <PackageIdentityPublisher>CN=ecneb</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\ecneb\Downloads\Udalosti\Udalosti\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Udalosti.exe">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Udalosti.exe">
       <PackagePath>entrypoint\Udalosti.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\.nuget\packages\microsoft.csharp\4.3.0\lib\netcore50\Microsoft.CSharp.dll">
@@ -394,367 +394,367 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.xml.xmlserializer\4.0.11\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UAP\v0.8.0.0\ExtensionSDKs\SQLite.UWP.2015\3.24.0\Redist\Debug\x86\sqlite3.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UAP\v0.8.0.0\ExtensionSDKs\SQLite.UWP.2015\3.25.1\Redist\Debug\x86\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.17134.0\\redist\Debug\x86\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\BadgeLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\BadgeLogo.scale-100.png">
       <PackagePath>Assets\BadgeLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\BadgeLogo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\BadgeLogo.scale-125.png">
       <PackagePath>Assets\BadgeLogo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\BadgeLogo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\BadgeLogo.scale-150.png">
       <PackagePath>Assets\BadgeLogo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\BadgeLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\BadgeLogo.scale-200.png">
       <PackagePath>Assets\BadgeLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\BadgeLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\BadgeLogo.scale-400.png">
       <PackagePath>Assets\BadgeLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\cas.backup.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\cas.backup.png">
       <PackagePath>Assets\Icons\cas.backup.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\cas.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\cas.scale-100.png">
       <PackagePath>Assets\Icons\cas.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\cas.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\cas.scale-125.png">
       <PackagePath>Assets\Icons\cas.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\cas.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\cas.scale-150.png">
       <PackagePath>Assets\Icons\cas.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\cas.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\cas.scale-200.png">
       <PackagePath>Assets\Icons\cas.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\cas.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\cas.scale-400.png">
       <PackagePath>Assets\Icons\cas.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.backup.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.backup.png">
       <PackagePath>Assets\Icons\odhlasit_sa.backup.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-100.png">
       <PackagePath>Assets\Icons\odhlasit_sa.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-125.png">
       <PackagePath>Assets\Icons\odhlasit_sa.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-150.png">
       <PackagePath>Assets\Icons\odhlasit_sa.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-200.png">
       <PackagePath>Assets\Icons\odhlasit_sa.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-400.png">
       <PackagePath>Assets\Icons\odhlasit_sa.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\podla_pozicie.backup.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podla_pozicie.backup.png">
       <PackagePath>Assets\Icons\podla_pozicie.backup.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\podla_pozicie.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podla_pozicie.scale-100.png">
       <PackagePath>Assets\Icons\podla_pozicie.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\podla_pozicie.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podla_pozicie.scale-125.png">
       <PackagePath>Assets\Icons\podla_pozicie.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\podla_pozicie.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podla_pozicie.scale-150.png">
       <PackagePath>Assets\Icons\podla_pozicie.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\podla_pozicie.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podla_pozicie.scale-200.png">
       <PackagePath>Assets\Icons\podla_pozicie.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Icons\podla_poziciescale-400.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podla_poziciescale-400.png">
       <PackagePath>Assets\Icons\podla_poziciescale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Images\udalosti_logo.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Images\udalosti_logo.png">
       <PackagePath>Assets\Images\udalosti_logo.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Images\udalosti_ziadne_udalosti.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Images\udalosti_ziadne_udalosti.png">
       <PackagePath>Assets\Images\udalosti_ziadne_udalosti.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\LargeTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\LargeTile.scale-100.png">
       <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\LargeTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\LargeTile.scale-125.png">
       <PackagePath>Assets\LargeTile.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\LargeTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\LargeTile.scale-150.png">
       <PackagePath>Assets\LargeTile.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\LargeTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\LargeTile.scale-200.png">
       <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\LargeTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\LargeTile.scale-400.png">
       <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\SmallTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\SmallTile.scale-100.png">
       <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\SmallTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\SmallTile.scale-125.png">
       <PackagePath>Assets\SmallTile.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\SmallTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\SmallTile.scale-150.png">
       <PackagePath>Assets\SmallTile.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\SmallTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\SmallTile.scale-200.png">
       <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\SmallTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\SmallTile.scale-400.png">
       <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\SplashScreen.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\SplashScreen.scale-125.png">
       <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\SplashScreen.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\SplashScreen.scale-150.png">
       <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\SplashScreen.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square150x150Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square150x150Logo.scale-100.png">
       <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square150x150Logo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square150x150Logo.scale-125.png">
       <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square150x150Logo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square150x150Logo.scale-150.png">
       <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square150x150Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square150x150Logo.scale-400.png">
       <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.altform-unplated_targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.altform-unplated_targetsize-32.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-32.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.scale-100.png">
       <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.scale-125.png">
       <PackagePath>Assets\Square44x44Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.scale-150.png">
       <PackagePath>Assets\Square44x44Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.scale-400.png">
       <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.targetsize-24.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.targetsize-24.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.targetsize-32.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-32.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Square44x44Logo.targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Square44x44Logo.targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\StoreLogo.backup.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\StoreLogo.backup.png">
       <PackagePath>Assets\StoreLogo.backup.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\StoreLogo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\StoreLogo.scale-125.png">
       <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\StoreLogo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\StoreLogo.scale-150.png">
       <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\StoreLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\StoreLogo.scale-200.png">
       <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\StoreLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\StoreLogo.scale-400.png">
       <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Wide310x150Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Wide310x150Logo.scale-100.png">
       <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Wide310x150Logo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Wide310x150Logo.scale-125.png">
       <PackagePath>Assets\Wide310x150Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Wide310x150Logo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Wide310x150Logo.scale-150.png">
       <PackagePath>Assets\Wide310x150Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Wide310x150Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Wide310x150Logo.scale-400.png">
       <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-Black.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-Black.ttf">
       <PackagePath>Assets\Fonts\Raleway-Black.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-BlackItalic.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-BlackItalic.ttf">
       <PackagePath>Assets\Fonts\Raleway-BlackItalic.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-Bold.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-Bold.ttf">
       <PackagePath>Assets\Fonts\Raleway-Bold.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-BoldItalic.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-BoldItalic.ttf">
       <PackagePath>Assets\Fonts\Raleway-BoldItalic.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-ExtraBold.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-ExtraBold.ttf">
       <PackagePath>Assets\Fonts\Raleway-ExtraBold.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-ExtraBoldItalic.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-ExtraBoldItalic.ttf">
       <PackagePath>Assets\Fonts\Raleway-ExtraBoldItalic.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-ExtraLight.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-ExtraLight.ttf">
       <PackagePath>Assets\Fonts\Raleway-ExtraLight.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-ExtraLightItalic.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-ExtraLightItalic.ttf">
       <PackagePath>Assets\Fonts\Raleway-ExtraLightItalic.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-Italic.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-Italic.ttf">
       <PackagePath>Assets\Fonts\Raleway-Italic.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-Light.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-Light.ttf">
       <PackagePath>Assets\Fonts\Raleway-Light.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-LightItalic.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-LightItalic.ttf">
       <PackagePath>Assets\Fonts\Raleway-LightItalic.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-Medium.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-Medium.ttf">
       <PackagePath>Assets\Fonts\Raleway-Medium.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-MediumItalic.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-MediumItalic.ttf">
       <PackagePath>Assets\Fonts\Raleway-MediumItalic.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-Regular.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-Regular.ttf">
       <PackagePath>Assets\Fonts\Raleway-Regular.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-SemiBold.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-SemiBold.ttf">
       <PackagePath>Assets\Fonts\Raleway-SemiBold.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-SemiBoldItalic.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-SemiBoldItalic.ttf">
       <PackagePath>Assets\Fonts\Raleway-SemiBoldItalic.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-Thin.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-Thin.ttf">
       <PackagePath>Assets\Fonts\Raleway-Thin.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Fonts\Raleway-ThinItalic.ttf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Fonts\Raleway-ThinItalic.ttf">
       <PackagePath>Assets\Fonts\Raleway-ThinItalic.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Images\udalosti_chyba_obrazka.jpg">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Images\udalosti_chyba_obrazka.jpg">
       <PackagePath>Assets\Images\udalosti_chyba_obrazka.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Assets\Images\udalosti_pozadie.jpg">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Images\udalosti_pozadie.jpg">
       <PackagePath>Assets\Images\udalosti_pozadie.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Udalosti.xr.xml">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Udalosti.xr.xml">
       <PackagePath>Udalosti.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Autentifikacia\UI\Prihlasenie.xbf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Autentifikacia\UI\Prihlasenie.xbf">
       <PackagePath>Autentifikacia\UI\Prihlasenie.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Autentifikacia\UI\Registracia.xbf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Autentifikacia\UI\Registracia.xbf">
       <PackagePath>Autentifikacia\UI\Registracia.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Udalosti\UI\ZoznamUdalosti.xbf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Udalosti\UI\ZoznamUdalosti.xbf">
       <PackagePath>Udalosti\UI\ZoznamUdalosti.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Uvod\UI\UvodnaObrazovka.xbf">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Uvod\UI\UvodnaObrazovka.xbf">
       <PackagePath>Uvod\UI\UvodnaObrazovka.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Udalosti\Udalosti\bin\x86\Debug\Core\Udalosti.exe">
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Core\Udalosti.exe">
       <PackagePath>Udalosti.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
