@@ -622,7 +622,6 @@ C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\System.Xml.Read
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\System.Xml.XDocument.dll
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\System.Xml.XmlDocument.dll
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\System.Xml.XmlSerializer.dll
-C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\Udalosti.csprojAssemblyReference.cache
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\App.g.i.cs
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\App.g.cs
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\Autentifikacia\UI\Prihlasenie.g.i.cs
@@ -731,3 +730,11 @@ C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\qualifiers.txt
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Udalosti\UI\Podrobnosti.xbf
+C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\Udalosti\UI\Podrobnosti.g.i.cs
+C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\Udalosti\UI\Podrobnosti.g.cs
+C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\Udalosti\UI\Podrobnosti.xaml
+C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\Udalosti\UI\Podrobnosti.xbf
+C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\PullToRefresh.UWP.winmd
+C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\PullToRefresh.UWP.pri.xml
+C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\Udalosti.csprojAssemblyReference.cache

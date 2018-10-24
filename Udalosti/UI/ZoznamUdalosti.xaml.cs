@@ -45,9 +45,6 @@ namespace Udalosti.Udalosti.UI
 
         public async Task dataZoServeraAsync(string odpoved, string od, List<Udalost> udaje)
         {
-            nacitavaniePodlaPozicie.IsActive = false;
-            nacitavaniePodlaPozicie.Visibility = Visibility.Collapsed;
-
             switch (od)
             {
                 case Nastavenia.UDALOSTI_OBJAVUJ:
@@ -79,6 +76,11 @@ namespace Udalosti.Udalosti.UI
                     }
                     break;
             }
+            nacitavaniePodlaPozicie.IsActive = false;
+            nacitavaniePodlaPozicie.Visibility = Visibility.Collapsed;
+
+            nacitavanieUdalosti.IsActive = false;
+            nacitavanieUdalosti.Visibility = Visibility.Collapsed;
         }
 
         public async Task odpovedServera(string odpoved, string od, Dictionary<string, string> udaje)
@@ -95,6 +97,30 @@ namespace Udalosti.Udalosti.UI
             }
         }
 
+        private async void aktualizujUdalosti(DependencyObject sender, object args)
+        {
+            Debug.WriteLine("Metoda aktualizujUdalosti bola vykonana");
+
+            this.udalost.Clear();
+
+            nacitavanieUdalosti.IsActive = true;
+            nacitavanieUdalosti.Visibility = Visibility.Visible;
+
+            await this.udalostiUdaje.zoznamUdalostiAsync(pouzivatelskeUdaje["email"], miestoPrihlasenia["stat"], pouzivatelskeUdaje["token"]);
+        }
+
+        private async void aktualizujUdalostiPodlaPozicie(DependencyObject sender, object args)
+        {
+            Debug.WriteLine("Metoda aktualizujUdalostiPodlaPozicie bola vykonana");
+
+            this.udalostPodlaPozicie.Clear();
+
+            nacitavaniePodlaPozicie.IsActive = true;
+            nacitavaniePodlaPozicie.Visibility = Visibility.Visible;
+
+            await this.udalostiUdaje.zoznamUdalostiPodlaPozicieAsync(pouzivatelskeUdaje["email"], miestoPrihlasenia["stat"], miestoPrihlasenia["okres"], miestoPrihlasenia["mesto"], pouzivatelskeUdaje["token"]);
+        }
+
         private void aktualnyPivot(object sender, SelectionChangedEventArgs e)
         {
             Debug.WriteLine("Metoda aktualnyPivot bola vykonana");
@@ -108,6 +134,22 @@ namespace Udalosti.Udalosti.UI
                     miesto.Text = miestoPrihlasenia["mesto"];
                     break;
             }
+        }
+
+        private void zvolenaUdalost(object sender, ItemClickEventArgs e)
+        {
+            Debug.WriteLine("Metoda zvolenaUdalost bola vykonana");
+
+            var zvolenaUdalost = (Udalost)e.ClickedItem;
+            this.Frame.Navigate(typeof(Podrobnosti), zvolenaUdalost);
+        }
+
+        private void zvolenaUdalostPodlaPozicie(object sender, ItemClickEventArgs e)
+        {
+            Debug.WriteLine("Metoda zvolenaUdalostPodlaPozicie bola vykonana");
+
+            var zvolenaUdalost = (Udalost)e.ClickedItem;
+            this.Frame.Navigate(typeof(Podrobnosti), zvolenaUdalost);
         }
 
         private async Task ziskajUdalostiAsync(List<Udalost> udaje, ListView zoznam, ObservableCollection<Udalost> obsah)
@@ -126,21 +168,21 @@ namespace Udalosti.Udalosti.UI
                     __o.obrazok = App.udalostiAdresa + __o.obrazok;
                 }
 
-                __o.mesiac = dlzkaSlova(__o.mesiac);
-                __o.mesto = dlzkaSlova(__o.mesto);
+                __o.mesiac = dlzkaSlova(__o.mesiac, 4);
+                __o.mesto = __o.mesto + ", ";
                 
                 obsah.Add(__o);
             }
             zoznam.ItemsSource = obsah;
         }
 
-        private string dlzkaSlova(string slovo)
+        private string dlzkaSlova(string slovo, int dlzka)
         {
             Debug.WriteLine("Metoda dlzkaSlova bola vykonana");
 
-            if (slovo.Length > 5)
+            if (slovo.Length > dlzka)
             {
-                return slovo.Substring(0, 4) + "...";
+                return slovo.Substring(0, 3) + ".";
             }
             else
             {
@@ -192,7 +234,9 @@ namespace Udalosti.Udalosti.UI
             nacitavaniePodlaPozicie.IsActive = true;
             nacitavaniePodlaPozicie.Visibility = Visibility.Visible;
 
-            await this.udalostiUdaje.zoznamUdalostiPodlaPozicieAsync(pouzivatelskeUdaje["email"], miestoPrihlasenia["stat"], miestoPrihlasenia["okres"], miestoPrihlasenia["mesto"], pouzivatelskeUdaje["token"]);
+            if (udalostPodlaPozicie.Count == 0) { 
+                await this.udalostiUdaje.zoznamUdalostiPodlaPozicieAsync(pouzivatelskeUdaje["email"], miestoPrihlasenia["stat"], miestoPrihlasenia["okres"], miestoPrihlasenia["mesto"], pouzivatelskeUdaje["token"]);
+            }
         }
 
         private async void nacitajZoznam(object sender, RoutedEventArgs e)
@@ -202,7 +246,10 @@ namespace Udalosti.Udalosti.UI
             nacitavanieUdalosti.IsActive = true;
             nacitavanieUdalosti.Visibility = Visibility.Visible;
 
-            await this.udalostiUdaje.zoznamUdalostiAsync(pouzivatelskeUdaje["email"], miestoPrihlasenia["stat"], pouzivatelskeUdaje["token"]);
+            if (udalost.Count == 0)
+            {
+                await this.udalostiUdaje.zoznamUdalostiAsync(pouzivatelskeUdaje["email"], miestoPrihlasenia["stat"], pouzivatelskeUdaje["token"]);
+            }
         }
 
         private async void odhlasitSa(object sender, RoutedEventArgs e)

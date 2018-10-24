@@ -55,7 +55,7 @@ namespace Udalosti.Udalosti.Data
                { "email", email }
             };
 
-            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/prihlasenie/odhlasit_sa");
+            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/prihlasenie/odhlasit");
             if (odpoved.IsSuccessStatusCode)
             {
                 Autentifikator autentifikator = JsonConvert.DeserializeObject<Autentifikator>(await odpoved.Content.ReadAsStringAsync());
@@ -108,7 +108,7 @@ namespace Udalosti.Udalosti.Data
                { "token", token }
             };
 
-            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/udalosti/udalosti_podla_pozicie");
+            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/udalosti/zoznam_podla_pozicie");
             if (odpoved.IsSuccessStatusCode)
             {
                 Obsah data = JsonConvert.DeserializeObject<Obsah>(await odpoved.Content.ReadAsStringAsync());

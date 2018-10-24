@@ -391,6 +391,15 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
+      "PullToRefresh.UWP/0.3.4": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -2812,6 +2821,15 @@
         },
         "runtime": {
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PullToRefresh.UWP/0.3.4": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
         }
       },
       "runtime.any.System.Collections/4.3.0": {
@@ -5324,6 +5342,15 @@
         },
         "runtime": {
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PullToRefresh.UWP/0.3.4": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
         }
       },
       "runtime.aot.System.Collections/4.3.0": {
@@ -7871,6 +7898,15 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
+      "PullToRefresh.UWP/0.3.4": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
+        }
+      },
       "runtime.aot.System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -10402,6 +10438,15 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
+      "PullToRefresh.UWP/0.3.4": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
+        }
+      },
       "runtime.any.System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -12921,6 +12966,15 @@
         },
         "runtime": {
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PullToRefresh.UWP/0.3.4": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
         }
       },
       "runtime.aot.System.Collections/4.3.0": {
@@ -15478,6 +15532,15 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
+      "PullToRefresh.UWP/0.3.4": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
+        }
+      },
       "runtime.any.System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -17997,6 +18060,15 @@
         },
         "runtime": {
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PullToRefresh.UWP/0.3.4": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/PullToRefresh.UWP.winmd": {}
         }
       },
       "runtime.aot.System.Collections/4.3.0": {
@@ -22922,6 +22994,20 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
+      ]
+    },
+    "PullToRefresh.UWP/0.3.4": {
+      "sha512": "QcQ+JgodZNMM9FZ7qe9mSSCqpt53DuHOPxuHahiVPgkGyv9zM3hp/U9qzA2f1xuEpc+63bvQNcjoj/ps0ILQAA==",
+      "type": "package",
+      "path": "pulltorefresh.uwp/0.3.4",
+      "files": [
+        "lib/uap10.0/PullToRefresh.UWP.pri",
+        "lib/uap10.0/PullToRefresh.UWP.winmd",
+        "lib/uap10.0/PullToRefresh.UWP/Properties/PullToRefresh.UWP.rd.xml",
+        "lib/uap10.0/PullToRefresh.UWP/PullToRefresh.UWP.xr.xml",
+        "lib/uap10.0/PullToRefresh.UWP/Themes/Generic.xbf",
+        "pulltorefresh.uwp.0.3.4.nupkg.sha512",
+        "pulltorefresh.uwp.nuspec"
       ]
     },
     "runtime.any.System.Collections/4.3.0": {
@@ -30165,6 +30251,7 @@
     "UAP,Version=v10.0.15063": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.1.7",
       "Newtonsoft.Json >= 11.0.2",
+      "PullToRefresh.UWP >= 0.3.4",
       "SQLite.Net-PCL >= 3.1.1"
     ]
   },
@@ -30212,6 +30299,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[11.0.2, )"
+          },
+          "PullToRefresh.UWP": {
+            "target": "Package",
+            "version": "[0.3.4, )"
           },
           "SQLite.Net-PCL": {
             "target": "Package",

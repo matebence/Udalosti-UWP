@@ -2,7 +2,7 @@
 <Roots >
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="cas" />
-    <RootPropertyPathName Name="miesto" />
+    <RootPropertyPathName Name="ulica" />
     <RootPropertyPathName Name="mesto" />
     <RootPropertyPathName Name="nazov" />
     <RootPropertyPathName Name="mesiac" />
@@ -95,6 +95,7 @@
     </RootType>
     <RootType FullName="Udalosti.Prihlasenie" />
     <RootType FullName="Udalosti.Registracia" />
+    <RootType FullName="Udalosti.Udalosti.UI.Podrobnosti" />
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
       <RootProperty Name="FontFamily" />
       <RootProperty Name="Title" />
@@ -134,8 +135,10 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Visibility" />
       <RootProperty Name="SelectionMode" />
+      <RootProperty Name="IsItemClickEnabled" />
       <RootProperty Name="Margin" />
       <RootProperty Name="ItemTemplate" />
+      <RootEvent Name="ItemClick" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
@@ -148,6 +151,16 @@
       <RootProperty Name="Orientation" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
+    <RootType FullName="PullToRefresh.UWP.PullToRefreshBox">
+      <RootProperty Name="Content" />
+      <RootProperty Name="TopIndicatorTemplate" />
+      <RootEvent Name="RefreshInvoked" />
+    </RootType>
+    <RootType FullName="PullToRefresh.UWP.PullRefreshProgressControl">
+      <RootProperty Name="Progress" />
+      <RootProperty Name="PullToRefreshText" />
+      <RootProperty Name="ReleaseToRefreshText" />
+    </RootType>
     <RootType FullName="Udalosti.Udalosti.UI.ZoznamUdalosti" />
     <RootType FullName="Udalosti.Uvod.UI.UvodnaObrazovka" />
   </Roots.RootTypes>

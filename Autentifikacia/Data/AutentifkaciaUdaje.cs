@@ -39,6 +39,7 @@ namespace Udalosti.Autentifikacia.Data
                 if (pozicia.country != null)
                 {
                     stat = pozicia.country;
+                    stat = "Slovensko";
                 }
                 if (pozicia.regionName != null)
                 {
@@ -72,7 +73,7 @@ namespace Udalosti.Autentifikacia.Data
                { "pokus_o_prihlasenie", Guid.NewGuid().ToString() }
             };
 
-            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/prihlasenie/prihlasit_sa");
+            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/prihlasenie/prihlasit");
             if (odpoved.IsSuccessStatusCode)
             {
                 Autentifikator autentifikator = JsonConvert.DeserializeObject<Autentifikator>(await odpoved.Content.ReadAsStringAsync());

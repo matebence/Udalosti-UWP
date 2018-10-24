@@ -117,6 +117,18 @@ namespace Udalosti.Udalosti_XamlTypeInfo
                 {
                     xamlType = CreateXamlType(typeIndex);
                 }
+                var userXamlType = xamlType as global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType;
+                if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+                {
+                    global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForType(type);
+                    if (libXamlType != null)
+                    {
+                        if(libXamlType.IsConstructible || xamlType == null)
+                        {
+                            xamlType = libXamlType;
+                        }
+                    }
+                }
                 if (xamlType != null)
                 {
                     _xamlTypeCacheByName.Add(xamlType.FullName, xamlType);
@@ -143,6 +155,18 @@ namespace Udalosti.Udalosti_XamlTypeInfo
                 if(typeIndex != -1)
                 {
                     xamlType = CreateXamlType(typeIndex);
+                }
+                var userXamlType = xamlType as global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType;
+                if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+                {
+                    global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForName(typeName);
+                    if (libXamlType != null)
+                    {
+                        if(libXamlType.IsConstructible || xamlType == null)
+                        {
+                            xamlType = libXamlType;
+                        }
+                    }
                 }
                 if (xamlType != null)
                 {
@@ -189,21 +213,37 @@ namespace Udalosti.Udalosti_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[6];
+            _typeNameTable = new string[14];
             _typeNameTable[0] = "Udalosti.Prihlasenie";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "Udalosti.Registracia";
-            _typeNameTable[4] = "Udalosti.Udalosti.UI.ZoznamUdalosti";
-            _typeNameTable[5] = "Udalosti.Uvod.UI.UvodnaObrazovka";
+            _typeNameTable[4] = "Udalosti.Udalosti.UI.Podrobnosti";
+            _typeNameTable[5] = "PullToRefresh.UWP.PullToRefreshBox";
+            _typeNameTable[6] = "Windows.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[7] = "Windows.UI.Xaml.DataTemplate";
+            _typeNameTable[8] = "Double";
+            _typeNameTable[9] = "PullToRefresh.UWP.PullRefreshProgressControl";
+            _typeNameTable[10] = "Windows.UI.Xaml.Controls.Control";
+            _typeNameTable[11] = "String";
+            _typeNameTable[12] = "Udalosti.Udalosti.UI.ZoznamUdalosti";
+            _typeNameTable[13] = "Udalosti.Uvod.UI.UvodnaObrazovka";
 
-            _typeTable = new global::System.Type[6];
+            _typeTable = new global::System.Type[14];
             _typeTable[0] = typeof(global::Udalosti.Prihlasenie);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::Udalosti.Registracia);
-            _typeTable[4] = typeof(global::Udalosti.Udalosti.UI.ZoznamUdalosti);
-            _typeTable[5] = typeof(global::Udalosti.Uvod.UI.UvodnaObrazovka);
+            _typeTable[4] = typeof(global::Udalosti.Udalosti.UI.Podrobnosti);
+            _typeTable[5] = typeof(global::PullToRefresh.UWP.PullToRefreshBox);
+            _typeTable[6] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
+            _typeTable[7] = typeof(global::Windows.UI.Xaml.DataTemplate);
+            _typeTable[8] = typeof(global::System.Double);
+            _typeTable[9] = typeof(global::PullToRefresh.UWP.PullRefreshProgressControl);
+            _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.Control);
+            _typeTable[11] = typeof(global::System.String);
+            _typeTable[12] = typeof(global::Udalosti.Udalosti.UI.ZoznamUdalosti);
+            _typeTable[13] = typeof(global::Udalosti.Uvod.UI.UvodnaObrazovka);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -240,8 +280,11 @@ namespace Udalosti.Udalosti_XamlTypeInfo
 
         private object Activate_0_Prihlasenie() { return new global::Udalosti.Prihlasenie(); }
         private object Activate_3_Registracia() { return new global::Udalosti.Registracia(); }
-        private object Activate_4_ZoznamUdalosti() { return new global::Udalosti.Udalosti.UI.ZoznamUdalosti(); }
-        private object Activate_5_UvodnaObrazovka() { return new global::Udalosti.Uvod.UI.UvodnaObrazovka(); }
+        private object Activate_4_Podrobnosti() { return new global::Udalosti.Udalosti.UI.Podrobnosti(); }
+        private object Activate_5_PullToRefreshBox() { return new global::PullToRefresh.UWP.PullToRefreshBox(); }
+        private object Activate_9_PullRefreshProgressControl() { return new global::PullToRefresh.UWP.PullRefreshProgressControl(); }
+        private object Activate_12_ZoznamUdalosti() { return new global::Udalosti.Udalosti.UI.ZoznamUdalosti(); }
+        private object Activate_13_UvodnaObrazovka() { return new global::Udalosti.Uvod.UI.UvodnaObrazovka(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -275,16 +318,60 @@ namespace Udalosti.Udalosti_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 4:   //  Udalosti.Udalosti.UI.ZoznamUdalosti
+            case 4:   //  Udalosti.Udalosti.UI.Podrobnosti
                 userType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_ZoznamUdalosti;
+                userType.Activator = Activate_4_Podrobnosti;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 5:   //  Udalosti.Uvod.UI.UvodnaObrazovka
+            case 5:   //  PullToRefresh.UWP.PullToRefreshBox
+                userType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentControl"));
+                userType.Activator = Activate_5_PullToRefreshBox;
+                userType.AddMemberName("TopIndicatorTemplate");
+                userType.AddMemberName("RefreshThreshold");
+                xamlType = userType;
+                break;
+
+            case 6:   //  Windows.UI.Xaml.Controls.ContentControl
+                xamlType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 7:   //  Windows.UI.Xaml.DataTemplate
+                xamlType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 8:   //  Double
+                xamlType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 9:   //  PullToRefresh.UWP.PullRefreshProgressControl
+                userType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
+                userType.Activator = Activate_9_PullRefreshProgressControl;
+                userType.AddMemberName("Progress");
+                userType.AddMemberName("PullToRefreshText");
+                userType.AddMemberName("ReleaseToRefreshText");
+                xamlType = userType;
+                break;
+
+            case 10:   //  Windows.UI.Xaml.Controls.Control
+                xamlType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 11:   //  String
+                xamlType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 12:   //  Udalosti.Udalosti.UI.ZoznamUdalosti
                 userType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_5_UvodnaObrazovka;
+                userType.Activator = Activate_12_ZoznamUdalosti;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  Udalosti.Uvod.UI.UvodnaObrazovka
+                userType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_13_UvodnaObrazovka;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -292,12 +379,155 @@ namespace Udalosti.Udalosti_XamlTypeInfo
             return xamlType;
         }
 
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> _otherProviders;
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> OtherProviders
+        {
+            get
+            {
+                if(_otherProviders == null)
+                {
+                    var otherProviders = new global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider>();
+                    global::Windows.UI.Xaml.Markup.IXamlMetadataProvider provider;
+                    provider = new global::PullToRefresh.UWP.PullToRefresh_UWP_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    _otherProviders = otherProviders;
+                }
+                return _otherProviders;
+            }
+        }
 
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForName(string typeName)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(typeName);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForType(global::System.Type type)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(type);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private object get_0_PullToRefreshBox_TopIndicatorTemplate(object instance)
+        {
+            var that = (global::PullToRefresh.UWP.PullToRefreshBox)instance;
+            return that.TopIndicatorTemplate;
+        }
+        private void set_0_PullToRefreshBox_TopIndicatorTemplate(object instance, object Value)
+        {
+            var that = (global::PullToRefresh.UWP.PullToRefreshBox)instance;
+            that.TopIndicatorTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_1_PullToRefreshBox_RefreshThreshold(object instance)
+        {
+            var that = (global::PullToRefresh.UWP.PullToRefreshBox)instance;
+            return that.RefreshThreshold;
+        }
+        private void set_1_PullToRefreshBox_RefreshThreshold(object instance, object Value)
+        {
+            var that = (global::PullToRefresh.UWP.PullToRefreshBox)instance;
+            that.RefreshThreshold = (global::System.Double)Value;
+        }
+        private object get_2_PullRefreshProgressControl_Progress(object instance)
+        {
+            var that = (global::PullToRefresh.UWP.PullRefreshProgressControl)instance;
+            return that.Progress;
+        }
+        private void set_2_PullRefreshProgressControl_Progress(object instance, object Value)
+        {
+            var that = (global::PullToRefresh.UWP.PullRefreshProgressControl)instance;
+            that.Progress = (global::System.Double)Value;
+        }
+        private object get_3_PullRefreshProgressControl_PullToRefreshText(object instance)
+        {
+            var that = (global::PullToRefresh.UWP.PullRefreshProgressControl)instance;
+            return that.PullToRefreshText;
+        }
+        private void set_3_PullRefreshProgressControl_PullToRefreshText(object instance, object Value)
+        {
+            var that = (global::PullToRefresh.UWP.PullRefreshProgressControl)instance;
+            that.PullToRefreshText = (global::System.String)Value;
+        }
+        private object get_4_PullRefreshProgressControl_ReleaseToRefreshText(object instance)
+        {
+            var that = (global::PullToRefresh.UWP.PullRefreshProgressControl)instance;
+            return that.ReleaseToRefreshText;
+        }
+        private void set_4_PullRefreshProgressControl_ReleaseToRefreshText(object instance, object Value)
+        {
+            var that = (global::PullToRefresh.UWP.PullRefreshProgressControl)instance;
+            that.ReleaseToRefreshText = (global::System.String)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::Udalosti.Udalosti_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "PullToRefresh.UWP.PullToRefreshBox.TopIndicatorTemplate":
+                userType = (global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PullToRefresh.UWP.PullToRefreshBox");
+                xamlMember = new global::Udalosti.Udalosti_XamlTypeInfo.XamlMember(this, "TopIndicatorTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_0_PullToRefreshBox_TopIndicatorTemplate;
+                xamlMember.Setter = set_0_PullToRefreshBox_TopIndicatorTemplate;
+                break;
+            case "PullToRefresh.UWP.PullToRefreshBox.RefreshThreshold":
+                userType = (global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PullToRefresh.UWP.PullToRefreshBox");
+                xamlMember = new global::Udalosti.Udalosti_XamlTypeInfo.XamlMember(this, "RefreshThreshold", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_1_PullToRefreshBox_RefreshThreshold;
+                xamlMember.Setter = set_1_PullToRefreshBox_RefreshThreshold;
+                break;
+            case "PullToRefresh.UWP.PullRefreshProgressControl.Progress":
+                userType = (global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PullToRefresh.UWP.PullRefreshProgressControl");
+                xamlMember = new global::Udalosti.Udalosti_XamlTypeInfo.XamlMember(this, "Progress", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_2_PullRefreshProgressControl_Progress;
+                xamlMember.Setter = set_2_PullRefreshProgressControl_Progress;
+                break;
+            case "PullToRefresh.UWP.PullRefreshProgressControl.PullToRefreshText":
+                userType = (global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PullToRefresh.UWP.PullRefreshProgressControl");
+                xamlMember = new global::Udalosti.Udalosti_XamlTypeInfo.XamlMember(this, "PullToRefreshText", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_3_PullRefreshProgressControl_PullToRefreshText;
+                xamlMember.Setter = set_3_PullRefreshProgressControl_PullToRefreshText;
+                break;
+            case "PullToRefresh.UWP.PullRefreshProgressControl.ReleaseToRefreshText":
+                userType = (global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PullToRefresh.UWP.PullRefreshProgressControl");
+                xamlMember = new global::Udalosti.Udalosti_XamlTypeInfo.XamlMember(this, "ReleaseToRefreshText", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_4_PullRefreshProgressControl_ReleaseToRefreshText;
+                xamlMember.Setter = set_4_PullRefreshProgressControl_ReleaseToRefreshText;
+                break;
+            }
             return xamlMember;
         }
     }

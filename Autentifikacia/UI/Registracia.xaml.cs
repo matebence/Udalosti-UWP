@@ -52,9 +52,10 @@ namespace Udalosti
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e) {
+            base.OnNavigatedTo(e);
+
             SystemNavigationManager.GetForCurrentView().BackRequested += spatNaPrihlasanie;
             registracia.IsEnabled = this.Frame.CanGoBack;
-            base.OnNavigatedTo(e);
         }
 
         private void spatNaPrihlasanie(object sender, BackRequestedEventArgs e)

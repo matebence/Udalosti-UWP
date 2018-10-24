@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ptr="using:PullToRefresh.UWP"
     mc:Ignorable="d">
 
     <Frame 
@@ -54,41 +55,47 @@
                             RelativePanel.AlignHorizontalCenterWithPanel="True"
                             RelativePanel.AlignVerticalCenterWithPanel="True"/>
 
-                        <ListView 
-                            x:Name="zoznamUdalosti"
-                            Visibility="Collapsed"
-                            SelectionMode="None"
-                            Margin="0,10,0,0">
-                            
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid 
+                        <ptr:PullToRefreshBox 
+                            RefreshInvoked="aktualizujUdalosti">
+
+                            <ListView 
+                                x:Name="zoznamUdalosti"
+                                Visibility="Collapsed"
+                                SelectionMode="None"
+                                IsItemClickEnabled="True"
+                                ItemClick="zvolenaUdalost"
+                                Margin="0,10,0,0">
+
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid 
                                     Background="#333333" 
                                     Margin="0,0,0,30">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="250"/>
-                                            <RowDefinition Height="auto"/>
-                                            <RowDefinition Height="auto"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="250"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
 
-                                        <Image
+                                            <Image
                                         Grid.Row="0"
                                         Grid.Column="0"
                                         Height="250"
+                                        Width="450"
                                         Source="{Binding obrazok}"
                                         Stretch="UniformToFill"
                                         VerticalAlignment="Top"/>
 
-                                        <StackPanel
+                                            <StackPanel
                                         Grid.Row="1"
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Center"
                                         Margin="20,5,0,5">
 
-                                            <TextBlock
+                                                <TextBlock
                                             Text="{Binding den}"
                                             Foreground="#c33939"
                                             FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
@@ -98,7 +105,7 @@
                                             TextAlignment="Left"
                                             HorizontalAlignment="Center"/>
 
-                                            <TextBlock
+                                                <TextBlock
                                             Text="{Binding mesiac}"
                                             Foreground="White"
                                             FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
@@ -106,15 +113,15 @@
                                             TextWrapping="Wrap"
                                             TextAlignment="Left"
                                             HorizontalAlignment="Center"/>
-                                        </StackPanel>
+                                            </StackPanel>
 
-                                        <StackPanel
+                                            <StackPanel
                                         Grid.Row="1"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         Margin="20,0,20,0" >
 
-                                            <TextBlock
+                                                <TextBlock
                                             Text="{Binding nazov}"
                                             Foreground="White"
                                             FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
@@ -123,14 +130,14 @@
                                             TextAlignment="Left"
                                             HorizontalAlignment="Center"/>
 
-                                            <StackPanel
+                                                <StackPanel
                                                 Orientation="Horizontal">
-                                                <Image
+                                                    <Image
                                                 Width="20"
                                                 Height="20"
                                                 Source="ms-appx:///Assets/Icons/podla_pozicie.png"/>
 
-                                                <TextBlock
+                                                    <TextBlock
                                                 Text="{Binding mesto}"
                                                 FontWeight="Bold"
                                                 Foreground="#005ba6"
@@ -139,22 +146,22 @@
                                                 TextWrapping="Wrap"
                                                 Margin="0,0,8,0"/>
 
-                                                <TextBlock
-                                                Text="{Binding miesto}"
+                                                    <TextBlock
+                                                Text="{Binding ulica}"
                                                 Foreground="White"
                                                 FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                                 FontSize="20"
                                                 TextWrapping="Wrap"/>
+                                                </StackPanel>
                                             </StackPanel>
-                                        </StackPanel>
 
-                                        <StackPanel
+                                            <StackPanel
                                         Grid.Row="1"
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Center"
                                         Margin="0,5,20,5">
 
-                                            <TextBlock
+                                                <TextBlock
                                             Text="{Binding cas}"
                                             Foreground="White"
                                             FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
@@ -163,15 +170,24 @@
                                             TextAlignment="Left"
                                             HorizontalAlignment="Center"/>
 
-                                            <Image
+                                                <Image
                                             Width="20"
                                             Height="20"
                                             Source="ms-appx:///Assets/Icons/cas.png"/>
-                                        </StackPanel>
-                                    </Grid>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <ptr:PullToRefreshBox.TopIndicatorTemplate>
+                                <DataTemplate>
+                                    <ptr:PullRefreshProgressControl 
+                                        Progress="{Binding}"
+                                        PullToRefreshText="Aktualizovanie"
+                                        ReleaseToRefreshText="Úspešné aktualizovanie" />
                                 </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
+                            </ptr:PullToRefreshBox.TopIndicatorTemplate>
+                        </ptr:PullToRefreshBox>
                     </RelativePanel>
                 </PivotItem>
                 
@@ -197,124 +213,139 @@
                             RelativePanel.AlignHorizontalCenterWithPanel="True"
                             RelativePanel.AlignVerticalCenterWithPanel="True"/>
 
-                        <ListView 
-                            x:Name="zoznamUdalostiPodlaPozicie"
-                            Visibility="Collapsed"
-                            SelectionMode="None"
-                            Margin="0,10,0,0">
+                        <ptr:PullToRefreshBox 
+                            RefreshInvoked="aktualizujUdalostiPodlaPozicie">
                             
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid 
-                                        Background="#333333" 
-                                        Margin="0,0,0,30">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="250"/>
-                                            <RowDefinition Height="auto"/>
-                                            <RowDefinition Height="auto"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
+                            <ListView 
+                                x:Name="zoznamUdalostiPodlaPozicie"
+                                Visibility="Collapsed"
+                                SelectionMode="None"
+                                IsItemClickEnabled="True"
+                                ItemClick="zvolenaUdalostPodlaPozicie"
+                                Margin="0,10,0,0">
+                            
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid 
+                                            Background="#333333" 
+                                            Margin="0,0,0,30">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="250"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
 
-                                        <Image
-                                        Grid.Row="0"
-                                        Grid.Column="0"
-                                        Height="250"
-                                        Source="{Binding obrazok}"
-                                        VerticalAlignment="Top"
-                                        Stretch="UniformToFill"/>
-
-                                        <StackPanel
-                                        Grid.Row="1"
-                                        HorizontalAlignment="Left"
-                                        VerticalAlignment="Center"
-                                        Margin="20,5,0,5">
-
-                                            <TextBlock
-                                            Text="{Binding den}"
-                                            Foreground="#c33939"
-                                            FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
-                                            FontWeight="Bold"
-                                            FontSize="25"
-                                            TextWrapping="Wrap"
-                                            TextAlignment="Left"
-                                            HorizontalAlignment="Center"/>
-
-                                            <TextBlock
-                                            Text="{Binding mesiac}"
-                                            Foreground="White"
-                                            FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
-                                            FontSize="20"
-                                            TextWrapping="Wrap"
-                                            TextAlignment="Left"
-                                            HorizontalAlignment="Center"/>
-                                        </StackPanel>
-
-                                        <StackPanel
-                                        Grid.Row="1"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Margin="20,0,20,0" >
-
-                                            <TextBlock
-                                            Text="{Binding nazov}"
-                                            Foreground="White"
-                                            FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
-                                            FontSize="20"
-                                            TextWrapping="Wrap"
-                                            TextAlignment="Left"
-                                            HorizontalAlignment="Center"/>
+                                            <Image
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            Height="250"
+                                            Width="450"
+                                            Source="{Binding obrazok}"
+                                            VerticalAlignment="Top"
+                                            Stretch="UniformToFill"/>
 
                                             <StackPanel
-                                                Orientation="Horizontal">
-                                                <Image
-                                                Width="20"
-                                                Height="20"
-                                                Source="ms-appx:///Assets/Icons/podla_pozicie.png"/>
+                                            Grid.Row="1"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Margin="20,5,0,5">
 
                                                 <TextBlock
-                                                Text="{Binding mesto}"
+                                                Text="{Binding den}"
+                                                Foreground="#c33939"
+                                                FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                                 FontWeight="Bold"
-                                                Foreground="#005ba6"
+                                                FontSize="25"
+                                                TextWrapping="Wrap"
+                                                TextAlignment="Left"
+                                                HorizontalAlignment="Center"/>
+
+                                                <TextBlock
+                                                Text="{Binding mesiac}"
+                                                Foreground="White"
                                                 FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                                 FontSize="20"
                                                 TextWrapping="Wrap"
-                                                Margin="0,0,8,0"/>
+                                                TextAlignment="Left"
+                                                HorizontalAlignment="Center"/>
+                                            </StackPanel>
+
+                                            <StackPanel
+                                            Grid.Row="1"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Margin="20,0,20,0" >
 
                                                 <TextBlock
-                                                Text="{Binding miesto}"
+                                                Text="{Binding nazov}"
                                                 Foreground="White"
-                                                FontFamily="Raleway"
+                                                FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                                                 FontSize="20"
-                                                TextWrapping="Wrap"/>
+                                                TextWrapping="Wrap"
+                                                TextAlignment="Left"
+                                                HorizontalAlignment="Center"/>
+
+                                                <StackPanel
+                                                    Orientation="Horizontal">
+                                                    <Image
+                                                    Width="20"
+                                                    Height="20"
+                                                    Source="ms-appx:///Assets/Icons/podla_pozicie.png"/>
+
+                                                    <TextBlock
+                                                    Text="{Binding mesto}"
+                                                    FontWeight="Bold"
+                                                    Foreground="#005ba6"
+                                                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
+                                                    FontSize="20"
+                                                    TextWrapping="Wrap"
+                                                    Margin="0,0,8,0"/>
+
+                                                    <TextBlock
+                                                    Text="{Binding ulica}"
+                                                    Foreground="White"
+                                                    FontFamily="Raleway"
+                                                    FontSize="20"
+                                                    TextWrapping="Wrap"/>
+                                                </StackPanel>
                                             </StackPanel>
-                                        </StackPanel>
 
-                                        <StackPanel
-                                        Grid.Row="1"
-                                        HorizontalAlignment="Right"
-                                        VerticalAlignment="Center"
-                                        Margin="0,5,20,5">
+                                            <StackPanel
+                                            Grid.Row="1"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
+                                            Margin="0,5,20,5">
 
-                                            <TextBlock
-                                            Text="{Binding cas}"
-                                            Foreground="White"
-                                            FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
-                                            FontSize="20"
-                                            TextWrapping="Wrap"
-                                            TextAlignment="Left"
-                                            HorizontalAlignment="Center"/>
+                                                <TextBlock
+                                                Text="{Binding cas}"
+                                                Foreground="White"
+                                                FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
+                                                FontSize="20"
+                                                TextWrapping="Wrap"
+                                                TextAlignment="Left"
+                                                HorizontalAlignment="Center"/>
 
-                                            <Image
-                                            Width="20"
-                                            Height="20"
-                                            Source="ms-appx:///Assets/Icons/cas.png"/>
-                                        </StackPanel>
-                                    </Grid>
+                                                <Image
+                                                Width="20"
+                                                Height="20"
+                                                Source="ms-appx:///Assets/Icons/cas.png"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <ptr:PullToRefreshBox.TopIndicatorTemplate>
+                                <DataTemplate>
+                                    <ptr:PullRefreshProgressControl 
+                                        Progress="{Binding}"
+                                        PullToRefreshText="Aktualizovanie"
+                                        ReleaseToRefreshText="Úspešné aktualizovanie" />
                                 </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
+                            </ptr:PullToRefreshBox.TopIndicatorTemplate>
+                        </ptr:PullToRefreshBox>
                     </RelativePanel>
                 </PivotItem>
             </Pivot>

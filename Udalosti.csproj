@@ -120,6 +120,9 @@
     <Compile Include="Udaje\Siet\Request.cs" />
     <Compile Include="Udalosti\Data\UdalostiImplementacia.cs" />
     <Compile Include="Udalosti\Data\UdalostiUdaje.cs" />
+    <Compile Include="Udalosti\UI\Podrobnosti.xaml.cs">
+      <DependentUpon>Podrobnosti.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Udalosti\UI\ZoznamUdalosti.xaml.cs">
       <DependentUpon>ZoznamUdalosti.xaml</DependentUpon>
     </Compile>
@@ -244,6 +247,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Udalosti\UI\Podrobnosti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Udalosti\UI\ZoznamUdalosti.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -259,6 +266,9 @@
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>11.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="PullToRefresh.UWP">
+      <Version>0.3.4</Version>
     </PackageReference>
     <PackageReference Include="SQLite.Net-PCL">
       <Version>3.1.1</Version>

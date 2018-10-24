@@ -394,6 +394,9 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.xml.xmlserializer\4.0.11\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\.nuget\packages\pulltorefresh.uwp\0.3.4\lib\uap10.0\PullToRefresh.UWP.winmd">
+      <PackagePath>PullToRefresh.UWP.winmd</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UAP\v0.8.0.0\ExtensionSDKs\SQLite.UWP.2015\3.25.1\Redist\Debug\x86\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
     </AppxPackagedFile>
@@ -741,6 +744,9 @@
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Autentifikacia\UI\Registracia.xbf">
       <PackagePath>Autentifikacia\UI\Registracia.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Udalosti\UI\Podrobnosti.xbf">
+      <PackagePath>Udalosti\UI\Podrobnosti.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Udalosti\UI\ZoznamUdalosti.xbf">
       <PackagePath>Udalosti\UI\ZoznamUdalosti.xbf</PackagePath>
     </AppxPackagedFile>
@@ -749,6 +755,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\.nuget\packages\pulltorefresh.uwp\0.3.4\lib\uap10.0\PullToRefresh.UWP\PullToRefresh.UWP.xr.xml">
+      <PackagePath>PullToRefresh.UWP\PullToRefresh.UWP.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\.nuget\packages\pulltorefresh.uwp\0.3.4\lib\uap10.0\PullToRefresh.UWP\Properties\PullToRefresh.UWP.rd.xml">
+      <PackagePath>PullToRefresh.UWP\Properties\PullToRefresh.UWP.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
