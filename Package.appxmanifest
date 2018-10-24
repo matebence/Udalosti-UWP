@@ -35,5 +35,6 @@
     <Capability Name="internetClient" />
     <Capability Name="internetClientServer" />
     <uap4:Capability Name="userDataTasks" />
+    <DeviceCapability Name="location" />
   </Capabilities>
 </Package>

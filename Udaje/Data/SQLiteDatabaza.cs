@@ -161,7 +161,7 @@ namespace Udalosti.Udaje.Data
                 {
                     existujuceMesto.stat = miesto.stat;
                     existujuceMesto.okres = miesto.okres;
-                    existujuceMesto.mesto = miesto.mesto;
+                    existujuceMesto.pozicia = miesto.pozicia;
 
                     databaza.RunInTransaction(() =>
                     {
@@ -217,13 +217,13 @@ namespace Udalosti.Udaje.Data
             Dictionary<string, string> miestoPrihlasenia;
             using (SQLiteConnection databaza = new SQLiteConnection(new SQLitePlatformWinRT(), App.databaza))
             {
-                var miesto = databaza.Query<Miesto>("SELECT stat, okres, mesto FROM Miesto").FirstOrDefault();
+                var miesto = databaza.Query<Miesto>("SELECT stat, okres, pozicia FROM Miesto").FirstOrDefault();
                 if (miesto != null)
                 {
                     miestoPrihlasenia = new Dictionary<string, string>();
                     miestoPrihlasenia.Add("stat", miesto.stat);
                     miestoPrihlasenia.Add("okres", miesto.okres);
-                    miestoPrihlasenia.Add("mesto", miesto.mesto);
+                    miestoPrihlasenia.Add("pozicia", miesto.pozicia);
                     return miestoPrihlasenia;
                 }
                 else

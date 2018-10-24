@@ -10,10 +10,18 @@ namespace Udalosti.Udalosti.Data
 
         Task zoznamUdalostiPodlaPozicieAsync(String email, String stat, String okres, String mesto, String token);
 
+        Dictionary<string, string> miestoPrihlasenia();
+
         void automatickePrihlasenieVypnute(String email);
 
         Task odhlasenieAsync(String email);
 
-        Dictionary<string, string> miestoPrihlasenia();
+        Task zoznamZaujmovAsync(String email, String token);
+
+        Task zaujemAsync(String email, String token, int idUdalost);
+
+        Task potvrdZaujemAsync(String email, String token, int idUdalost);
+
+        Task odstranZaujemAsync(String email, String token, int idUdalost);
     }
 }

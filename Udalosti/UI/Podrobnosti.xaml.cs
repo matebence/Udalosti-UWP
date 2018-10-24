@@ -16,12 +16,16 @@ namespace Udalosti.Udalosti.UI
 
         private void init()
         {
+            Debug.WriteLine("Metoda init - Podrobnosti bola vykonana");
+
             var uwpSpat = SystemNavigationManager.GetForCurrentView();
             uwpSpat.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            Debug.WriteLine("Metoda OnNavigatedTo - Podrobnosti bola vykonana");
+
             base.OnNavigatedTo(e);
 
             var aktualnaUdalost = (Udalost)e.Parameter;

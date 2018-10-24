@@ -110,12 +110,14 @@
     <Compile Include="Udaje\Data\Tabulka\Miesto.cs" />
     <Compile Include="Udaje\Data\Tabulka\Pouzivatelia.cs" />
     <Compile Include="Udaje\Nastavenia\Nastavenia.cs" />
+    <Compile Include="Udaje\Siet\Model\Akcia\Akcia.cs" />
     <Compile Include="Udaje\Siet\Model\Autentifikator\Autentifikator.cs" />
     <Compile Include="Udaje\Siet\Model\Autentifikator\Pouzivatel.cs" />
     <Compile Include="Udaje\Siet\Model\Autentifikator\Validacia.cs" />
     <Compile Include="Udaje\Siet\Model\KommunikaciaData.cs" />
     <Compile Include="Udaje\Siet\Model\KommunikaciaOdpoved.cs" />
     <Compile Include="Udaje\Siet\Model\Obsah\Obsah.cs" />
+    <Compile Include="Udaje\Siet\Model\Pozicia\LocationIQ.cs" />
     <Compile Include="Udaje\Siet\Model\Pozicia\Pozicia.cs" />
     <Compile Include="Udaje\Siet\Request.cs" />
     <Compile Include="Udalosti\Data\UdalostiImplementacia.cs" />

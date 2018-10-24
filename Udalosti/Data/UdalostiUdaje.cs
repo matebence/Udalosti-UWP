@@ -7,6 +7,7 @@ using Udalosti.Udaje.Data;
 using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
 using Udalosti.Udaje.Siet.Autentifikator;
+using Udalosti.Udaje.Siet.Model.Akcia;
 using Udalosti.Udaje.Siet.Model.Obsah;
 
 namespace Udalosti.Udalosti.Data
@@ -24,54 +25,6 @@ namespace Udalosti.Udalosti.Data
             this.sqliteDatabaza = new SQLiteDatabaza();
         }
 
-        public void automatickePrihlasenieVypnute(string email)
-        {
-            Debug.WriteLine("Metoda automatickePrihlasenieVypnute bola vykonana");
-
-            sqliteDatabaza.odstranPouzivatelskeUdaje(email);
-        }
-
-        public Dictionary<string, string> miestoPrihlasenia()
-        {
-            Debug.WriteLine("Metoda miestoPrihlasenia bola vykonana");
-
-            Dictionary<string, string> miestoPrihlasenia = sqliteDatabaza.vratMiestoPrihlasenia();
-            if (miestoPrihlasenia != null)
-            {
-                return miestoPrihlasenia;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public async Task odhlasenieAsync(string email)
-        {
-            Debug.WriteLine("Metoda odhlasenieAsync bola vykonana");
-
-            var obsah = new Dictionary<string, string>
-            {
-               { "email", email }
-            };
-
-            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/prihlasenie/odhlasit");
-            if (odpoved.IsSuccessStatusCode)
-            {
-                Autentifikator autentifikator = JsonConvert.DeserializeObject<Autentifikator>(await odpoved.Content.ReadAsStringAsync());
-                Dictionary<string, string> udaje = new Dictionary<string, string>();
-
-                if (!autentifikator.chyba)
-                {
-                await odpovedeOdServera.odpovedServera(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.AUTENTIFIKACIA_ODHLASENIE, null);
-                }
-            }
-            else
-            {
-                await odpovedeOdServera.odpovedServera("Server je momentalne nedostupný!", Nastavenia.AUTENTIFIKACIA_ODHLASENIE, null);
-            }
-        }
-
         public async Task zoznamUdalostiAsync(string email, string stat, string token)
         {
             Debug.WriteLine("Metoda zoznamUdalosti bola vykonana");
@@ -87,11 +40,11 @@ namespace Udalosti.Udalosti.Data
             if (odpoved.IsSuccessStatusCode)
             {
                 Obsah data = JsonConvert.DeserializeObject<Obsah>(await odpoved.Content.ReadAsStringAsync());
-                await udajeZoServera.dataZoServeraAsync(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.UDALOSTI_OBJAVUJ, data.udalosti);
+                await this.udajeZoServera.dataZoServeraAsync(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.UDALOSTI_OBJAVUJ, data.udalosti);
             }
             else
             {
-                await udajeZoServera.dataZoServeraAsync("Server je momentalne nedostupný!", Nastavenia.UDALOSTI_OBJAVUJ, null);
+                await this.udajeZoServera.dataZoServeraAsync("Server je momentalne nedostupný!", Nastavenia.UDALOSTI_OBJAVUJ, null);
             }
         }
 
@@ -112,11 +65,172 @@ namespace Udalosti.Udalosti.Data
             if (odpoved.IsSuccessStatusCode)
             {
                 Obsah data = JsonConvert.DeserializeObject<Obsah>(await odpoved.Content.ReadAsStringAsync());
-                await udajeZoServera.dataZoServeraAsync(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.UDALOSTI_PODLA_POZICIE, data.udalosti);
+                await this.udajeZoServera.dataZoServeraAsync(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.UDALOSTI_PODLA_POZICIE, data.udalosti);
             }
             else
             {
-                await udajeZoServera.dataZoServeraAsync("Server je momentalne nedostupný!", Nastavenia.UDALOSTI_PODLA_POZICIE, null);
+                await this.udajeZoServera.dataZoServeraAsync("Server je momentalne nedostupný!", Nastavenia.UDALOSTI_PODLA_POZICIE, null);
+            }
+        }
+
+        public Dictionary<string, string> miestoPrihlasenia()
+        {
+            Debug.WriteLine("Metoda miestoPrihlasenia bola vykonana");
+
+            Dictionary<string, string> miestoPrihlasenia = this.sqliteDatabaza.vratMiestoPrihlasenia();
+            if (miestoPrihlasenia != null)
+            {
+                return miestoPrihlasenia;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task zoznamZaujmovAsync(string email, string token)
+        {
+            Debug.WriteLine("Metoda zoznamZaujmov bola vykonana");
+
+            var obsah = new Dictionary<string, string>
+            {
+               { "email", email },
+               { "token", token }
+            };
+
+            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/zaujmy/zoznam");
+            if (odpoved.IsSuccessStatusCode)
+            {
+                Obsah data = JsonConvert.DeserializeObject<Obsah>(await odpoved.Content.ReadAsStringAsync());
+                await this.udajeZoServera.dataZoServeraAsync(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.ZAUJEM_ZOZNAM, data.udalosti);
+            }
+            else
+            {
+                await this.udajeZoServera.dataZoServeraAsync("Server je momentalne nedostupný!", Nastavenia.ZAUJEM_ZOZNAM, null);
+            }
+        }
+
+        public async Task zaujemAsync(string email, string token, int idUdalost)
+        {
+            Debug.WriteLine("Metoda zaujem bola vykonana");
+
+            var obsah = new Dictionary<string, string>
+            {
+               { "email", email },
+               { "token", token },
+               { "idUdalost", idUdalost.ToString() }
+            };
+
+            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/zaujmy");
+            if (odpoved.IsSuccessStatusCode)
+            {
+                Dictionary<string, string> udaje = new Dictionary<string, string>();
+                Akcia data = JsonConvert.DeserializeObject<Akcia>(await odpoved.Content.ReadAsStringAsync());
+
+                if (data.uspech != null)
+                {
+                    udaje.Add("uspech", data.uspech);
+                    await this.odpovedeOdServera.odpovedServera(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.ZAUJEM, udaje);
+                }
+
+                if (data.chyba != null)
+                {
+                    udaje.Add("chyba", data.chyba);
+                    await this.odpovedeOdServera.odpovedServera(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.ZAUJEM, udaje);
+                }
+            }
+            else
+            {
+                await this.odpovedeOdServera.odpovedServera("Server je momentalne nedostupný!", Nastavenia.ZAUJEM, null);
+            }
+        }
+
+        public async Task potvrdZaujemAsync(string email, string token, int idUdalost)
+        {
+            var obsah = new Dictionary<string, string>
+            {
+               { "email", email },
+               { "token", token },
+               { "idUdalost", idUdalost.ToString() }
+            };
+
+            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/zaujmy/potvrd");
+            if (odpoved.IsSuccessStatusCode)
+            {
+                Obsah data = JsonConvert.DeserializeObject<Obsah>(await odpoved.Content.ReadAsStringAsync());
+                await this.udajeZoServera.dataZoServeraAsync(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.ZAUJEM_POTVRD, data.udalosti);
+            }
+            else
+            {
+                await this.udajeZoServera.dataZoServeraAsync("Server je momentalne nedostupný!", Nastavenia.ZAUJEM_POTVRD, null);
+            }
+        }
+
+        public async Task odstranZaujemAsync(string email, string token, int idUdalost)
+        {
+            Debug.WriteLine("Metoda odstranZaujem bola vykonana");
+
+            var obsah = new Dictionary<string, string>
+            {
+               { "email", email },
+               { "token", token },
+               { "idUdalost", idUdalost.ToString() }
+            };
+
+            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/zaujmy/odstran");
+            if (odpoved.IsSuccessStatusCode)
+            {
+                Dictionary<string, string> udaje = new Dictionary<string, string>();
+                Akcia data = JsonConvert.DeserializeObject<Akcia>(await odpoved.Content.ReadAsStringAsync());
+
+                if (data.uspech != null)
+                {
+                    udaje.Add("uspech", data.uspech);
+                    await this.odpovedeOdServera.odpovedServera(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.ZAUJEM_ODSTRANENIE, udaje);
+                }
+
+                if (data.chyba != null)
+                {
+                    udaje.Add("chyba", data.chyba);
+                    await this.odpovedeOdServera.odpovedServera(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.ZAUJEM_ODSTRANENIE, udaje);
+                }
+            }
+            else
+            {
+                await this.odpovedeOdServera.odpovedServera("Server je momentalne nedostupný!", Nastavenia.ZAUJEM_ODSTRANENIE, null);
+            }
+        }
+
+        public void automatickePrihlasenieVypnute(string email)
+        {
+            Debug.WriteLine("Metoda automatickePrihlasenieVypnute bola vykonana");
+
+            this.sqliteDatabaza.odstranPouzivatelskeUdaje(email);
+        }
+
+        public async Task odhlasenieAsync(string email)
+        {
+            Debug.WriteLine("Metoda odhlasenieAsync bola vykonana");
+
+            var obsah = new Dictionary<string, string>
+            {
+               { "email", email }
+            };
+
+            HttpResponseMessage odpoved = await new Request().novyPostRequestAsync(obsah, "index.php/prihlasenie/odhlasit");
+            if (odpoved.IsSuccessStatusCode)
+            {
+                Autentifikator autentifikator = JsonConvert.DeserializeObject<Autentifikator>(await odpoved.Content.ReadAsStringAsync());
+                Dictionary<string, string> udaje = new Dictionary<string, string>();
+
+                if (!autentifikator.chyba)
+                {
+                    await this.odpovedeOdServera.odpovedServera(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.AUTENTIFIKACIA_ODHLASENIE, null);
+                }
+            }
+            else
+            {
+                await this.odpovedeOdServera.odpovedServera("Server je momentalne nedostupný!", Nastavenia.AUTENTIFIKACIA_ODHLASENIE, null);
             }
         }
     }

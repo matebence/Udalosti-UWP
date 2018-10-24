@@ -21,17 +21,25 @@ namespace Udalosti.Udaje.Siet
             adresa = App.udalostiAdresa + adresa;
 
             var request = new FormUrlEncodedContent(obsah);
-            var odpoved = await httpClient.PostAsync(adresa, request);
+            var odpoved = await this.httpClient.PostAsync(adresa, request);
 
             return odpoved;
         }
 
         public async Task<HttpResponseMessage> novyGetRequestAsync(string adresa)
         {
-            Debug.WriteLine("Metoda novyGetRequestAsync bola vykonana");
+            Debug.WriteLine("Metoda novyGetRequestAsync - ipAdresa bola vykonana");
 
-            adresa = App.geoAdresa + adresa;
-            return await httpClient.GetAsync(adresa);
+            adresa = App.ipAdresa + adresa;
+            return await this.httpClient.GetAsync(adresa);
+        }
+
+        public async Task<HttpResponseMessage> novyGetRequestAsync(double lat, double lon)
+        {
+            Debug.WriteLine("Metoda novyGetRequestAsync - geoAdresa bola vykonana");
+
+            string adresa = App.geoAdresa + "&lat="+lat+ "&lon="+lon+ "&format="+Nastavenia.Nastavenia.POZICIA_FORMAT + "&accept-language="+Nastavenia.Nastavenia.POZICIA_JAZYK;
+            return await this.httpClient.GetAsync(adresa);
         }
     }
 }

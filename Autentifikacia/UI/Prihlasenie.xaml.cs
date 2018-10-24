@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
 using Udalosti.Udalosti.UI;
 using Udalosti.Uvod.Data;
+using Windows.Devices.Geolocation;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -28,12 +30,68 @@ namespace Udalosti
 
         private void init()
         {
+            Debug.WriteLine("Metoda init - Prihlasenie bola vykonana");
+
             this.autentifkaciaUdaje = new AutentifkaciaUdaje(this);
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
 
+        private async void prihlasitAsync(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Metoda prihlasitAsync bola vykonana");
+
+            if (NetworkInterface.GetIsNetworkAvailable())
+            {
+                nacitavanie.IsActive = true;
+                nacitavanie.Visibility = Visibility.Visible;
+
+                Dictionary<string, double> poloha = await zistiPolohuAsync();
+                if (poloha == null)
+                {
+                    await this.autentifkaciaUdaje.miestoPrihlaseniaAsync(email.Text, heslo.Password);
+                }
+                else
+                {
+                    await this.autentifkaciaUdaje.miestoPrihlaseniaAsync(email.Text, heslo.Password, poloha["zemepisnaSirka"], poloha["zemepisnaDlzka"], false);
+                }
+            }
+            else
+            {
+                await DialogOznameni.kommunikaciaAsync("Chyba", "Žiadné spojenie!", "Zatvoriť", false, prihlasenie);
+            }
+        }
+
+        private void tlacidloRegistrovatSa(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Metoda tlacidloRegistrovatSa bola vykonana");
+
+            this.Frame.Navigate(typeof(Registracia));
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Debug.WriteLine("Metoda OnNavigatedTo - Prihlasenie bola vykonana");
+
+            string chyba = (string)e.Parameter;
+            if (!string.IsNullOrWhiteSpace(chyba) && e.Parameter != null && e.NavigationMode == NavigationMode.New)
+            {
+                if (chyba.Equals("neUspesnePrihlasenie"))
+                {
+                    await DialogOznameni.kommunikaciaAsync("Chyba", "Prosím prihláste sa!", "Zatvoriť", false, prihlasenie);
+                    this.autentifkaciaUdaje.ucetJeNePristupny(new UvodnaObrazovkaUdaje().prihlasPouzivatela()["email"]);
+                }
+                else if (chyba.Equals("chyba"))
+                {
+                    await DialogOznameni.kommunikaciaAsync("Chyba", "Nastala chyba, prosím prihláste sa!", "Zatvoriť", false, prihlasenie);
+                }
+                this.Frame.BackStack.Clear();
+            }
+        }
+
         public async Task odpovedServera(string odpoved, string od, Dictionary<string, string> udaje)
         {
+            Debug.WriteLine("Metoda odpovedServera - Prihlasenie bola vykonana");
+
             nacitavanie.IsActive = false;
             nacitavanie.Visibility = Visibility.Collapsed;
 
@@ -53,46 +111,27 @@ namespace Udalosti
             }
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        private async Task<Dictionary<string, double>> zistiPolohuAsync()
         {
-            string chyba = (string)e.Parameter;
-            if (!string.IsNullOrWhiteSpace(chyba) && e.Parameter != null && e.NavigationMode == NavigationMode.New)
+            Debug.WriteLine("Metoda zistiPolohu bola vykonana");
+
+            var pozicia = new Geolocator();
+            pozicia.DesiredAccuracy = PositionAccuracy.High;
+            Geoposition geo = await pozicia.GetGeopositionAsync(maximumAge: TimeSpan.FromSeconds(Nastavenia.DLZKA_REQUESTU), timeout: TimeSpan.FromSeconds(1));
+
+            Dictionary<string, double> poloha;
+            if (geo != null)
             {
-                if (chyba.Equals("neUspesnePrihlasenie"))
-                {
-                    await DialogOznameni.kommunikaciaAsync("Chyba", "Prosím prihláste sa!", "Zatvoriť", false, prihlasenie);
-                    this.autentifkaciaUdaje.ucetJeNePristupny(new UvodnaObrazovkaUdaje().prihlasPouzivatela()["email"]);
-                }
-                else if (chyba.Equals("chyba"))
-                {
-                    await DialogOznameni.kommunikaciaAsync("Chyba", "Nastala chyba, prosím prihláste sa!", "Zatvoriť", false, prihlasenie);
-                }
-                this.Frame.BackStack.Clear();
-            }
-        }
-
-        private void tlacidloRegistrovatSa(object sender, RoutedEventArgs e)
-        {
-            Debug.WriteLine("Metoda tlacidloRegistrovatSa bola vykonana");
-
-            this.Frame.Navigate(typeof(Registracia));
-        }
-
-        private async void prihlasitAsync(object sender, RoutedEventArgs e)
-        {
-            Debug.WriteLine("Metoda prihlasitAsync bola vykonana");
-
-            if (NetworkInterface.GetIsNetworkAvailable())
-            {
-                nacitavanie.IsActive = true;
-                nacitavanie.Visibility = Visibility.Visible;
-
-                await autentifkaciaUdaje.miestoPrihlaseniaAsync(email.Text, heslo.Password);
+                poloha = new Dictionary<string, double>();
+                poloha.Add("zemepisnaSirka", geo.Coordinate.Point.Position.Latitude);
+                poloha.Add("zemepisnaDlzka", geo.Coordinate.Point.Position.Longitude);
             }
             else
             {
-                await DialogOznameni.kommunikaciaAsync("Chyba", "Žiadné spojenie!", "Zatvoriť", false, prihlasenie);
+                poloha = null;
             }
+
+            return poloha;
         }
     }
 }

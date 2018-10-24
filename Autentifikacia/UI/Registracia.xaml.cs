@@ -25,33 +25,35 @@ namespace Udalosti
 
         private void init()
         {
+            Debug.WriteLine("Metoda init - Registracia bola vykonana");
+
             this.autentifkaciaUdaje = new AutentifkaciaUdaje(this);
 
             var uwpSpat = SystemNavigationManager.GetForCurrentView();
             uwpSpat.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
 
-        public async Task odpovedServera(string odpoved, string od, Dictionary<string, string> udaje)
+        private async void registrovatAsync(object sender, RoutedEventArgs e)
         {
-            nacitavanie.IsActive = false;
-            nacitavanie.Visibility = Visibility.Collapsed;
+            Debug.WriteLine("Metoda registrovatAsync bola vykonana");
 
-            switch (od)
+            if (NetworkInterface.GetIsNetworkAvailable())
             {
-                case Nastavenia.AUTENTIFIKACIA_REGISTRACIA:
-                    if (odpoved.Equals(Nastavenia.VSETKO_V_PORIADKU))
-                    {
-                        await DialogOznameni.kommunikaciaAsync("Úspech", "Registrácia prebehla úspesne! Možete sa prihlásiť.", "Ďalej", true, this.Frame);
-                    }
-                    else
-                    {
-                        await DialogOznameni.kommunikaciaAsync("Chyba", odpoved, "Zatvoriť", false, registracia);
-                    }
-                    break;
+                nacitavanie.IsActive = true;
+                nacitavanie.Visibility = Visibility.Visible;
+
+                await this.autentifkaciaUdaje.registraciaAsync(meno.Text, email.Text, heslo.Password, potvrd.Password);
+            }
+            else
+            {
+                await DialogOznameni.kommunikaciaAsync("Chyba", "Žiadné spojenie!", "Zatvoriť", false, registracia);
             }
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e) {
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Debug.WriteLine("Metoda OnNavigatedTo - Registracia bola vykonana");
+
             base.OnNavigatedTo(e);
 
             SystemNavigationManager.GetForCurrentView().BackRequested += spatNaPrihlasanie;
@@ -69,20 +71,25 @@ namespace Udalosti
             }
         }
 
-        private async void registrovatAsync(object sender, RoutedEventArgs e)
+        public async Task odpovedServera(string odpoved, string od, Dictionary<string, string> udaje)
         {
-            Debug.WriteLine("Metoda registrovatAsync bola vykonana");
+            Debug.WriteLine("Metoda odpovedServera - Registracia bola vykonana");
 
-            if (NetworkInterface.GetIsNetworkAvailable())
-            {
-                nacitavanie.IsActive = true;
-                nacitavanie.Visibility = Visibility.Visible;
+            nacitavanie.IsActive = false;
+            nacitavanie.Visibility = Visibility.Collapsed;
 
-                await autentifkaciaUdaje.registraciaAsync(meno.Text, email.Text, heslo.Password, potvrd.Password);
-            }
-            else
+            switch (od)
             {
-                await DialogOznameni.kommunikaciaAsync("Chyba", "Žiadné spojenie!", "Zatvoriť", false, registracia);
+                case Nastavenia.AUTENTIFIKACIA_REGISTRACIA:
+                    if (odpoved.Equals(Nastavenia.VSETKO_V_PORIADKU))
+                    {
+                        await DialogOznameni.kommunikaciaAsync("Úspech", "Registrácia prebehla úspesne! Možete sa prihlásiť.", "Ďalej", true, this.Frame);
+                    }
+                    else
+                    {
+                        await DialogOznameni.kommunikaciaAsync("Chyba", odpoved, "Zatvoriť", false, registracia);
+                    }
+                    break;
             }
         }
     }

@@ -132,6 +132,11 @@
       <RootMethod Name="GetAlignVerticalCenterWithPanel" />
       <RootMethod Name="SetAlignVerticalCenterWithPanel" />
     </RootType>
+    <RootType FullName="PullToRefresh.UWP.PullToRefreshBox">
+      <RootProperty Name="Content" />
+      <RootProperty Name="TopIndicatorTemplate" />
+      <RootEvent Name="RefreshInvoked" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Visibility" />
       <RootProperty Name="SelectionMode" />
@@ -151,11 +156,6 @@
       <RootProperty Name="Orientation" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
-    <RootType FullName="PullToRefresh.UWP.PullToRefreshBox">
-      <RootProperty Name="Content" />
-      <RootProperty Name="TopIndicatorTemplate" />
-      <RootEvent Name="RefreshInvoked" />
-    </RootType>
     <RootType FullName="PullToRefresh.UWP.PullRefreshProgressControl">
       <RootProperty Name="Progress" />
       <RootProperty Name="PullToRefreshText" />

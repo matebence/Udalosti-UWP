@@ -21,12 +21,14 @@ namespace Udalosti
 {
     sealed partial class App : Application, KommunikaciaOdpoved, KommunikaciaData
     {
+        public static string databaza = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "udalosti.sqlite"));
+
+        public static string udalostiAdresa = "https://bmate18.student.ki.fpv.ukf.sk/udalosti/";
+        public static string ipAdresa = "http://ip-api.com/";
+        public static string geoAdresa = "https://eu1.locationiq.com/v1/reverse.php?key=" + Nastavenia.POZICIA_TOKEN;
+
         private UvodnaObrazovkaUdaje uvodnaObrazovkaUdaje;
         private UdalostiUdaje udalostiUdaje;
-
-        public static string databaza = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "udalosti.sqlite"));
-        public static string udalostiAdresa = "https://bmate18.student.ki.fpv.ukf.sk/udalosti/";
-        public static string geoAdresa = "http://ip-api.com/";
 
         public App()
         {
@@ -82,7 +84,7 @@ namespace Udalosti
 
         private async void OnSuspendingAsync(object sender, SuspendingEventArgs e)
         {
-            if (uvodnaObrazovkaUdaje.zistiCiPouzivatelskoKontoExistuje())
+            if (this.uvodnaObrazovkaUdaje.zistiCiPouzivatelskoKontoExistuje())
             {
                 await this.udalostiUdaje.odhlasenieAsync(this.uvodnaObrazovkaUdaje.prihlasPouzivatela()["email"]);
             }
