@@ -459,6 +459,24 @@
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\odhlasit_sa.scale-400.png">
       <PackagePath>Assets\Icons\odhlasit_sa.scale-400.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\odstranit_zaujem.backup.png">
+      <PackagePath>Assets\Icons\odstranit_zaujem.backup.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\odstranit_zaujem.scale-100.png">
+      <PackagePath>Assets\Icons\odstranit_zaujem.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\odstranit_zaujem.scale-125.png">
+      <PackagePath>Assets\Icons\odstranit_zaujem.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\odstranit_zaujem.scale-150.png">
+      <PackagePath>Assets\Icons\odstranit_zaujem.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\odstranit_zaujem.scale-200.png">
+      <PackagePath>Assets\Icons\odstranit_zaujem.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\odstranit_zaujem.scale-400.png">
+      <PackagePath>Assets\Icons\odstranit_zaujem.scale-400.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podla_pozicie.backup.png">
       <PackagePath>Assets\Icons\podla_pozicie.backup.png</PackagePath>
     </AppxPackagedFile>
@@ -477,8 +495,56 @@
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podla_poziciescale-400.png">
       <PackagePath>Assets\Icons\podla_poziciescale-400.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_cas.scale-100.png">
+      <PackagePath>Assets\Icons\podrobnosti_cas.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_cas.scale-125.png">
+      <PackagePath>Assets\Icons\podrobnosti_cas.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_cas.scale-150.png">
+      <PackagePath>Assets\Icons\podrobnosti_cas.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_cas.scale-200.png">
+      <PackagePath>Assets\Icons\podrobnosti_cas.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_cas.scale-400.png">
+      <PackagePath>Assets\Icons\podrobnosti_cas.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_vstupenka.scale-100.png">
+      <PackagePath>Assets\Icons\podrobnosti_vstupenka.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_vstupenka.scale-125.png">
+      <PackagePath>Assets\Icons\podrobnosti_vstupenka.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_vstupenka.scale-150.png">
+      <PackagePath>Assets\Icons\podrobnosti_vstupenka.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_vstupenka.scale-200.png">
+      <PackagePath>Assets\Icons\podrobnosti_vstupenka.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_vstupenka.scale-400.png">
+      <PackagePath>Assets\Icons\podrobnosti_vstupenka.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_vzaujemcovia.scale-100.png">
+      <PackagePath>Assets\Icons\podrobnosti_vzaujemcovia.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_vzaujemcovia.scale-125.png">
+      <PackagePath>Assets\Icons\podrobnosti_vzaujemcovia.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_vzaujemcovia.scale-150.png">
+      <PackagePath>Assets\Icons\podrobnosti_vzaujemcovia.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_vzaujemcovia.scale-200.png">
+      <PackagePath>Assets\Icons\podrobnosti_vzaujemcovia.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Icons\podrobnosti_vzaujemcovia.scale-400.png">
+      <PackagePath>Assets\Icons\podrobnosti_vzaujemcovia.scale-400.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Images\udalosti_logo.png">
       <PackagePath>Assets\Images\udalosti_logo.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Images\udalosti_spojenie_zlyhalo.png">
+      <PackagePath>Assets\Images\udalosti_spojenie_zlyhalo.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\Assets\Images\udalosti_ziadne_udalosti.png">
       <PackagePath>Assets\Images\udalosti_ziadne_udalosti.png</PackagePath>
@@ -747,8 +813,8 @@
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Udalosti\UI\Podrobnosti.xbf">
       <PackagePath>Udalosti\UI\Podrobnosti.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Udalosti\UI\ZoznamUdalosti.xbf">
-      <PackagePath>Udalosti\UI\ZoznamUdalosti.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Udalosti\UI\Aplikacia.xbf">
+      <PackagePath>Udalosti\UI\Aplikacia.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Uvod\UI\UvodnaObrazovka.xbf">
       <PackagePath>Uvod\UI\UvodnaObrazovka.xbf</PackagePath>

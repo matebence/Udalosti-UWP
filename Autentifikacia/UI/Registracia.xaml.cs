@@ -71,7 +71,7 @@ namespace Udalosti
             }
         }
 
-        public async Task odpovedServera(string odpoved, string od, Dictionary<string, string> udaje)
+        public async Task odpovedServeraAsync(string odpoved, string od, Dictionary<string, string> udaje)
         {
             Debug.WriteLine("Metoda odpovedServera - Registracia bola vykonana");
 

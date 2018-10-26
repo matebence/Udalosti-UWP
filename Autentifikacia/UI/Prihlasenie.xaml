@@ -31,50 +31,50 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <Grid 
-                Grid.Row="0"
-                HorizontalAlignment="Center">
+                    Grid.Row="0"
+                    HorizontalAlignment="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto" />
                         <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
 
                     <Image 
-                    Grid.Column="0"
-                    Source="ms-appx:///Assets/Images/udalosti_logo.png"
-                    Margin="0,0,15,0"/>
+                        Grid.Column="0"
+                        Source="ms-appx:///Assets/Images/udalosti_logo.png"
+                        Margin="0,0,15,0"/>
 
                     <TextBlock
-                    Grid.Column="1"
-                    Text="Udalosti"
-                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Medium.ttf#Raleway"
-                    FontSize="60"/>
+                        Grid.Column="1"
+                        Text="Udalosti"
+                        FontFamily="ms-appx:///Assets/Fonts/Raleway-Medium.ttf#Raleway"
+                        FontSize="60"/>
                 </Grid>
 
                 <TextBlock
-                Grid.Row="1"
-                Text="Udržiavajte informácie o tom, čo sa deje vo Vašom okolí."
-                FontFamily="ms-appx:///Assets/Fonts/Raleway-Light.ttf#Raleway"
-                FontSize="16"
-                TextWrapping="Wrap"
-                TextAlignment="Center"
-                VerticalAlignment="Stretch"
-                Margin="0,15,0,40"/>
+                    Grid.Row="1"
+                    Text="Udržiavajte informácie o tom, čo sa deje vo Vašom okolí."
+                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Light.ttf#Raleway"
+                    FontSize="16"
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    VerticalAlignment="Stretch"
+                    Margin="0,15,0,40"/>
 
                 <TextBox 
-                x:Name="email"
-                Grid.Row="2"
-                PlaceholderText="Email"
-                FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
-                FontSize="18"
-                Margin="0,0,0,20"/>
+                    x:Name="email"
+                    Grid.Row="2"
+                    PlaceholderText="Email"
+                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
+                    FontSize="18"
+                    Margin="0,0,0,20"/>
 
                 <PasswordBox 
-                x:Name="heslo"
-                Grid.Row="3"
-                PlaceholderText="Heslo"
-                FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
-                FontSize="18"
-                Margin="0,0,0,20"/>
+                    x:Name="heslo"
+                    Grid.Row="3"
+                    PlaceholderText="Heslo"
+                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
+                    FontSize="18"
+                    Margin="0,0,0,20"/>
 
                 <Grid 
                 Grid.Row="4">
@@ -84,16 +84,16 @@
                     </Grid.ColumnDefinitions>
 
                     <Button 
-                    x:Name="prihlasitSa"
-                    Click="prihlasitAsync"
-                    Grid.Column="0"
-                    Content="Prihlásiť sa"
-                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
-                    FontSize="18"
-                    Foreground="White"
-                    Background="#0397d6"
-                    VerticalAlignment="Stretch"
-                    HorizontalAlignment="Stretch" />
+                        x:Name="prihlasitSa"
+                        Click="prihlasitAsync"
+                        Grid.Column="0"
+                        Content="Prihlásiť sa"
+                        FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
+                        FontSize="18"
+                        Foreground="White"
+                        Background="#0397d6"
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch" />
                 </Grid>
 
                 <ProgressRing 
@@ -111,24 +111,24 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock 
-                Grid.Row="1"
-                Text="Nemáte ešte používatelské konto?"
-                FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
-                FontSize="15"
-                HorizontalAlignment="Center"
-                Margin="0,0,0,5"/>
+                    Grid.Row="1"
+                    Text="Nemáte ešte používatelské konto?"
+                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
+                    FontSize="15"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,5"/>
 
                 <Button 
-                x:Name="tlacidloRegistrovat"
-                Click="tlacidloRegistrovatSa"
-                Grid.Row="2"
-                Content="Zaregistrovať sa"
-                FontFamily="ms-appx:///Assets/Fonts/Raleway-Medium.ttf#Raleway"
-                FontSize="15"
-                Foreground="#0397d6"
-                Background="Transparent"
-                HorizontalAlignment="Center"
-                Margin="0,0,0,20"/>
+                    x:Name="tlacidloRegistrovat"
+                    Click="tlacidloRegistrovatSa"
+                    Grid.Row="2"
+                    Content="Zaregistrovať sa"
+                    FontFamily="ms-appx:///Assets/Fonts/Raleway-Medium.ttf#Raleway"
+                    FontSize="15"
+                    Foreground="#0397d6"
+                    Background="Transparent"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,20"/>
             </Grid>
         </Grid>
     </Frame>

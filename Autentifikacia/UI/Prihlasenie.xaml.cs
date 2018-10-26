@@ -9,7 +9,6 @@ using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
 using Udalosti.Udalosti.UI;
 using Udalosti.Uvod.Data;
-using Windows.Devices.Geolocation;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -45,7 +44,7 @@ namespace Udalosti
                 nacitavanie.IsActive = true;
                 nacitavanie.Visibility = Visibility.Visible;
 
-                Dictionary<string, double> poloha = await zistiPolohuAsync();
+                Dictionary<string, double> poloha = await Lokalizator.zistiPolohuAsync();
                 if (poloha == null)
                 {
                     await this.autentifkaciaUdaje.miestoPrihlaseniaAsync(email.Text, heslo.Password);
@@ -88,7 +87,7 @@ namespace Udalosti
             }
         }
 
-        public async Task odpovedServera(string odpoved, string od, Dictionary<string, string> udaje)
+        public async Task odpovedServeraAsync(string odpoved, string od, Dictionary<string, string> udaje)
         {
             Debug.WriteLine("Metoda odpovedServera - Prihlasenie bola vykonana");
 
@@ -101,7 +100,7 @@ namespace Udalosti
                     if (odpoved.Equals(Nastavenia.VSETKO_V_PORIADKU))
                     {
                         this.autentifkaciaUdaje.ulozPrihlasovacieUdajeDoDatabazy(email.Text, heslo.Password, udaje["token"]);
-                        prihlasenie.Navigate(typeof(ZoznamUdalosti), null, new DrillInNavigationTransitionInfo());
+                        prihlasenie.Navigate(typeof(Aplikacia), null, new DrillInNavigationTransitionInfo());
                     }
                     else
                     {
@@ -109,29 +108,6 @@ namespace Udalosti
                     }
                     break;
             }
-        }
-
-        private async Task<Dictionary<string, double>> zistiPolohuAsync()
-        {
-            Debug.WriteLine("Metoda zistiPolohu bola vykonana");
-
-            var pozicia = new Geolocator();
-            pozicia.DesiredAccuracy = PositionAccuracy.High;
-            Geoposition geo = await pozicia.GetGeopositionAsync(maximumAge: TimeSpan.FromSeconds(Nastavenia.DLZKA_REQUESTU), timeout: TimeSpan.FromSeconds(1));
-
-            Dictionary<string, double> poloha;
-            if (geo != null)
-            {
-                poloha = new Dictionary<string, double>();
-                poloha.Add("zemepisnaSirka", geo.Coordinate.Point.Position.Latitude);
-                poloha.Add("zemepisnaDlzka", geo.Coordinate.Point.Position.Longitude);
-            }
-            else
-            {
-                poloha = null;
-            }
-
-            return poloha;
         }
     }
 }

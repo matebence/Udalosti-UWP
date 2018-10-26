@@ -22,7 +22,7 @@ namespace Udalosti.Nastroje
 
             if ((int)odpovedTlacidlom.Id == 0)
             {
-                if (uspech)
+                if (uspech && frame != null)
                 {
                     frame.GoBack();
                 }

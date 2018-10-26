@@ -6,6 +6,6 @@ namespace Udalosti.Udaje.Siet
 {
     interface KommunikaciaOdpoved
     {
-        Task odpovedServera(String odpoved, String od, Dictionary<String, String> udaje);
+        Task odpovedServeraAsync(String odpoved, String od, Dictionary<String, String> udaje);
     }
 }

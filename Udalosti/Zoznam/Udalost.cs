@@ -2,7 +2,7 @@
 {
    public class Udalost
     {
-        public Udalost(int idUdalost, string obrazok, string nazov, string den, string mesiac, string cas, string mesto, string ulica, float vstupenka, int zaujemzovia, int zaujem)
+        public Udalost(int idUdalost, string obrazok, string nazov, string den, string mesiac, string cas, string mesto, string ulica, float vstupenka, int zaujemcovia, int zaujem)
         {
             this.idUdalost = idUdalost;
             this.obrazok = obrazok;
@@ -13,7 +13,7 @@
             this.mesto = mesto;
             this.ulica = ulica;
             this.vstupenka = vstupenka;
-            this.zaujemzovia = zaujemzovia;
+            this.zaujemcovia = zaujemcovia;
             this.zaujem = zaujem;
         }
 
@@ -26,7 +26,7 @@
         public string mesto { get; set; }
         public string ulica { get; set; }
         public float vstupenka { get; set; }
-        public int zaujemzovia { get; set; }
+        public int zaujemcovia { get; set; }
         public int zaujem { get; set; }
 
         public override string ToString()

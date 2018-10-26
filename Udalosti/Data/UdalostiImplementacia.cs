@@ -23,5 +23,7 @@ namespace Udalosti.Udalosti.Data
         Task potvrdZaujemAsync(String email, String token, int idUdalost);
 
         Task odstranZaujemAsync(String email, String token, int idUdalost);
+
+        Task<bool> obrazokJeDostupnnyAsync(string adresa, bool podrobnosti);
     }
 }

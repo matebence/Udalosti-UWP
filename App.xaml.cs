@@ -92,7 +92,7 @@ namespace Udalosti
             deferral.Complete();
         }
 
-        public async Task odpovedServera(string odpoved, string od, Dictionary<string, string> udaje)
+        public async Task odpovedServeraAsync(string odpoved, string od, Dictionary<string, string> udaje)
         {
             switch (od)
             {

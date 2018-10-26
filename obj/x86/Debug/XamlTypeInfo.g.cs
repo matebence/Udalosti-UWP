@@ -226,7 +226,7 @@ namespace Udalosti.Udalosti_XamlTypeInfo
             _typeNameTable[9] = "PullToRefresh.UWP.PullRefreshProgressControl";
             _typeNameTable[10] = "Windows.UI.Xaml.Controls.Control";
             _typeNameTable[11] = "String";
-            _typeNameTable[12] = "Udalosti.Udalosti.UI.ZoznamUdalosti";
+            _typeNameTable[12] = "Udalosti.Udalosti.UI.Aplikacia";
             _typeNameTable[13] = "Udalosti.Uvod.UI.UvodnaObrazovka";
 
             _typeTable = new global::System.Type[14];
@@ -242,7 +242,7 @@ namespace Udalosti.Udalosti_XamlTypeInfo
             _typeTable[9] = typeof(global::PullToRefresh.UWP.PullRefreshProgressControl);
             _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.Control);
             _typeTable[11] = typeof(global::System.String);
-            _typeTable[12] = typeof(global::Udalosti.Udalosti.UI.ZoznamUdalosti);
+            _typeTable[12] = typeof(global::Udalosti.Udalosti.UI.Aplikacia);
             _typeTable[13] = typeof(global::Udalosti.Uvod.UI.UvodnaObrazovka);
         }
 
@@ -283,7 +283,7 @@ namespace Udalosti.Udalosti_XamlTypeInfo
         private object Activate_4_Podrobnosti() { return new global::Udalosti.Udalosti.UI.Podrobnosti(); }
         private object Activate_5_PullToRefreshBox() { return new global::PullToRefresh.UWP.PullToRefreshBox(); }
         private object Activate_9_PullRefreshProgressControl() { return new global::PullToRefresh.UWP.PullRefreshProgressControl(); }
-        private object Activate_12_ZoznamUdalosti() { return new global::Udalosti.Udalosti.UI.ZoznamUdalosti(); }
+        private object Activate_12_Aplikacia() { return new global::Udalosti.Udalosti.UI.Aplikacia(); }
         private object Activate_13_UvodnaObrazovka() { return new global::Udalosti.Uvod.UI.UvodnaObrazovka(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
@@ -362,9 +362,9 @@ namespace Udalosti.Udalosti_XamlTypeInfo
                 xamlType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 12:   //  Udalosti.Udalosti.UI.ZoznamUdalosti
+            case 12:   //  Udalosti.Udalosti.UI.Aplikacia
                 userType = new global::Udalosti.Udalosti_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_12_ZoznamUdalosti;
+                userType.Activator = Activate_12_Aplikacia;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

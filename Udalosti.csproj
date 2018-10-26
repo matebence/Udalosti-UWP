@@ -104,6 +104,7 @@
       <DependentUpon>Registracia.xaml</DependentUpon>
     </Compile>
     <Compile Include="Nastroje\DialogOznameni.cs" />
+    <Compile Include="Nastroje\Lokalizator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Udaje\Data\SQLDataImplementacia.cs" />
     <Compile Include="Udaje\Data\SQLiteDatabaza.cs" />
@@ -122,11 +123,14 @@
     <Compile Include="Udaje\Siet\Request.cs" />
     <Compile Include="Udalosti\Data\UdalostiImplementacia.cs" />
     <Compile Include="Udalosti\Data\UdalostiUdaje.cs" />
+    <Compile Include="Udalosti\SpracovanieDat\Aktualizator.cs" />
+    <Compile Include="Udalosti\SpracovanieDat\AktualizatorObsahu.cs" />
+    <Compile Include="Udalosti\SpracovanieDat\SpravcaDat.cs" />
     <Compile Include="Udalosti\UI\Podrobnosti.xaml.cs">
       <DependentUpon>Podrobnosti.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Udalosti\UI\ZoznamUdalosti.xaml.cs">
-      <DependentUpon>ZoznamUdalosti.xaml</DependentUpon>
+    <Compile Include="Udalosti\UI\Aplikacia.xaml.cs">
+      <DependentUpon>Aplikacia.xaml</DependentUpon>
     </Compile>
     <Compile Include="Udalosti\Zoznam\Udalost.cs" />
     <Compile Include="Uvod\Data\UvodnaObrazovkaImplementacia.cs" />
@@ -177,15 +181,37 @@
     <Content Include="Assets\Icons\odhlasit_sa.scale-150.png" />
     <Content Include="Assets\Icons\odhlasit_sa.scale-200.png" />
     <Content Include="Assets\Icons\odhlasit_sa.scale-400.png" />
+    <Content Include="Assets\Icons\odstranit_zaujem.backup.png" />
+    <Content Include="Assets\Icons\odstranit_zaujem.scale-100.png" />
+    <Content Include="Assets\Icons\odstranit_zaujem.scale-125.png" />
+    <Content Include="Assets\Icons\odstranit_zaujem.scale-150.png" />
+    <Content Include="Assets\Icons\odstranit_zaujem.scale-200.png" />
+    <Content Include="Assets\Icons\odstranit_zaujem.scale-400.png" />
     <Content Include="Assets\Icons\podla_pozicie.backup.png" />
     <Content Include="Assets\Icons\podla_pozicie.scale-100.png" />
     <Content Include="Assets\Icons\podla_pozicie.scale-125.png" />
     <Content Include="Assets\Icons\podla_pozicie.scale-150.png" />
     <Content Include="Assets\Icons\podla_pozicie.scale-200.png" />
     <Content Include="Assets\Icons\podla_poziciescale-400.png" />
+    <Content Include="Assets\Icons\podrobnosti_cas.scale-100.png" />
+    <Content Include="Assets\Icons\podrobnosti_cas.scale-125.png" />
+    <Content Include="Assets\Icons\podrobnosti_cas.scale-150.png" />
+    <Content Include="Assets\Icons\podrobnosti_cas.scale-200.png" />
+    <Content Include="Assets\Icons\podrobnosti_cas.scale-400.png" />
+    <Content Include="Assets\Icons\podrobnosti_vstupenka.scale-100.png" />
+    <Content Include="Assets\Icons\podrobnosti_vstupenka.scale-125.png" />
+    <Content Include="Assets\Icons\podrobnosti_vstupenka.scale-150.png" />
+    <Content Include="Assets\Icons\podrobnosti_vstupenka.scale-200.png" />
+    <Content Include="Assets\Icons\podrobnosti_vstupenka.scale-400.png" />
+    <Content Include="Assets\Icons\podrobnosti_vzaujemcovia.scale-100.png" />
+    <Content Include="Assets\Icons\podrobnosti_vzaujemcovia.scale-125.png" />
+    <Content Include="Assets\Icons\podrobnosti_vzaujemcovia.scale-150.png" />
+    <Content Include="Assets\Icons\podrobnosti_vzaujemcovia.scale-200.png" />
+    <Content Include="Assets\Icons\podrobnosti_vzaujemcovia.scale-400.png" />
     <Content Include="Assets\Images\udalosti_chyba_obrazka.jpg" />
     <Content Include="Assets\Images\udalosti_logo.png" />
     <Content Include="Assets\Images\udalosti_pozadie.jpg" />
+    <Content Include="Assets\Images\udalosti_spojenie_zlyhalo.png" />
     <Content Include="Assets\Images\udalosti_ziadne_udalosti.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
@@ -253,7 +279,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Udalosti\UI\ZoznamUdalosti.xaml">
+    <Page Include="Udalosti\UI\Aplikacia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
