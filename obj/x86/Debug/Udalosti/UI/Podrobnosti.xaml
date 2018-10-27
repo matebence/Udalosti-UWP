@@ -29,7 +29,7 @@
                         RelativePanel.AlignHorizontalCenterWithPanel="True"
                         RelativePanel.AlignVerticalCenterWithPanel="True"/>
             </RelativePanel>
-            
+
             <Grid x:ConnectionId='4'
                 x:Name="obsah">
                 <Grid.RowDefinitions>

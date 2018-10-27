@@ -18,7 +18,7 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace Udalosti.Udalosti.UI
 {
-    public sealed partial class Aplikacia : Page, KommunikaciaData, KommunikaciaOdpoved
+    public sealed partial class Aplikacia : Page, KommunikaciaData, KommunikaciaOdpoved, Aktualizator
     {
         private UdalostiUdaje udalostiUdaje;
         private AutentifkaciaUdaje autentifkaciaUdaje;
@@ -26,11 +26,8 @@ namespace Udalosti.Udalosti.UI
 
         private SpravcaDat spravcaDat;
 
-        private Dictionary<string, string> pouzivatelskeUdaje;
-        private Dictionary<string, string> miestoPrihlasenia;
-
-        private ObservableCollection<Udalost> udalost;
-        private ObservableCollection<Udalost> udalostPodlaPozicie;
+        private Dictionary<string, string> pouzivatelskeUdaje, miestoPrihlasenia;
+        private ObservableCollection<Udalost> udalostiZoznam, udalostiPodlaPozicie, zaujmy;
 
         public Aplikacia()
         {
@@ -47,12 +44,14 @@ namespace Udalosti.Udalosti.UI
             this.autentifkaciaUdaje = new AutentifkaciaUdaje(this);
 
             this.spravcaDat = new SpravcaDat();
+            AktualizatorObsahu.zaujmy().nastav(this);
 
             this.pouzivatelskeUdaje = this.uvodnaObrazovkaUdaje.prihlasPouzivatela();
             this.miestoPrihlasenia = this.udalostiUdaje.miestoPrihlasenia();
 
-            this.udalost = new ObservableCollection<Udalost>();
-            this.udalostPodlaPozicie = new ObservableCollection<Udalost>();
+            this.udalostiZoznam = new ObservableCollection<Udalost>();
+            this.udalostiPodlaPozicie = new ObservableCollection<Udalost>();
+            this.zaujmy = new ObservableCollection<Udalost>();
         }
 
         private async void odhlasitSa(object sender, RoutedEventArgs e)
@@ -89,29 +88,35 @@ namespace Udalosti.Udalosti.UI
 
         private void zvolenaUdalost(object sender, ItemClickEventArgs e)
         {
+            Debug.WriteLine("Metoda zvolenaUdalost bola vykonana");
+
             spravcaDat.zvolenaUdalost(this.Frame, e);
         }
 
-        private void zvolenaUdalostPodlaPozicie(object sender, ItemClickEventArgs e)
+        private async void nacitajUdalosti(object sender, RoutedEventArgs e)
         {
-            spravcaDat.zvolenaUdalost(this.Frame, e);
+            Debug.WriteLine("Metoda nacitajUdalosti bola vykonana");
+
+            await spravcaDat.nacitajZoznamAsync(this.udalostiUdaje, this.udalostiZoznam, this.pouzivatelskeUdaje, this.miestoPrihlasenia, nacitavaniePodlaPozicie, "Udalosti");
         }
 
-        private async void nacitajZoznamPodlaPozicii(object sender, RoutedEventArgs e)
+        private async void nacitajUdalostiPodlaPozicie(object sender, RoutedEventArgs e)
         {
-            await spravcaDat.nacitajZoznamAsync(udalostiUdaje, udalost, pouzivatelskeUdaje, miestoPrihlasenia, nacitavaniePodlaPozicie, true);
+            Debug.WriteLine("Metoda nacitajUdalostiPodlaPozicie bola vykonana");
+
+            await spravcaDat.nacitajZoznamAsync(this.udalostiUdaje, this.udalostiPodlaPozicie, pouzivatelskeUdaje, miestoPrihlasenia, nacitavanieUdalosti, "UdalostiPodlaPozicie");
         }
 
-        private async void nacitajZoznam(object sender, RoutedEventArgs e)
+        private async void nacitajZaujmy(object sender, RoutedEventArgs e)
         {
-            await spravcaDat.nacitajZoznamAsync(udalostiUdaje, udalost, pouzivatelskeUdaje, miestoPrihlasenia, nacitavanieUdalosti, false);
+            await spravcaDat.nacitajZoznamAsync(this.udalostiUdaje, this.zaujmy, this.pouzivatelskeUdaje, this.miestoPrihlasenia, nacitavanieZaujmov, "Zaujmy");
         }
 
         private async void aktualizujUdalosti(DependencyObject sender, object args)
         {
             Debug.WriteLine("Metoda aktualizujUdalosti bola vykonana");
 
-            this.udalost.Clear();
+            this.udalostiZoznam.Clear();
 
             chybaUdalosti.Visibility = Visibility.Collapsed;
             nacitavanieUdalosti.IsActive = true;
@@ -124,7 +129,7 @@ namespace Udalosti.Udalosti.UI
         {
             Debug.WriteLine("Metoda aktualizujUdalostiPodlaPozicie bola vykonana");
 
-            this.udalostPodlaPozicie.Clear();
+            this.udalostiPodlaPozicie.Clear();
 
             chybaUdalostiPodlaPozicie.Visibility = Visibility.Collapsed;
             nacitavaniePodlaPozicie.IsActive = true;
@@ -161,7 +166,7 @@ namespace Udalosti.Udalosti.UI
 
                         if (udaje != null)
                         {
-                            await spravcaDat.nacitaveniaUdalostiAsync(udalostiUdaje, udaje, udalost, chybaUdalosti, zoznamUdalosti);
+                            await spravcaDat.nacitaveniaUdalostiAsync(this.udalostiUdaje, udaje, this.udalostiZoznam, chybaUdalosti, zoznamUdalosti);
                         }
                         else
                         {
@@ -176,6 +181,9 @@ namespace Udalosti.Udalosti.UI
                         chybaUdalosti.Visibility = Visibility.Visible;
                         chybaUdalosti.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/udalosti_spojenie_zlyhalo.png"));
                     }
+                    nacitavanieUdalosti.IsActive = false;
+                    nacitavanieUdalosti.Visibility = Visibility.Collapsed;
+
                     break;
                 case Nastavenia.UDALOSTI_PODLA_POZICIE:
                     if (odpoved.Equals(Nastavenia.VSETKO_V_PORIADKU))
@@ -184,7 +192,7 @@ namespace Udalosti.Udalosti.UI
 
                         if (udaje != null)
                         {
-                            await spravcaDat.nacitaveniaUdalostiAsync(udalostiUdaje, udaje, udalostPodlaPozicie, chybaUdalostiPodlaPozicie, zoznamUdalostiPodlaPozicie);
+                            await spravcaDat.nacitaveniaUdalostiAsync(this.udalostiUdaje, udaje, this.udalostiPodlaPozicie, chybaUdalostiPodlaPozicie, zoznamUdalostiPodlaPozicie);
                         }
                         else
                         {
@@ -199,13 +207,37 @@ namespace Udalosti.Udalosti.UI
                         chybaUdalostiPodlaPozicie.Visibility = Visibility.Visible;
                         chybaUdalostiPodlaPozicie.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/udalosti_spojenie_zlyhalo.png"));
                     }
-                    break;
-            }
-            nacitavaniePodlaPozicie.IsActive = false;
-            nacitavaniePodlaPozicie.Visibility = Visibility.Collapsed;
+                    nacitavaniePodlaPozicie.IsActive = false;
+                    nacitavaniePodlaPozicie.Visibility = Visibility.Collapsed;
 
-            nacitavanieUdalosti.IsActive = false;
-            nacitavanieUdalosti.Visibility = Visibility.Collapsed;
+                    break;
+                case Nastavenia.ZAUJEM_ZOZNAM:
+                    if (odpoved.Equals(Nastavenia.VSETKO_V_PORIADKU))
+                    {
+                        chybaZaujmov.Visibility = Visibility.Collapsed;
+
+                        if (udaje != null)
+                        {
+                            await spravcaDat.nacitaveniaUdalostiAsync(this.udalostiUdaje, udaje, this.zaujmy, chybaZaujmov, zoznamZaujmov);
+                        }
+                        else
+                        {
+                            chybaZaujmov.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/udalosti_ziadne_zaujmy.png"));
+
+                            zoznamZaujmov.Visibility = Visibility.Collapsed;
+                            chybaZaujmov.Visibility = Visibility.Visible;
+                        }
+                    }
+                    else
+                    {
+                        chybaZaujmov.Visibility = Visibility.Visible;
+                        chybaZaujmov.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/udalosti_spojenie_zlyhalo.png"));
+                    }
+                    nacitavanieZaujmov.IsActive = false;
+                    nacitavanieZaujmov.Visibility = Visibility.Collapsed;
+
+                    break;
+                    }
         }
 
         public async Task odpovedServeraAsync(string odpoved, string od, Dictionary<string, string> udaje)
@@ -230,6 +262,14 @@ namespace Udalosti.Udalosti.UI
                     }
                     break;
             }
+        }
+
+        public async void aktualizujObsahZaujmov()
+        {
+            Debug.WriteLine("Metoda aktualizujObsahZaujmov bola vykonana");
+
+            zaujmy.Clear();
+            await spravcaDat.nacitajZoznamAsync(this.udalostiUdaje, this.zaujmy, this.pouzivatelskeUdaje, this.miestoPrihlasenia, nacitavanieZaujmov, "Zaujmy");
         }
     }
 }

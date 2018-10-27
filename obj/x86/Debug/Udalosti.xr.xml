@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
-    <RootPropertyPathName Name="cas" />
     <RootPropertyPathName Name="ulica" />
     <RootPropertyPathName Name="mesto" />
     <RootPropertyPathName Name="nazov" />
     <RootPropertyPathName Name="mesiac" />
     <RootPropertyPathName Name="den" />
+    <RootPropertyPathName Name="cas" />
     <RootPropertyPathName Name="obrazok" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
@@ -150,11 +150,6 @@
       <RootProperty Name="Content" />
       <RootEvent Name="Loaded" />
     </RootType>
-    <RootType FullName="PullToRefresh.UWP.PullToRefreshBox">
-      <RootProperty Name="Content" />
-      <RootProperty Name="TopIndicatorTemplate" />
-      <RootEvent Name="RefreshInvoked" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Visibility" />
       <RootProperty Name="SelectionMode" />
@@ -167,6 +162,11 @@
       <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
+    <RootType FullName="PullToRefresh.UWP.PullToRefreshBox">
+      <RootProperty Name="Content" />
+      <RootProperty Name="TopIndicatorTemplate" />
+      <RootEvent Name="RefreshInvoked" />
+    </RootType>
     <RootType FullName="PullToRefresh.UWP.PullRefreshProgressControl">
       <RootProperty Name="Progress" />
       <RootProperty Name="PullToRefreshText" />

@@ -23,6 +23,7 @@ namespace Udalosti.Nastroje
             catch(Exception e)
             {
                 geo = null;
+                Debug.WriteLine("Lokalizator.cs CHYBA:"+e.Message);
                 await DialogOznameni.kommunikaciaAsync("Chyba", "GPS je vypnutý alebo prístup k aktuálnej polohe bol odmietnutý", "Pokračovať bez GPS", false, null);
             }
 

@@ -20,34 +20,38 @@ namespace Udalosti.Udalosti.SpracovanieDat
             frame.Navigate(typeof(Podrobnosti), zvolenaUdalost);
         }
 
-        public async Task nacitajZoznamAsync(UdalostiUdaje udalostiUdaje, ObservableCollection<Udalost> udalosti, Dictionary<string, string> pouzivatelskeUdaje, Dictionary<string, string> miestoPrihlasenia, ProgressRing nacitavanieUdalosti, bool pozicia)
+        public async Task nacitajZoznamAsync(UdalostiUdaje udalostiUdaje, ObservableCollection<Udalost> obsah, Dictionary<string, string> pouzivatelskeUdaje, Dictionary<string, string> miestoPrihlasenia, ProgressRing nacitavanie, string karta)
         {
             Debug.WriteLine("Metoda nacitajZoznam bola vykonana");
 
-            nacitavanieUdalosti.IsActive = true;
-            nacitavanieUdalosti.Visibility = Visibility.Visible;
+            nacitavanie.IsActive = true;
+            nacitavanie.Visibility = Visibility.Visible;
 
-            if (udalosti.Count == 0)
+            if (obsah.Count == 0)
             {
-                if (pozicia)
+                if (karta.Equals("Udalosti"))
+                {
+                    await udalostiUdaje.zoznamUdalostiAsync(pouzivatelskeUdaje["email"], miestoPrihlasenia["stat"], pouzivatelskeUdaje["token"]);
+                }
+                else if (karta.Equals("UdalostiPodlaPozicie"))
                 {
                     await udalostiUdaje.zoznamUdalostiPodlaPozicieAsync(pouzivatelskeUdaje["email"], miestoPrihlasenia["stat"], miestoPrihlasenia["okres"], miestoPrihlasenia["pozicia"], pouzivatelskeUdaje["token"]);
                 }
-                else
+                else if (karta.Equals("Zaujmy"))
                 {
-                    await udalostiUdaje.zoznamUdalostiAsync(pouzivatelskeUdaje["email"], miestoPrihlasenia["stat"], pouzivatelskeUdaje["token"]);
+                    await udalostiUdaje.zoznamZaujmovAsync(pouzivatelskeUdaje["email"], pouzivatelskeUdaje["token"]);
                 }
             }
         }
 
-        public async Task nacitaveniaUdalostiAsync(UdalostiUdaje udalostiUdaje, List<Udalost> udaje, ObservableCollection<Udalost> udalosti, Image chybaUdalosti, ListView zoznamUdalosti)
+        public async Task nacitaveniaUdalostiAsync(UdalostiUdaje udalostiUdaje, List<Udalost> udaje, ObservableCollection<Udalost> udalosti, Image obrazok, ListView zoznam)
         {
             Debug.WriteLine("Metoda nacitaveniaUdalostiAsync bola vykonana");
 
-            zoznamUdalosti.Visibility = Visibility.Visible;
-            chybaUdalosti.Visibility = Visibility.Collapsed;
+            zoznam.Visibility = Visibility.Visible;
+            obrazok.Visibility = Visibility.Collapsed;
 
-            await ziskajUdalostiAsync(udalostiUdaje, udaje, zoznamUdalosti, udalosti);
+            await ziskajUdalostiAsync(udalostiUdaje, udaje, zoznam, udalosti);
         }
 
         private async Task ziskajUdalostiAsync(UdalostiUdaje udalostiUdaje, List<Udalost> udaje, ListView zoznam, ObservableCollection<Udalost> obsah)
@@ -68,6 +72,7 @@ namespace Udalosti.Udalosti.SpracovanieDat
 
                 __o.mesiac = dlzkaSlova(__o.mesiac, 4);
                 __o.mesto = __o.mesto + ", ";
+                __o.den = __o.den + ".";
 
                 obsah.Add(__o);
             }
