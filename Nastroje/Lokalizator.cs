@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Udalosti.Dialog;
 using Udalosti.Udaje.Nastavenia;
 using Windows.Devices.Geolocation;
 

@@ -377,6 +377,7 @@
                             SelectionMode="None"
                             IsItemClickEnabled="True"
                             ItemClick="zvolenaUdalost"
+                            RightTapped="spustiMoznostiZoznamu"
                             Margin="0,10,0,0">
 
                             <ListView.ItemTemplate>
@@ -387,7 +388,6 @@
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="140" />
-                                            <ColumnDefinition Width="40" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
 
@@ -423,9 +423,10 @@
 
                                         <StackPanel
                                             Grid.Row="0"
-                                            Grid.Column="2"
+                                            Grid.Column="1"
+                                            Width="{ThemeResource FlyoutThemeMaxWidth}"                                            
                                             Orientation="Vertical"
-                                            HorizontalAlignment="Left"
+                                            HorizontalAlignment="Center"
                                             VerticalAlignment="Center">
 
                                             <TextBlock
@@ -435,12 +436,12 @@
                                                 FontWeight="Bold"
                                                 FontSize="30"
                                                 TextWrapping="Wrap"
-                                                TextAlignment="Left"
-                                                HorizontalAlignment="Left"/>
+                                                TextAlignment="Center"
+                                                HorizontalAlignment="Center"/>
 
                                             <StackPanel
                                                 Orientation="Horizontal"
-                                                HorizontalAlignment="Left"
+                                                HorizontalAlignment="Center"
                                                 VerticalAlignment="Center">
 
                                                 <Image
@@ -469,6 +470,17 @@
                                     </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
+                            <ListView.Resources>
+                                <MenuFlyout
+                                    x:Name="moznostiZoznamu">
+                                    <MenuFlyout.Items>
+                                        <MenuFlyoutItem 
+                                            x:Name="odstranit"
+                                            Text="Odstrániť"
+                                            Click="odstranitZaujem" />
+                                    </MenuFlyout.Items>
+                                </MenuFlyout>
+                            </ListView.Resources>
                         </ListView>
                     </RelativePanel>
                 </PivotItem>

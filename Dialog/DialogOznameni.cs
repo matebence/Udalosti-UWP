@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 
-namespace Udalosti.Nastroje
+namespace Udalosti.Dialog
 {
     class DialogOznameni
     {

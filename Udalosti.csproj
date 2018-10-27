@@ -103,7 +103,9 @@
     <Compile Include="Autentifikacia\UI\Registracia.xaml.cs">
       <DependentUpon>Registracia.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Nastroje\DialogOznameni.cs" />
+    <Compile Include="Dialog\DialogOdpoved.cs" />
+    <Compile Include="Dialog\DialogOznameni.cs" />
+    <Compile Include="Dialog\DialogPotvrdeni.cs" />
     <Compile Include="Nastroje\Lokalizator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Udaje\Data\SQLDataImplementacia.cs" />

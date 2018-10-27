@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Udalosti.Udalosti.Data;
-using Udalosti.Udalosti.UI;
 using Udalosti.Udalosti.Zoznam;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -12,14 +11,6 @@ namespace Udalosti.Udalosti.SpracovanieDat
 {
     class SpravcaDat
     {
-        public void zvolenaUdalost(Frame frame, ItemClickEventArgs e)
-        {
-            Debug.WriteLine("Metoda zvolenaUdalost bola vykonana");
-
-            var zvolenaUdalost = (Udalost)e.ClickedItem;
-            frame.Navigate(typeof(Podrobnosti), zvolenaUdalost);
-        }
-
         public async Task nacitajZoznamAsync(UdalostiUdaje udalostiUdaje, ObservableCollection<Udalost> obsah, Dictionary<string, string> pouzivatelskeUdaje, Dictionary<string, string> miestoPrihlasenia, ProgressRing nacitavanie, string karta)
         {
             Debug.WriteLine("Metoda nacitajZoznam bola vykonana");

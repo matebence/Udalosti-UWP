@@ -119,6 +119,7 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Background" />
       <RootProperty Name="Orientation" />
+      <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Udalosti.Udalosti.UI.Podrobnosti" />
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
@@ -156,12 +157,21 @@
       <RootProperty Name="IsItemClickEnabled" />
       <RootProperty Name="Margin" />
       <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="Resources" />
       <RootEvent Name="ItemClick" />
+      <RootEvent Name="RightTapped" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyout">
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutItem">
+      <RootProperty Name="Text" />
+      <RootEvent Name="Click" />
+    </RootType>
     <RootType FullName="PullToRefresh.UWP.PullToRefreshBox">
       <RootProperty Name="Content" />
       <RootProperty Name="TopIndicatorTemplate" />

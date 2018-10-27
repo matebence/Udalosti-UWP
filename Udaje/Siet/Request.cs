@@ -14,7 +14,7 @@ namespace Udalosti.Udaje.Siet
             this.httpClient = new HttpClient();
         }
 
-        public async Task<HttpResponseMessage> novyPostRequestAsync(Dictionary<string, string> obsah, string adresa)
+        public async Task<HttpResponseMessage> postRequestUdalostiServer(Dictionary<string, string> obsah, string adresa)
         {
             Debug.WriteLine("Metoda novyPostRequestAsync bola vykonana");
 
@@ -26,7 +26,7 @@ namespace Udalosti.Udaje.Siet
             return odpoved;
         }
 
-        public async Task<HttpResponseMessage> novyGetRequestAsync(string adresa)
+        public async Task<HttpResponseMessage> getRequestGeoServer(string adresa)
         {
             Debug.WriteLine("Metoda novyGetRequestAsync - ipAdresa bola vykonana");
 
@@ -34,7 +34,7 @@ namespace Udalosti.Udaje.Siet
             return await this.httpClient.GetAsync(adresa);
         }
 
-        public async Task<HttpResponseMessage> novyGetRequestAsync(double lat, double lon)
+        public async Task<HttpResponseMessage> getRequestLocationServer(double lat, double lon)
         {
             Debug.WriteLine("Metoda novyGetRequestAsync - geoAdresa bola vykonana");
 

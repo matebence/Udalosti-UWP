@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using Udalosti.Autentifikacia.Data;
-using Udalosti.Nastroje;
+using Udalosti.Dialog;
 using Udalosti.Udaje.Nastavenia;
 using Udalosti.Udaje.Siet;
 using Windows.UI.Core;

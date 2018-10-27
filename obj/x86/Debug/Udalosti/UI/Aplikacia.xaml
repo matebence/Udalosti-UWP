@@ -40,7 +40,7 @@
                     Margin="-10,0,-10,0">
                     
                     <RelativePanel>
-                        <Image x:ConnectionId='19'
+                        <Image x:ConnectionId='21'
                             x:Name="chybaUdalosti"
                             Width="100"
                             Source= "ms-appx:///Assets/Images/udalosti_ziadne_udalosti.png"
@@ -48,17 +48,17 @@
                             RelativePanel.AlignHorizontalCenterWithPanel="True"
                             RelativePanel.AlignVerticalCenterWithPanel="True"/>
 
-                        <ProgressRing x:ConnectionId='20' 
+                        <ProgressRing x:ConnectionId='22' 
                             x:Name="nacitavanieUdalosti"
                             Foreground="White"
                             Visibility="Collapsed"
                             RelativePanel.AlignHorizontalCenterWithPanel="True"
                             RelativePanel.AlignVerticalCenterWithPanel="True"/>
 
-                        <ptr:PullToRefreshBox x:ConnectionId='21' 
+                        <ptr:PullToRefreshBox x:ConnectionId='23' 
                                                                >
 
-                            <ListView x:ConnectionId='22' 
+                            <ListView x:ConnectionId='24' 
                                 x:Name="zoznamUdalosti"
                                 Visibility="Collapsed"
                                 SelectionMode="None"
@@ -198,7 +198,7 @@
                     Margin="-10,0,-10,0">
                     
                     <RelativePanel>
-                        <Image x:ConnectionId='13'
+                        <Image x:ConnectionId='15'
                             x:Name="chybaUdalostiPodlaPozicie"
                             Width="100"
                             Source= "ms-appx:///Assets/Images/udalosti_ziadne_udalosti.png"
@@ -206,17 +206,17 @@
                             RelativePanel.AlignHorizontalCenterWithPanel="True"
                             RelativePanel.AlignVerticalCenterWithPanel="True"/>
 
-                        <ProgressRing x:ConnectionId='14' 
+                        <ProgressRing x:ConnectionId='16' 
                             x:Name="nacitavaniePodlaPozicie"
                             Foreground="White"
                             Visibility="Collapsed"
                             RelativePanel.AlignHorizontalCenterWithPanel="True"
                             RelativePanel.AlignVerticalCenterWithPanel="True"/>
 
-                        <ptr:PullToRefreshBox x:ConnectionId='15' 
+                        <ptr:PullToRefreshBox x:ConnectionId='17' 
                                                                            >
                             
-                            <ListView x:ConnectionId='16' 
+                            <ListView x:ConnectionId='18' 
                                     x:Name="zoznamUdalostiPodlaPozicie"
                                     Visibility="Collapsed"
                                     SelectionMode="None"
@@ -377,6 +377,7 @@
                             SelectionMode="None"
                             IsItemClickEnabled="True"
                                                       
+                                                               
                             Margin="0,10,0,0">
 
                             <ListView.ItemTemplate>
@@ -387,7 +388,6 @@
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="140" />
-                                            <ColumnDefinition Width="40" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
 
@@ -423,9 +423,10 @@
 
                                         <StackPanel
                                             Grid.Row="0"
-                                            Grid.Column="2"
+                                            Grid.Column="1"
+                                            Width="{ThemeResource FlyoutThemeMaxWidth}"                                            
                                             Orientation="Vertical"
-                                            HorizontalAlignment="Left"
+                                            HorizontalAlignment="Center"
                                             VerticalAlignment="Center">
 
                                             <TextBlock
@@ -435,12 +436,12 @@
                                                 FontWeight="Bold"
                                                 FontSize="30"
                                                 TextWrapping="Wrap"
-                                                TextAlignment="Left"
-                                                HorizontalAlignment="Left"/>
+                                                TextAlignment="Center"
+                                                HorizontalAlignment="Center"/>
 
                                             <StackPanel
                                                 Orientation="Horizontal"
-                                                HorizontalAlignment="Left"
+                                                HorizontalAlignment="Center"
                                                 VerticalAlignment="Center">
 
                                                 <Image
@@ -469,6 +470,17 @@
                                     </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
+                            <ListView.Resources>
+                                <MenuFlyout x:ConnectionId='13'
+                                    x:Name="moznostiZoznamu">
+                                    <MenuFlyout.Items>
+                                        <MenuFlyoutItem x:ConnectionId='14' 
+                                            x:Name="odstranit"
+                                            Text="Odstrániť"
+                                                                    />
+                                    </MenuFlyout.Items>
+                                </MenuFlyout>
+                            </ListView.Resources>
                         </ListView>
                     </RelativePanel>
                 </PivotItem>

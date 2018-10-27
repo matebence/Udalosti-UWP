@@ -726,7 +726,6 @@ C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\Udalosti\UI\Apl
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\Udalosti\UI\Aplikacia.xaml
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\Udalosti\UI\Aplikacia.xbf
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\Udalosti\UI\Aplikacia.xbf
-C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\Udalosti.csprojAssemblyReference.cache
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\bin\x86\Debug\clrjit.dll
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\FxResources.System.IO.SR.resw
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\FxResources.System.Diagnostics.Debug.SR.resw

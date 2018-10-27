@@ -14,11 +14,13 @@ using Udalosti.Uvod.Data;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Imaging;
+using Udalosti.Dialog;
 
 namespace Udalosti.Udalosti.UI
 {
-    public sealed partial class Aplikacia : Page, KommunikaciaData, KommunikaciaOdpoved, Aktualizator
+    public sealed partial class Aplikacia : Page, KommunikaciaData, KommunikaciaOdpoved, Aktualizator, DialogOdpoved
     {
         private UdalostiUdaje udalostiUdaje;
         private AutentifkaciaUdaje autentifkaciaUdaje;
@@ -28,6 +30,8 @@ namespace Udalosti.Udalosti.UI
 
         private Dictionary<string, string> pouzivatelskeUdaje, miestoPrihlasenia;
         private ObservableCollection<Udalost> udalostiZoznam, udalostiPodlaPozicie, zaujmy;
+
+        private int idUdalost;
 
         public Aplikacia()
         {
@@ -90,7 +94,38 @@ namespace Udalosti.Udalosti.UI
         {
             Debug.WriteLine("Metoda zvolenaUdalost bola vykonana");
 
-            spravcaDat.zvolenaUdalost(this.Frame, e);
+            var zvolenaUdalost = (Udalost)e.ClickedItem;
+            this.Frame.Navigate(typeof(Podrobnosti), zvolenaUdalost);
+        }
+
+        private void spustiMoznostiZoznamu(object sender, RightTappedRoutedEventArgs e)
+        {
+            Debug.WriteLine("Metoda spustiMoznostiZoznamu bola vykonana");
+
+            ListView zoznam = (ListView)sender;
+            moznostiZoznamu.ShowAt(zoznam, e.GetPosition(zoznam));
+            var prvok = ((FrameworkElement)e.OriginalSource).DataContext as Udalost;
+            this.idUdalost = prvok.idUdalost;
+        }
+
+        private void odstranitZaujem(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Metoda odstranitZaujem bola vykonana");
+
+            if (this.idUdalost != -1)
+            { 
+                foreach (var udalost in this.zaujmy)
+                {
+                    if (udalost.idUdalost == this.idUdalost)
+                    {
+                        DialogPotvrdeni.potvrd(
+                            "Odstránenie záujmov", "Naozaj chcete odstránit záujem " + udalost.nazov + "?", 
+                            "Áno odstrániť", "Nie",
+                            this, udalost);
+                    }
+                }
+            }
+            this.idUdalost = -1;
         }
 
         private async void nacitajUdalosti(object sender, RoutedEventArgs e)
@@ -252,13 +287,46 @@ namespace Udalosti.Udalosti.UI
                         this.udalostiUdaje.automatickePrihlasenieVypnute(this.pouzivatelskeUdaje["email"]);
                         udalosti.Navigate(typeof(Prihlasenie), null , new DrillInNavigationTransitionInfo());
                     }
+                    else
+                    {
+                        await DialogOznameni.kommunikaciaAsync("Chyba", odpoved, "Zatvoriť", false, udalosti);
+                    }
                     break;
+
                 case Nastavenia.UDALOSTI_AKTUALIZUJ:
                     if (odpoved.Equals(Nastavenia.VSETKO_V_PORIADKU))
                     {
                         this.miestoPrihlasenia.Clear();
                         this.miestoPrihlasenia = this.udalostiUdaje.miestoPrihlasenia();
                         await this.udalostiUdaje.zoznamUdalostiPodlaPozicieAsync(this.pouzivatelskeUdaje["email"], this.miestoPrihlasenia["stat"], this.miestoPrihlasenia["okres"], this.miestoPrihlasenia["pozicia"], this.pouzivatelskeUdaje["token"]);
+                    }
+                    else
+                    {
+                        await DialogOznameni.kommunikaciaAsync("Chyba", odpoved, "Zatvoriť", false, udalosti);
+                    }
+                    break;
+
+                case Nastavenia.ZAUJEM_ODSTRANENIE:
+                    if (odpoved.Equals(Nastavenia.VSETKO_V_PORIADKU))
+                    {
+                        if (udaje["uspech"] != null)
+                        {
+                            if (zaujmy.Count == 1)
+                            {
+                                chybaZaujmov.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/udalosti_ziadne_zaujmy.png"));
+
+                                zoznamZaujmov.Visibility = Visibility.Collapsed;
+                                chybaZaujmov.Visibility = Visibility.Visible;
+                            }
+                        }
+                        else if (udaje["chyba"] != null)
+                        {
+                            await DialogOznameni.kommunikaciaAsync("Chyba", udaje["chyba"], "Zatvoriť", false, udalosti);
+                        }
+                    }
+                    else
+                    {
+                        await DialogOznameni.kommunikaciaAsync("Chyba", odpoved, "Zatvoriť", false, udalosti);
                     }
                     break;
             }
@@ -270,6 +338,21 @@ namespace Udalosti.Udalosti.UI
 
             zaujmy.Clear();
             await spravcaDat.nacitajZoznamAsync(this.udalostiUdaje, this.zaujmy, this.pouzivatelskeUdaje, this.miestoPrihlasenia, nacitavanieZaujmov, "Zaujmy");
+        }
+
+        public async void tlacidloA(Udalost udalost)
+        {
+            Debug.WriteLine("Metoda DialogPotvrdeni - tlacidloA bola vykonana");
+
+            await this.udalostiUdaje.odstranZaujemAsync(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], udalost.idUdalost);
+            this.zaujmy.Remove(udalost);
+        }
+
+        public void tlacidloB(Udalost udalost)
+        {
+            Debug.WriteLine("Metoda DialogPotvrdeni - tlacidloB bola vykonana");
+
+            Debug.WriteLine("Odstranenie zrusene");
         }
     }
 }
