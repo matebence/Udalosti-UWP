@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ptr="using:PullToRefresh.UWP"
+    NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
     <Frame x:ConnectionId='2' 
@@ -192,7 +193,7 @@
                 </PivotItem>
                 
                 <PivotItem x:ConnectionId='7'
-                                                        
+                                            
                     FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                     Header="Podľa pozície"
                     Margin="-10,0,-10,0">
@@ -350,7 +351,7 @@
                 </PivotItem>
 
                 <PivotItem x:ConnectionId='8'
-                                          
+                                            
                     FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
                     Header="Záujmy"
                     Margin="-10,0,-10,0">

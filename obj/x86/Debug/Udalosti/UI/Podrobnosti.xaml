@@ -224,7 +224,7 @@
 
                 <Button x:ConnectionId='5' 
                     x:Name="tlacidloZvolenejUdalosti"
-                                       
+                                  
                     Grid.Row="1"
                     Width="{ThemeResource FlyoutThemeMaxWidth}"
                     Content="Mám záujem"

@@ -91,7 +91,7 @@
                     
                     <Button 
                         x:Name="registrovatSa"
-                        Click="registrovatAsync"
+                        Click="registrovat"
                         Grid.Column="0"
                         Content="Registrovať"
                         FontFamily="ms-appx:///Assets/Fonts/Raleway-Medium.ttf#Raleway"

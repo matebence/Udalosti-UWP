@@ -22,6 +22,8 @@ namespace Udalosti.Uvod.UI
 
         public UvodnaObrazovka()
         {
+            Debug.WriteLine("Metoda UvodnaObrazovka bola vykonana");
+
             this.InitializeComponent();
             this.init();
         }
@@ -46,11 +48,11 @@ namespace Udalosti.Uvod.UI
                 Dictionary<string, string> pouzivatelskeUdaje = this.uvodnaObrazovkaUdaje.prihlasPouzivatela();
                 if (poloha == null)
                 {
-                    await this.autentifkaciaUdaje.miestoPrihlaseniaAsync(pouzivatelskeUdaje["email"], pouzivatelskeUdaje["heslo"]);
+                    await this.autentifkaciaUdaje.miestoPrihlasenia(pouzivatelskeUdaje["email"], pouzivatelskeUdaje["heslo"], false);
                 }
                 else
                 {
-                    await this.autentifkaciaUdaje.miestoPrihlaseniaAsync(pouzivatelskeUdaje["email"], pouzivatelskeUdaje["heslo"], poloha["zemepisnaSirka"], poloha["zemepisnaDlzka"], false);
+                    await this.autentifkaciaUdaje.miestoPrihlasenia(pouzivatelskeUdaje["email"], pouzivatelskeUdaje["heslo"], poloha["zemepisnaSirka"], poloha["zemepisnaDlzka"], false, false);
                 }
             }
             else
@@ -59,9 +61,9 @@ namespace Udalosti.Uvod.UI
             }
         }
 
-        public async Task odpovedServeraAsync(string odpoved, string od, Dictionary<string, string> udaje)
+        public void odpovedServer(string odpoved, string od, Dictionary<string, string> udaje)
         {
-            Debug.WriteLine("Metoda odpovedServera - UvodnaObrazovka bola vykonana");
+            Debug.WriteLine("Metoda odpovedServer - UvodnaObrazovka bola vykonana");
 
             nacitavanie.IsActive = false;
             nacitavanie.Visibility = Visibility.Collapsed;
@@ -80,6 +82,13 @@ namespace Udalosti.Uvod.UI
                     }
                     break;
             }
+        }
+
+        public Task odpovedServeraAsync(string odpoved, string od, Dictionary<string, string> udaje)
+        {
+            Debug.WriteLine("Metoda odpovedServeraAsync - UvodnaObrazovka bola vykonana");
+
+            throw new NotImplementedException();
         }
     }
 }

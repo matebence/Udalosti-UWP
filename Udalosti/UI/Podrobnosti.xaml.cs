@@ -33,6 +33,8 @@ namespace Udalosti.Udalosti.UI
 
         public Podrobnosti()
         {
+            Debug.WriteLine("Metoda Podrobnosti bola vykonana");
+
             this.InitializeComponent();
             this.init();
         }
@@ -75,26 +77,26 @@ namespace Udalosti.Udalosti.UI
             }
         }
 
-        private async void zaujemAsync(object sender, RoutedEventArgs e)
+        private async void zaujem(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Metoda zaujem bola vykonana");
 
             if (this.stavTlacidla == 1)
             {
                 this.stavTlacidla = 0;
-                await this.udalostiUdaje.odstranZaujemAsync(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], idUdalost);
+                await this.udalostiUdaje.odstranZaujem(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], idUdalost);
 
             }
             else
             {
                 this.stavTlacidla = 1;
-                await this.udalostiUdaje.zaujemAsync(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], idUdalost);
+                await this.udalostiUdaje.zaujem(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], idUdalost);
             }
         }
 
-        public async Task dataZoServeraAsync(string odpoved, string od, List<Udalost> udaje)
+        public async Task dataZoServera(string odpoved, string od, List<Udalost> udaje)
         {
-            Debug.WriteLine("Metoda dataZoServeraAsync - Podrobnosti bola vykonana");
+            Debug.WriteLine("Metoda dataZoServera - Podrobnosti bola vykonana");
 
             switch (od)
             {
@@ -121,7 +123,7 @@ namespace Udalosti.Udalosti.UI
 
         public async Task odpovedServeraAsync(string odpoved, string od, Dictionary<string, string> udaje)
         {
-            Debug.WriteLine("Metoda odpovedServera - Podrobnosti bola vykonana");
+            Debug.WriteLine("Metoda odpovedServeraAsync - Podrobnosti bola vykonana");
 
             switch (od)
             {
@@ -173,9 +175,16 @@ namespace Udalosti.Udalosti.UI
             }
         }
 
+        public void odpovedServer(string odpoved, string od, Dictionary<string, string> udaje)
+        {
+            Debug.WriteLine("Metoda odpovedServer bola vykonana");
+
+            throw new NotImplementedException();
+        }
+
         private async Task spracujZvolenuUdalost(Udalost udalost)
         {
-            Debug.WriteLine("Metoda nacitajUdajeZvolenejUdalosti bola vykonana");
+            Debug.WriteLine("Metoda spracujZvolenuUdalost bola vykonana");
 
             if (udalost != null)
             {
@@ -189,7 +198,7 @@ namespace Udalosti.Udalosti.UI
 
                 if (NetworkInterface.GetIsNetworkAvailable())
                 {
-                    await this.udalostiUdaje.potvrdZaujemAsync(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], udalost.idUdalost);
+                    await this.udalostiUdaje.potvrdZaujem(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], udalost.idUdalost);
                 }
                 else
                 {
@@ -202,7 +211,7 @@ namespace Udalosti.Udalosti.UI
         {
             Debug.WriteLine("Metoda nacitajUdalosti bola vykonana");
 
-            if (!(await this.udalostiUdaje.obrazokJeDostupnnyAsync(udalost.obrazok, server)))
+            if (!(await this.udalostiUdaje.obrazokJeDostupnny(udalost.obrazok, server)))
             {
                 obrazokZvolenejUdalosti.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/udalosti_chyba_obrazka.jpg"));
             }

@@ -19,6 +19,8 @@ namespace Udalosti
 
         public Registracia()
         {
+            Debug.WriteLine("Metoda Registracia bola vykonana");
+
             this.InitializeComponent();
             this.init();
         }
@@ -33,16 +35,16 @@ namespace Udalosti
             uwpSpat.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
 
-        private async void registrovatAsync(object sender, RoutedEventArgs e)
+        private async void registrovat(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Metoda registrovatAsync bola vykonana");
+            Debug.WriteLine("Metoda registrovat bola vykonana");
 
             if (NetworkInterface.GetIsNetworkAvailable())
             {
                 nacitavanie.IsActive = true;
                 nacitavanie.Visibility = Visibility.Visible;
 
-                await this.autentifkaciaUdaje.registraciaAsync(meno.Text, email.Text, heslo.Password, potvrd.Password);
+                await this.autentifkaciaUdaje.registracia(meno.Text, email.Text, heslo.Password, potvrd.Password);
             }
             else
             {
@@ -73,7 +75,7 @@ namespace Udalosti
 
         public async Task odpovedServeraAsync(string odpoved, string od, Dictionary<string, string> udaje)
         {
-            Debug.WriteLine("Metoda odpovedServera - Registracia bola vykonana");
+            Debug.WriteLine("Metoda odpovedServeraAsync - Registracia bola vykonana");
 
             nacitavanie.IsActive = false;
             nacitavanie.Visibility = Visibility.Collapsed;
@@ -91,6 +93,13 @@ namespace Udalosti
                     }
                     break;
             }
+        }
+
+        public void odpovedServer(string odpoved, string od, Dictionary<string, string> udaje)
+        {
+            Debug.WriteLine("Metoda odpovedServera - Registracia bola vykonana");
+
+            throw new System.NotImplementedException();
         }
     }
 }

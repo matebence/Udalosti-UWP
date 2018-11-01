@@ -7,6 +7,6 @@ namespace Udalosti.Udaje.Siet
 {
     interface KommunikaciaData
     {
-        Task dataZoServeraAsync(String odpoved, String od, List<Udalost> udaje);
+        Task dataZoServera(String odpoved, String od, List<Udalost> udaje);
     }
 }

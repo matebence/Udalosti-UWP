@@ -24,9 +24,9 @@ namespace Udalosti.Autentifikacia.Data
             this.odpovedeOdServera = odpovedeOdServera;
         }
 
-        public async Task miestoPrihlaseniaAsync(string email, string heslo, double zemepisnaSirka, double zemepisnaDlzka, bool aktualizuj)
+        public async Task miestoPrihlasenia(string email, string heslo, double zemepisnaSirka, double zemepisnaDlzka, bool aktualizuj, bool async)
         {
-            Debug.WriteLine("Metoda miestoPrihlaseniaAsync - GEO bola vykonana");
+            Debug.WriteLine("Metoda miestoPrihlasenia - GEO bola vykonana");
 
             HttpResponseMessage odpoved = await new Request().getRequestLocationServer(zemepisnaSirka, zemepisnaDlzka);
             String pozicia, okres, kraj, psc, stat, znakStatu;
@@ -79,7 +79,7 @@ namespace Udalosti.Autentifikacia.Data
                 }
                 else
                 {
-                    await prihlasenieAsync(email, heslo);
+                    await prihlasenie(email, heslo, async);
                 }
             }
             else
@@ -88,9 +88,9 @@ namespace Udalosti.Autentifikacia.Data
             }
         }
 
-        public async Task miestoPrihlaseniaAsync(string email, string heslo)
+        public async Task miestoPrihlasenia(string email, string heslo, bool async)
         {
-            Debug.WriteLine("Metoda miestoPrihlaseniaAsync - IP bola vykonana");
+            Debug.WriteLine("Metoda miestoPrihlasenia - IP bola vykonana");
 
             HttpResponseMessage odpoved = await new Request().getRequestGeoServer("json");
             String stat = "";
@@ -114,7 +114,7 @@ namespace Udalosti.Autentifikacia.Data
                 {
                     sqliteDataza.noveMiestoPrihlasenia(new Miesto(null, null, null, null, stat, null));
                 }
-                await prihlasenieAsync(email, heslo);
+                await prihlasenie(email, heslo, async);
             }
             else
             {
@@ -122,9 +122,9 @@ namespace Udalosti.Autentifikacia.Data
             }
         }
 
-        public async Task prihlasenieAsync(string email, string heslo)
+        public async Task prihlasenie(string email, string heslo, bool async)
         {
-            Debug.WriteLine("Metoda prihlasenieAsync bola vykonana");
+            Debug.WriteLine("Metoda prihlasenie bola vykonana");
 
             var obsah = new Dictionary<string, string>
             {
@@ -144,15 +144,36 @@ namespace Udalosti.Autentifikacia.Data
                     udaje.Add("email", email);
                     if (autentifikator.validacia.email != null)
                     {
-                        await this.odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.email, Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje);
+                        if (async)
+                        {
+                            await this.odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.email, Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje);
+                        }
+                        else
+                        {
+                            this.odpovedeOdServera.odpovedServer(autentifikator.validacia.email, Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje);
+                        }
                     }
                     else if (autentifikator.validacia.heslo != null)
                     {
-                        await this.odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.heslo, Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje);
+                        if (async)
+                        {
+                            await this.odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.heslo, Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje);
+                        }
+                        else
+                        {
+                            this.odpovedeOdServera.odpovedServer(autentifikator.validacia.heslo, Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje);
+                        }
                     }
                     else if (autentifikator.validacia.oznam != null)
                     {
-                        await this.odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.oznam, Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje);
+                        if (async)
+                        {
+                            await this.odpovedeOdServera.odpovedServeraAsync(autentifikator.validacia.oznam, Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje);
+                        }
+                        else
+                        {
+                            this.odpovedeOdServera.odpovedServer(autentifikator.validacia.oznam, Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje);
+                        }
                     }
                 }
                 else
@@ -161,18 +182,32 @@ namespace Udalosti.Autentifikacia.Data
                     udaje.Add("heslo", heslo);
                     udaje.Add("token", autentifikator.pouzivatel.token);
 
-                    await this.odpovedeOdServera.odpovedServeraAsync(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje);
+                    if (async)
+                    {
+                        await this.odpovedeOdServera.odpovedServeraAsync(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje);
+                    }
+                    else
+                    {
+                        this.odpovedeOdServera.odpovedServer(Nastavenia.VSETKO_V_PORIADKU, Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, udaje);
+                    }
                 }
             }
             else
             {
-                await this.odpovedeOdServera.odpovedServeraAsync("Server je momentalne nedostupný!", Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, null);
+                if (async)
+                {
+                    await this.odpovedeOdServera.odpovedServeraAsync("Server je momentalne nedostupný!", Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, null);
+                }
+                else
+                {
+                    this.odpovedeOdServera.odpovedServer("Server je momentalne nedostupný!", Nastavenia.AUTENTIFIKACIA_PRIHLASENIE, null);
+                }
             }
         }
 
-        public async Task registraciaAsync(string meno, string email, string heslo, string potvrd)
+        public async Task registracia(string meno, string email, string heslo, string potvrd)
         {
-            Debug.WriteLine("Metoda registraciaAsync bola vykonana");
+            Debug.WriteLine("Metoda registracia bola vykonana");
 
             var obsah = new Dictionary<string, string>
             {

@@ -224,7 +224,7 @@
 
                 <Button 
                     x:Name="tlacidloZvolenejUdalosti"
-                    Click="zaujemAsync"
+                    Click="zaujem"
                     Grid.Row="1"
                     Width="{ThemeResource FlyoutThemeMaxWidth}"
                     Content="Mám záujem"

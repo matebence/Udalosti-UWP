@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Udalosti.Autentifikacia.Data;
@@ -29,19 +28,20 @@ namespace Udalosti.Udalosti.UI
         private SpravcaDat spravcaDat;
 
         private Dictionary<string, string> pouzivatelskeUdaje, miestoPrihlasenia;
-        private ObservableCollection<Udalost> udalostiZoznam, udalostiPodlaPozicie, zaujmy;
 
         private int idUdalost;
 
         public Aplikacia()
         {
+            Debug.WriteLine("Metoda init - Aplikacia bola vykonana");
+
             this.InitializeComponent();
             this.init();
         }
 
         private void init()
         {
-            Debug.WriteLine("Metoda init - ZoznamUdalosti bola vykonana");
+            Debug.WriteLine("Metoda init - Aplikacia bola vykonana");
 
             this.udalostiUdaje = new UdalostiUdaje(this, this);
             this.uvodnaObrazovkaUdaje = new UvodnaObrazovkaUdaje();
@@ -52,17 +52,13 @@ namespace Udalosti.Udalosti.UI
 
             this.pouzivatelskeUdaje = this.uvodnaObrazovkaUdaje.prihlasPouzivatela();
             this.miestoPrihlasenia = this.udalostiUdaje.miestoPrihlasenia();
-
-            this.udalostiZoznam = new ObservableCollection<Udalost>();
-            this.udalostiPodlaPozicie = new ObservableCollection<Udalost>();
-            this.zaujmy = new ObservableCollection<Udalost>();
         }
 
         private async void odhlasitSa(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Metoda odhlasitSa bola vykonana");
 
-            await this.udalostiUdaje.odhlasenieAsync(this.pouzivatelskeUdaje["email"]);
+            await this.udalostiUdaje.odhlasenie(this.pouzivatelskeUdaje["email"], true);
         }
 
         private void aktualnyPivot(object sender, SelectionChangedEventArgs e)
@@ -73,6 +69,7 @@ namespace Udalosti.Udalosti.UI
             {
                 case 0:
                     titul.Text = this.miestoPrihlasenia["stat"];
+
                     break;
                 case 1:
                     if (this.miestoPrihlasenia["pozicia"] == null)
@@ -83,9 +80,11 @@ namespace Udalosti.Udalosti.UI
                     {
                         titul.Text = "Okolie " + this.miestoPrihlasenia["pozicia"];
                     }
+
                     break;
                 case 2:
                     titul.Text = "Zoznam záujmov";
+
                     break;
             }
         }
@@ -114,7 +113,7 @@ namespace Udalosti.Udalosti.UI
 
             if (this.idUdalost != -1)
             { 
-                foreach (var udalost in this.zaujmy)
+                foreach (var udalost in SpravcaDat.getZaujmy())
                 {
                     if (udalost.idUdalost == this.idUdalost)
                     {
@@ -132,39 +131,31 @@ namespace Udalosti.Udalosti.UI
         {
             Debug.WriteLine("Metoda nacitajUdalosti bola vykonana");
 
-            await spravcaDat.nacitajZoznamAsync(this.udalostiUdaje, this.udalostiZoznam, this.pouzivatelskeUdaje, this.miestoPrihlasenia, nacitavaniePodlaPozicie, "Udalosti");
-        }
-
-        private async void nacitajUdalostiPodlaPozicie(object sender, RoutedEventArgs e)
-        {
-            Debug.WriteLine("Metoda nacitajUdalostiPodlaPozicie bola vykonana");
-
-            await spravcaDat.nacitajZoznamAsync(this.udalostiUdaje, this.udalostiPodlaPozicie, pouzivatelskeUdaje, miestoPrihlasenia, nacitavanieUdalosti, "UdalostiPodlaPozicie");
-        }
-
-        private async void nacitajZaujmy(object sender, RoutedEventArgs e)
-        {
-            await spravcaDat.nacitajZoznamAsync(this.udalostiUdaje, this.zaujmy, this.pouzivatelskeUdaje, this.miestoPrihlasenia, nacitavanieZaujmov, "Zaujmy");
+            await spravcaDat.nacitajZoznam(this.udalostiUdaje, this.pouzivatelskeUdaje, this.miestoPrihlasenia, nacitavaniePodlaPozicie, zoznamUdalosti, chybaUdalosti, "Udalosti");
+            await spravcaDat.nacitajZoznam(this.udalostiUdaje, pouzivatelskeUdaje, miestoPrihlasenia, nacitavanieUdalosti, zoznamUdalostiPodlaPozicie, chybaUdalostiPodlaPozicie, "Lokalizator");
+            await spravcaDat.nacitajZoznam(this.udalostiUdaje, this.pouzivatelskeUdaje, this.miestoPrihlasenia, nacitavanieZaujmov, zoznamZaujmov, chybaZaujmov, "Zaujmy");
         }
 
         private async void aktualizujUdalosti(DependencyObject sender, object args)
         {
             Debug.WriteLine("Metoda aktualizujUdalosti bola vykonana");
 
-            this.udalostiZoznam.Clear();
+            SpravcaDat.getUdalosti().Clear();
+            SpravcaDat.setUdalosti(true);
 
             chybaUdalosti.Visibility = Visibility.Collapsed;
             nacitavanieUdalosti.IsActive = true;
             nacitavanieUdalosti.Visibility = Visibility.Visible;
 
-            await this.udalostiUdaje.zoznamUdalostiAsync(this.pouzivatelskeUdaje["email"], this.miestoPrihlasenia["stat"], this.pouzivatelskeUdaje["token"]);
+            await this.udalostiUdaje.zoznamUdalosti(this.pouzivatelskeUdaje["email"], this.miestoPrihlasenia["stat"], this.pouzivatelskeUdaje["token"]);
         }
 
         private async void aktualizujUdalostiPodlaPozicie(DependencyObject sender, object args)
         {
             Debug.WriteLine("Metoda aktualizujUdalostiPodlaPozicie bola vykonana");
 
-            this.udalostiPodlaPozicie.Clear();
+            SpravcaDat.getUdalostiPodlaPozicie().Clear();
+            SpravcaDat.setUdalostiPodlaPozicie(true);
 
             chybaUdalostiPodlaPozicie.Visibility = Visibility.Collapsed;
             nacitavaniePodlaPozicie.IsActive = true;
@@ -175,22 +166,27 @@ namespace Udalosti.Udalosti.UI
                 Dictionary<string, double> poloha = await Lokalizator.zistiPolohuAsync();
                 if (poloha == null)
                 {
-                    await this.udalostiUdaje.zoznamUdalostiPodlaPozicieAsync(this.pouzivatelskeUdaje["email"], this.miestoPrihlasenia["stat"], this.miestoPrihlasenia["okres"], this.miestoPrihlasenia["pozicia"], this.pouzivatelskeUdaje["token"]);
+                    await this.udalostiUdaje.zoznamUdalostiPodlaPozicie(this.pouzivatelskeUdaje["email"], this.miestoPrihlasenia["stat"], this.miestoPrihlasenia["okres"], this.miestoPrihlasenia["pozicia"], this.pouzivatelskeUdaje["token"]);
                 }
                 else
                 {
-                    await this.autentifkaciaUdaje.miestoPrihlaseniaAsync(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["heslo"], poloha["zemepisnaSirka"], poloha["zemepisnaDlzka"], true);
+                    await this.autentifkaciaUdaje.miestoPrihlasenia(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["heslo"], poloha["zemepisnaSirka"], poloha["zemepisnaDlzka"], true, true);
+
+                    if (this.miestoPrihlasenia["pozicia"] != null)
+                    {
+                        titul.Text = "Okolie " + this.miestoPrihlasenia["pozicia"];
+                    }
                 }
             }
             else
             {
-                await this.udalostiUdaje.zoznamUdalostiPodlaPozicieAsync(this.pouzivatelskeUdaje["email"], this.miestoPrihlasenia["stat"], this.miestoPrihlasenia["okres"], this.miestoPrihlasenia["pozicia"], this.pouzivatelskeUdaje["token"]);
+                await this.udalostiUdaje.zoznamUdalostiPodlaPozicie(this.pouzivatelskeUdaje["email"], this.miestoPrihlasenia["stat"], this.miestoPrihlasenia["okres"], this.miestoPrihlasenia["pozicia"], this.pouzivatelskeUdaje["token"]);
             }
         }
 
-        public async Task dataZoServeraAsync(string odpoved, string od, List<Udalost> udaje)
+        public async Task dataZoServera(string odpoved, string od, List<Udalost> udaje)
         {
-            Debug.WriteLine("Metoda dataZoServeraAsync - ZoznamUdalosti bola vykonana");
+            Debug.WriteLine("Metoda dataZoServera - Aplikacia bola vykonana");
 
             switch (od)
             {
@@ -201,7 +197,12 @@ namespace Udalosti.Udalosti.UI
 
                         if (udaje != null)
                         {
-                            await spravcaDat.nacitaveniaUdalostiAsync(this.udalostiUdaje, udaje, this.udalostiZoznam, chybaUdalosti, zoznamUdalosti);
+                            if (SpravcaDat.getUdalosti() == null)
+                            {
+                                SpravcaDat.setUdalosti(false);
+                            }
+
+                            await spravcaDat.nacitaveniaUdalosti(this.udalostiUdaje, udaje, SpravcaDat.getUdalosti(), chybaUdalosti, zoznamUdalosti);
                         }
                         else
                         {
@@ -227,7 +228,12 @@ namespace Udalosti.Udalosti.UI
 
                         if (udaje != null)
                         {
-                            await spravcaDat.nacitaveniaUdalostiAsync(this.udalostiUdaje, udaje, this.udalostiPodlaPozicie, chybaUdalostiPodlaPozicie, zoznamUdalostiPodlaPozicie);
+                            if (SpravcaDat.getUdalostiPodlaPozicie() == null)
+                            {
+                                SpravcaDat.setUdalostiPodlaPozicie(false);
+                            }
+
+                            await spravcaDat.nacitaveniaUdalosti(this.udalostiUdaje, udaje, SpravcaDat.getUdalostiPodlaPozicie(), chybaUdalostiPodlaPozicie, zoznamUdalostiPodlaPozicie);
                         }
                         else
                         {
@@ -253,7 +259,7 @@ namespace Udalosti.Udalosti.UI
 
                         if (udaje != null)
                         {
-                            await spravcaDat.nacitaveniaUdalostiAsync(this.udalostiUdaje, udaje, this.zaujmy, chybaZaujmov, zoznamZaujmov);
+                            await spravcaDat.nacitaveniaUdalosti(this.udalostiUdaje, udaje, SpravcaDat.getZaujmy(), chybaZaujmov, zoznamZaujmov);
                         }
                         else
                         {
@@ -277,7 +283,7 @@ namespace Udalosti.Udalosti.UI
 
         public async Task odpovedServeraAsync(string odpoved, string od, Dictionary<string, string> udaje)
         {
-            Debug.WriteLine("Metoda odpovedServera - ZoznamUdalosti bola vykonana");
+            Debug.WriteLine("Metoda odpovedServeraAsync - ZoznamUdalosti bola vykonana");
 
             switch (od)
             {
@@ -298,7 +304,7 @@ namespace Udalosti.Udalosti.UI
                     {
                         this.miestoPrihlasenia.Clear();
                         this.miestoPrihlasenia = this.udalostiUdaje.miestoPrihlasenia();
-                        await this.udalostiUdaje.zoznamUdalostiPodlaPozicieAsync(this.pouzivatelskeUdaje["email"], this.miestoPrihlasenia["stat"], this.miestoPrihlasenia["okres"], this.miestoPrihlasenia["pozicia"], this.pouzivatelskeUdaje["token"]);
+                        await this.udalostiUdaje.zoznamUdalostiPodlaPozicie(this.pouzivatelskeUdaje["email"], this.miestoPrihlasenia["stat"], this.miestoPrihlasenia["okres"], this.miestoPrihlasenia["pozicia"], this.pouzivatelskeUdaje["token"]);
                     }
                     else
                     {
@@ -311,7 +317,7 @@ namespace Udalosti.Udalosti.UI
                     {
                         if (udaje["uspech"] != null)
                         {
-                            if (zaujmy.Count == 1)
+                            if (SpravcaDat.getZaujmy().Count == 1)
                             {
                                 chybaZaujmov.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/udalosti_ziadne_zaujmy.png"));
 
@@ -332,20 +338,30 @@ namespace Udalosti.Udalosti.UI
             }
         }
 
+
+        public void odpovedServer(string odpoved, string od, Dictionary<string, string> udaje)
+        {
+            Debug.WriteLine("Metoda odpovedServera - Aplikacia bola vykonana");
+
+            throw new NotImplementedException();
+        }
+
         public async void aktualizujObsahZaujmov()
         {
             Debug.WriteLine("Metoda aktualizujObsahZaujmov bola vykonana");
 
-            zaujmy.Clear();
-            await spravcaDat.nacitajZoznamAsync(this.udalostiUdaje, this.zaujmy, this.pouzivatelskeUdaje, this.miestoPrihlasenia, nacitavanieZaujmov, "Zaujmy");
+            SpravcaDat.getZaujmy().Clear();
+            SpravcaDat.setZaujmy(true);
+
+            await spravcaDat.nacitajZoznam(this.udalostiUdaje, this.pouzivatelskeUdaje, this.miestoPrihlasenia, nacitavanieZaujmov, zoznamZaujmov, chybaZaujmov, "Zaujmy");
         }
 
         public async void tlacidloA(Udalost udalost)
         {
             Debug.WriteLine("Metoda DialogPotvrdeni - tlacidloA bola vykonana");
 
-            await this.udalostiUdaje.odstranZaujemAsync(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], udalost.idUdalost);
-            this.zaujmy.Remove(udalost);
+            await this.udalostiUdaje.odstranZaujem(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], udalost.idUdalost);
+            SpravcaDat.getZaujmy().Remove(udalost);
         }
 
         public void tlacidloB(Udalost udalost)

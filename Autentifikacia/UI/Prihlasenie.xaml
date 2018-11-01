@@ -85,7 +85,7 @@
 
                     <Button 
                         x:Name="prihlasitSa"
-                        Click="prihlasitAsync"
+                        Click="prihlasit"
                         Grid.Column="0"
                         Content="Prihlásiť sa"
                         FontFamily="ms-appx:///Assets/Fonts/Raleway-Regular.ttf#Raleway"
@@ -122,7 +122,7 @@
                     x:Name="tlacidloRegistrovat"
                     Click="tlacidloRegistrovatSa"
                     Grid.Row="2"
-                    Content="Zaregistrovať sa"
+                    Content="ZAREGISTRUJTE SA"
                     FontFamily="ms-appx:///Assets/Fonts/Raleway-Medium.ttf#Raleway"
                     FontSize="15"
                     Foreground="#0397d6"

@@ -91,7 +91,7 @@
                     
                     <Button x:ConnectionId='8' 
                         x:Name="registrovatSa"
-                                                
+                                           
                         Grid.Column="0"
                         Content="Registrovať"
                         FontFamily="ms-appx:///Assets/Fonts/Raleway-Medium.ttf#Raleway"

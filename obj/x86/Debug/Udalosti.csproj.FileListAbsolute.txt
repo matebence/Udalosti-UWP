@@ -737,3 +737,4 @@ C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\FxResources.Sys
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\FxResources.System.Xml.XDocument.SR.resw
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\FxResources.System.Xml.XmlDocument.SR.resw
 C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\FxResources.System.Xml.XmlSerializer.SR.resw
+C:\Users\ecneb\Downloads\Windows\Udalosti\Udalosti\obj\x86\Debug\Udalosti.csprojAssemblyReference.cache

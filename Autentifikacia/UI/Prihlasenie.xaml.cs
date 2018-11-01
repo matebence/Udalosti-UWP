@@ -24,6 +24,8 @@ namespace Udalosti
 
         public Prihlasenie()
         {
+            Debug.WriteLine("Metoda Prihlasenie bola vykonana");
+
             this.InitializeComponent();
             this.init();
         }
@@ -36,9 +38,9 @@ namespace Udalosti
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
 
-        private async void prihlasitAsync(object sender, RoutedEventArgs e)
+        private async void prihlasit(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Metoda prihlasitAsync bola vykonana");
+            Debug.WriteLine("Metoda prihlasit bola vykonana");
 
             if (NetworkInterface.GetIsNetworkAvailable())
             {
@@ -48,11 +50,11 @@ namespace Udalosti
                 Dictionary<string, double> poloha = await Lokalizator.zistiPolohuAsync();
                 if (poloha == null)
                 {
-                    await this.autentifkaciaUdaje.miestoPrihlaseniaAsync(email.Text, heslo.Password);
+                    await this.autentifkaciaUdaje.miestoPrihlasenia(email.Text, heslo.Password, true);
                 }
                 else
                 {
-                    await this.autentifkaciaUdaje.miestoPrihlaseniaAsync(email.Text, heslo.Password, poloha["zemepisnaSirka"], poloha["zemepisnaDlzka"], false);
+                    await this.autentifkaciaUdaje.miestoPrihlasenia(email.Text, heslo.Password, poloha["zemepisnaSirka"], poloha["zemepisnaDlzka"], false, true);
                 }
             }
             else
@@ -90,7 +92,7 @@ namespace Udalosti
 
         public async Task odpovedServeraAsync(string odpoved, string od, Dictionary<string, string> udaje)
         {
-            Debug.WriteLine("Metoda odpovedServera - Prihlasenie bola vykonana");
+            Debug.WriteLine("Metoda odpovedServeraAsync - Prihlasenie bola vykonana");
 
             nacitavanie.IsActive = false;
             nacitavanie.Visibility = Visibility.Collapsed;
@@ -109,6 +111,13 @@ namespace Udalosti
                     }
                     break;
             }
+        }
+
+        public void odpovedServer(string odpoved, string od, Dictionary<string, string> udaje)
+        {
+            Debug.WriteLine("Metoda odpovedServera - Prihlasenie bola vykonana");
+
+            throw new NotImplementedException();
         }
     }
 }

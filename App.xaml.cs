@@ -32,13 +32,16 @@ namespace Udalosti
 
         public App()
         {
+            Debug.WriteLine("Metoda App bola vykonana");
+
             this.InitializeComponent();
             this.init();
-
         }
 
         private void init()
         {
+            Debug.WriteLine("Metoda App - init bola vykonana");
+
             this.uvodnaObrazovkaUdaje = new UvodnaObrazovkaUdaje();
             this.udalostiUdaje = new UdalostiUdaje(this, this);
 
@@ -48,6 +51,8 @@ namespace Udalosti
 
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            Debug.WriteLine("Metoda App - OnLaunched bola vykonana");
+
             Frame rootFrame = Window.Current.Content as Frame;
             if (rootFrame == null)
             {
@@ -79,21 +84,27 @@ namespace Udalosti
 
         void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
+            Debug.WriteLine("Metoda App - OnNavigationFailed bola vykonana");
+
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 
         private async void OnSuspendingAsync(object sender, SuspendingEventArgs e)
         {
+            Debug.WriteLine("Metoda App - OnSuspendingAsync bola vykonana");
+
             if (this.uvodnaObrazovkaUdaje.zistiCiPouzivatelskoKontoExistuje())
             {
-                await this.udalostiUdaje.odhlasenieAsync(this.uvodnaObrazovkaUdaje.prihlasPouzivatela()["email"]);
+                await this.udalostiUdaje.odhlasenie(this.uvodnaObrazovkaUdaje.prihlasPouzivatela()["email"], false);
             }
             var deferral = e.SuspendingOperation.GetDeferral();
             deferral.Complete();
         }
 
-        public async Task odpovedServeraAsync(string odpoved, string od, Dictionary<string, string> udaje)
+        public void odpovedServer(string odpoved, string od, Dictionary<string, string> udaje)
         {
+            Debug.WriteLine("Metoda App - odpovedServer bola vykonana");
+
             switch (od)
             {
                 case Nastavenia.AUTENTIFIKACIA_ODHLASENIE:
@@ -105,8 +116,17 @@ namespace Udalosti
             }
         }
 
-        public Task dataZoServeraAsync(string odpoved, string od, List<Udalost> udaje)
+        public Task odpovedServeraAsync(string odpoved, string od, Dictionary<string, string> udaje)
         {
+            Debug.WriteLine("Metoda App - odpovedServeraAsync bola vykonana");
+
+            throw new NotImplementedException();
+        }
+
+        public Task dataZoServera(string odpoved, string od, List<Udalost> udaje)
+        {
+            Debug.WriteLine("Metoda App - dataZoServera bola vykonana");
+
             throw new NotImplementedException();
         }
     }
