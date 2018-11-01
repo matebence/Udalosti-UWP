@@ -220,6 +220,8 @@ namespace Udalosti.Udalosti.UI
                 obrazokZvolenejUdalosti.Source = new BitmapImage(new Uri(host+udalost.obrazok));
             }
 
+            this.stavTlacidla = udalost.zaujem;
+
             denZvolenejUdalosti.Text = udalost.den;
             mesiacZvolenejUdalosti.Text = udalost.mesiac.Substring(0, 3) + ".";
             nazovZvolenejUdalosti.Text = udalost.nazov;
