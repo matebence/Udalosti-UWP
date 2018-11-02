@@ -23,7 +23,7 @@ namespace Udalosti
     {
         public static string databaza = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "udalosti.sqlite"));
 
-        public static string udalostiAdresa = "https://bmate18.student.ki.fpv.ukf.sk/udalosti/";
+        public static string udalostiAdresa = "http://app-udalosti.8u.cz/";
         public static string ipAdresa = "http://ip-api.com/";
         public static string geoAdresa = "https://eu1.locationiq.com/v1/reverse.php?key=" + Nastavenia.POZICIA_TOKEN;
 
