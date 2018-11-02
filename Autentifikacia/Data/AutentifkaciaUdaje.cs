@@ -29,7 +29,7 @@ namespace Udalosti.Autentifikacia.Data
             Debug.WriteLine("Metoda miestoPrihlasenia - GEO bola vykonana");
 
             HttpResponseMessage odpoved = await new Request().getRequestLocationServer(zemepisnaSirka, zemepisnaDlzka);
-            String pozicia, okres, kraj, psc, stat, znakStatu;
+            string pozicia, okres, kraj, psc, stat, znakStatu;
             pozicia = okres = kraj = psc = stat = znakStatu = "";
 
             if (odpoved.IsSuccessStatusCode)
@@ -92,8 +92,8 @@ namespace Udalosti.Autentifikacia.Data
         {
             Debug.WriteLine("Metoda miestoPrihlasenia - IP bola vykonana");
 
-            HttpResponseMessage odpoved = await new Request().getRequestGeoServer("json");
-            String stat = "";
+            HttpResponseMessage odpoved = await new Request().getRequestGeoServer(Nastavenia.SERVER_GEO_IP);
+            string stat = "";
 
             if (odpoved.IsSuccessStatusCode)
             {
@@ -133,7 +133,7 @@ namespace Udalosti.Autentifikacia.Data
                { "pokus_o_prihlasenie", Guid.NewGuid().ToString() }
             };
 
-            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, "index.php/prihlasenie/prihlasit");
+            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, Nastavenia.SERVER_PRIHLASENIE);
             if (odpoved.IsSuccessStatusCode)
             {
                 Autentifikator autentifikator = JsonConvert.DeserializeObject<Autentifikator>(await odpoved.Content.ReadAsStringAsync());
@@ -218,7 +218,7 @@ namespace Udalosti.Autentifikacia.Data
                { "nova_registracia", Guid.NewGuid().ToString() }
             };
 
-            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, "index.php/registracia");
+            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, Nastavenia.SERVER_REGISTRACIA);
             if (odpoved.IsSuccessStatusCode)
             {
                 Autentifikator autentifikator = JsonConvert.DeserializeObject<Autentifikator>(await odpoved.Content.ReadAsStringAsync());

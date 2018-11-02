@@ -37,7 +37,7 @@ namespace Udalosti.Udalosti.Data
                { "token", token }
             };
 
-            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, "index.php/udalosti");
+            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, Nastavenia.SERVER_ZOZNAM_UDALOSTI);
             if (odpoved.IsSuccessStatusCode)
             {
                 Obsah data = JsonConvert.DeserializeObject<Obsah>(await odpoved.Content.ReadAsStringAsync());
@@ -62,7 +62,7 @@ namespace Udalosti.Udalosti.Data
                { "token", token }
             };
 
-            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, "index.php/udalosti/zoznam_podla_pozicie");
+            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, Nastavenia.SERVER_ZOZNAM_UDALOSTI_PODLA_POZCIE);
             if (odpoved.IsSuccessStatusCode)
             {
                 Obsah data = JsonConvert.DeserializeObject<Obsah>(await odpoved.Content.ReadAsStringAsync());
@@ -99,7 +99,7 @@ namespace Udalosti.Udalosti.Data
                { "token", token }
             };
 
-            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, "index.php/zaujmy/zoznam");
+            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, Nastavenia.SERVER_ZOZNAM_ZAUJMOV);
             if (odpoved.IsSuccessStatusCode)
             {
                 Obsah data = JsonConvert.DeserializeObject<Obsah>(await odpoved.Content.ReadAsStringAsync());
@@ -122,7 +122,7 @@ namespace Udalosti.Udalosti.Data
                { "idUdalost", idUdalost.ToString() }
             };
 
-            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, "index.php/zaujmy");
+            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, Nastavenia.SERVER_ZAUJEM);
             if (odpoved.IsSuccessStatusCode)
             {
                 Dictionary<string, string> udaje = new Dictionary<string, string>();
@@ -157,7 +157,7 @@ namespace Udalosti.Udalosti.Data
                { "idUdalost", idUdalost.ToString() }
             };
 
-            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, "index.php/zaujmy/potvrd");
+            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, Nastavenia.SERVER_POTVRD_ZAUJEM);
             if (odpoved.IsSuccessStatusCode)
             {
                 Obsah data = JsonConvert.DeserializeObject<Obsah>(await odpoved.Content.ReadAsStringAsync());
@@ -180,7 +180,7 @@ namespace Udalosti.Udalosti.Data
                { "idUdalost", idUdalost.ToString() }
             };
 
-            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, "index.php/zaujmy/odstran");
+            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, Nastavenia.SERVER_ODSTRAN_ZAUJEM);
             if (odpoved.IsSuccessStatusCode)
             {
                 Dictionary<string, string> udaje = new Dictionary<string, string>();
@@ -220,7 +220,7 @@ namespace Udalosti.Udalosti.Data
                { "email", email }
             };
 
-            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, "index.php/prihlasenie/odhlasit");
+            HttpResponseMessage odpoved = await new Request().postRequestUdalostiServer(obsah, Nastavenia.SERVER_ODHLASENIE);
             if (odpoved.IsSuccessStatusCode)
             {
                 Autentifikator autentifikator = JsonConvert.DeserializeObject<Autentifikator>(await odpoved.Content.ReadAsStringAsync());

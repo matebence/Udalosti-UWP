@@ -6,12 +6,12 @@ namespace Udalosti.Udaje.Data.Tabulka
     {
         [SQLite.Net.Attributes.PrimaryKey, SQLite.Net.Attributes.AutoIncrement]
         public int idMiesto { get; set; }
-        public String pozicia { get; set; }
-        public String okres { get; set; }
-        public String kraj { get; set; }
-        public String psc { get; set; }
-        public String stat { get; set; }
-        public String znakStatu { get; set; }
+        public string pozicia { get; set; }
+        public string okres { get; set; }
+        public string kraj { get; set; }
+        public string psc { get; set; }
+        public string stat { get; set; }
+        public string znakStatu { get; set; }
         
         public Miesto()
         {

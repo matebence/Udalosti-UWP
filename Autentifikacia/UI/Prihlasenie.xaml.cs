@@ -50,11 +50,33 @@ namespace Udalosti
                 Dictionary<string, double> poloha = await Lokalizator.zistiPolohuAsync();
                 if (poloha == null)
                 {
-                    await this.autentifkaciaUdaje.miestoPrihlasenia(email.Text, heslo.Password, true);
+                    try
+                    {
+                        nacitavanie.IsActive = false;
+                        nacitavanie.Visibility = Visibility.Collapsed;
+
+                        await this.autentifkaciaUdaje.miestoPrihlasenia(email.Text, heslo.Password, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine("CHYBA: " + ex.Message);
+                        await DialogOznameni.kommunikaciaAsync("Chyba", "Server je momentalne nedostupný!", "Zatvoriť", false, prihlasenie);
+                    }
                 }
                 else
                 {
-                    await this.autentifkaciaUdaje.miestoPrihlasenia(email.Text, heslo.Password, poloha["zemepisnaSirka"], poloha["zemepisnaDlzka"], false, true);
+                    try
+                    {
+                        nacitavanie.IsActive = false;
+                        nacitavanie.Visibility = Visibility.Collapsed;
+
+                        await this.autentifkaciaUdaje.miestoPrihlasenia(email.Text, heslo.Password, poloha["zemepisnaSirka"], poloha["zemepisnaDlzka"], false, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine("CHYBA: " + ex.Message);
+                        await DialogOznameni.kommunikaciaAsync("Chyba", "Server je momentalne nedostupný!", "Zatvoriť", false, prihlasenie);
+                    }
                 }
             }
             else

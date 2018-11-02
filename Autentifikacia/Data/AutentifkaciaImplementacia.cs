@@ -5,16 +5,16 @@ namespace Udalosti.Autentifikacia.Data
 {
     interface AutentifkaciaImplementacia
     {
-        Task miestoPrihlasenia(String email, String heslo, double zemepisnaSirka, double zemepisnaDlzka, bool aktualizuj, bool async);
+        Task miestoPrihlasenia(string email, string heslo, double zemepisnaSirka, double zemepisnaDlzka, bool aktualizuj, bool async);
 
-        Task miestoPrihlasenia(String email, String heslo, bool async);
+        Task miestoPrihlasenia(string email, string heslo, bool async);
 
-        Task prihlasenie(String email, String heslo, bool async);
+        Task prihlasenie(string email, string heslo, bool async);
 
-        Task registracia(String meno, String email, String heslo, String potvrd);
+        Task registracia(string meno, string email, string heslo, string potvrd);
 
-        void ulozPrihlasovacieUdajeDoDatabazy(String email, String heslo, String token);
+        void ulozPrihlasovacieUdajeDoDatabazy(string email, string heslo, string token);
 
-        void ucetJeNePristupny(String email);
+        void ucetJeNePristupny(string email);
     }
 }

@@ -95,7 +95,14 @@ namespace Udalosti
 
             if (this.uvodnaObrazovkaUdaje.zistiCiPouzivatelskoKontoExistuje())
             {
-                await this.udalostiUdaje.odhlasenie(this.uvodnaObrazovkaUdaje.prihlasPouzivatela()["email"], false);
+                try
+                {
+                    await this.udalostiUdaje.odhlasenie(this.uvodnaObrazovkaUdaje.prihlasPouzivatela()["email"], false);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("CHYBA: " + ex.Message);
+                }
             }
             var deferral = e.SuspendingOperation.GetDeferral();
             deferral.Complete();

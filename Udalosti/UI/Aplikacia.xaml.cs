@@ -131,9 +131,21 @@ namespace Udalosti.Udalosti.UI
         {
             Debug.WriteLine("Metoda nacitajUdalosti bola vykonana");
 
-            await spravcaDat.nacitajZoznam(this.udalostiUdaje, this.pouzivatelskeUdaje, this.miestoPrihlasenia, nacitavaniePodlaPozicie, zoznamUdalosti, chybaUdalosti, "Udalosti");
-            await spravcaDat.nacitajZoznam(this.udalostiUdaje, pouzivatelskeUdaje, miestoPrihlasenia, nacitavanieUdalosti, zoznamUdalostiPodlaPozicie, chybaUdalostiPodlaPozicie, "Lokalizator");
-            await spravcaDat.nacitajZoznam(this.udalostiUdaje, this.pouzivatelskeUdaje, this.miestoPrihlasenia, nacitavanieZaujmov, zoznamZaujmov, chybaZaujmov, "Zaujmy");
+            try
+            {
+                await spravcaDat.nacitajZoznam(this.udalostiUdaje, this.pouzivatelskeUdaje, this.miestoPrihlasenia, nacitavaniePodlaPozicie, zoznamUdalosti, chybaUdalosti, "Udalosti");
+                await spravcaDat.nacitajZoznam(this.udalostiUdaje, pouzivatelskeUdaje, miestoPrihlasenia, nacitavanieUdalosti, zoznamUdalostiPodlaPozicie, chybaUdalostiPodlaPozicie, "Lokalizator");
+                await spravcaDat.nacitajZoznam(this.udalostiUdaje, this.pouzivatelskeUdaje, this.miestoPrihlasenia, nacitavanieZaujmov, zoznamZaujmov, chybaZaujmov, "Zaujmy");
+            }
+            catch (Exception ex)
+            {
+                nacitavanieUdalosti.Visibility = Visibility.Collapsed;
+                nacitavaniePodlaPozicie.Visibility = Visibility.Collapsed;
+                nacitavanieZaujmov.Visibility = Visibility.Collapsed;
+
+                Debug.WriteLine("CHYBA: " + ex.Message);
+                await DialogOznameni.kommunikaciaAsync("Chyba", "Server je momentalne nedostupný!", "Zatvoriť", false, null);
+            }
         }
 
         private async void aktualizujUdalosti(DependencyObject sender, object args)
@@ -147,7 +159,18 @@ namespace Udalosti.Udalosti.UI
             nacitavanieUdalosti.IsActive = true;
             nacitavanieUdalosti.Visibility = Visibility.Visible;
 
-            await this.udalostiUdaje.zoznamUdalosti(this.pouzivatelskeUdaje["email"], this.miestoPrihlasenia["stat"], this.pouzivatelskeUdaje["token"]);
+            try
+            {
+                await this.udalostiUdaje.zoznamUdalosti(this.pouzivatelskeUdaje["email"], this.miestoPrihlasenia["stat"], this.pouzivatelskeUdaje["token"]);
+            }
+            catch (Exception ex)
+            {
+                nacitavanieUdalosti.IsActive = false;
+                nacitavanieUdalosti.Visibility = Visibility.Collapsed;
+
+                Debug.WriteLine("CHYBA: " + ex.Message);
+                await DialogOznameni.kommunikaciaAsync("Chyba", "Server je momentalne nedostupný!", "Zatvoriť", false, null);
+            }
         }
 
         private async void aktualizujUdalostiPodlaPozicie(DependencyObject sender, object args)
@@ -166,11 +189,33 @@ namespace Udalosti.Udalosti.UI
                 Dictionary<string, double> poloha = await Lokalizator.zistiPolohuAsync();
                 if (poloha == null)
                 {
-                    await this.udalostiUdaje.zoznamUdalostiPodlaPozicie(this.pouzivatelskeUdaje["email"], this.miestoPrihlasenia["stat"], this.miestoPrihlasenia["okres"], this.miestoPrihlasenia["pozicia"], this.pouzivatelskeUdaje["token"]);
+                    try
+                    {
+                        await this.udalostiUdaje.zoznamUdalostiPodlaPozicie(this.pouzivatelskeUdaje["email"], this.miestoPrihlasenia["stat"], this.miestoPrihlasenia["okres"], this.miestoPrihlasenia["pozicia"], this.pouzivatelskeUdaje["token"]);
+                    }
+                    catch (Exception ex)
+                    {
+                        nacitavaniePodlaPozicie.IsActive = false;
+                        nacitavaniePodlaPozicie.Visibility = Visibility.Collapsed;
+
+                        Debug.WriteLine("CHYBA: " + ex.Message);
+                        await DialogOznameni.kommunikaciaAsync("Chyba", "Server je momentalne nedostupný!", "Zatvoriť", false, null);
+                    }
                 }
                 else
                 {
-                    await this.autentifkaciaUdaje.miestoPrihlasenia(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["heslo"], poloha["zemepisnaSirka"], poloha["zemepisnaDlzka"], true, true);
+                    try
+                    {
+                        await this.autentifkaciaUdaje.miestoPrihlasenia(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["heslo"], poloha["zemepisnaSirka"], poloha["zemepisnaDlzka"], true, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        nacitavaniePodlaPozicie.IsActive = false;
+                        nacitavaniePodlaPozicie.Visibility = Visibility.Collapsed;
+
+                        Debug.WriteLine("CHYBA: " + ex.Message);
+                        await DialogOznameni.kommunikaciaAsync("Chyba", "Server je momentalne nedostupný!", "Zatvoriť", false, null);
+                    }
 
                     if (this.miestoPrihlasenia["pozicia"] != null)
                     {

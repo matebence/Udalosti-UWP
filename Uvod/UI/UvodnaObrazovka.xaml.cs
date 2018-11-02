@@ -12,6 +12,7 @@ using Windows.UI.Xaml;
 using System.Diagnostics;
 using System;
 using Udalosti.Nastroje;
+using Udalosti.Dialog;
 
 namespace Udalosti.Uvod.UI
 {
@@ -48,11 +49,27 @@ namespace Udalosti.Uvod.UI
                 Dictionary<string, string> pouzivatelskeUdaje = this.uvodnaObrazovkaUdaje.prihlasPouzivatela();
                 if (poloha == null)
                 {
-                    await this.autentifkaciaUdaje.miestoPrihlasenia(pouzivatelskeUdaje["email"], pouzivatelskeUdaje["heslo"], false);
+                    try
+                    {
+                        await this.autentifkaciaUdaje.miestoPrihlasenia(pouzivatelskeUdaje["email"], pouzivatelskeUdaje["heslo"], false);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine("CHYBA: " + ex.Message);
+                        await DialogOznameni.kommunikaciaAsync("Chyba", "Server je momentalne nedostupný!", "Zatvoriť", false, null);
+                    }
                 }
                 else
                 {
-                    await this.autentifkaciaUdaje.miestoPrihlasenia(pouzivatelskeUdaje["email"], pouzivatelskeUdaje["heslo"], poloha["zemepisnaSirka"], poloha["zemepisnaDlzka"], false, false);
+                    try
+                    {
+                        await this.autentifkaciaUdaje.miestoPrihlasenia(pouzivatelskeUdaje["email"], pouzivatelskeUdaje["heslo"], poloha["zemepisnaSirka"], poloha["zemepisnaDlzka"], false, false);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine("CHYBA: " + ex.Message);
+                        await DialogOznameni.kommunikaciaAsync("Chyba", "Server je momentalne nedostupný!", "Zatvoriť", false, null);
+                    }
                 }
             }
             else

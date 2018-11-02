@@ -13,9 +13,9 @@ namespace Udalosti.Udaje.Data
 
         void novePouzivatelskeUdaje(Pouzivatelia pouzivatelia);
 
-        void aktualizujPouzivatelskeUdaje(Pouzivatelia pouzivatelia, String email);
+        void aktualizujPouzivatelskeUdaje(Pouzivatelia pouzivatelia, string email);
 
-        void odstranPouzivatelskeUdaje(String email);
+        void odstranPouzivatelskeUdaje(string email);
 
         bool pouzivatelskeUdaje();
 

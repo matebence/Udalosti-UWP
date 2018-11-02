@@ -54,7 +54,7 @@ namespace Udalosti.Udaje.Data
             }
         }
 
-        public void aktualizujPouzivatelskeUdaje(Pouzivatelia pouzivatelia, String email)
+        public void aktualizujPouzivatelskeUdaje(Pouzivatelia pouzivatelia, string email)
         {
             Debug.WriteLine("Metoda aktualizujPouzivatelskeUdaje bola vykonana");
 
@@ -75,7 +75,7 @@ namespace Udalosti.Udaje.Data
             }
         }
 
-        public void odstranPouzivatelskeUdaje(String email)
+        public void odstranPouzivatelskeUdaje(string email)
         {
             Debug.WriteLine("Metoda odstranPouzivatelskeUdaje bola vykonana");
 

@@ -8,7 +8,7 @@ namespace Udalosti.Dialog
 {
     class DialogOznameni
     {
-        public static async Task kommunikaciaAsync(String titul, String odpoved, String tlacidlo, bool uspech, Frame frame)
+        public static async Task kommunikaciaAsync(string titul, string odpoved, string tlacidlo, bool uspech, Frame frame)
         {
             Debug.WriteLine("Metoda kommunikaciaAsync bola vykonana");
 

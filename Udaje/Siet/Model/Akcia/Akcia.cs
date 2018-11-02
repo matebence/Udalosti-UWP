@@ -10,8 +10,8 @@ namespace Udalosti.Udaje.Siet.Model.Akcia
             this.chyba = chyba;
         }
 
-        public String uspech { get; set; }
-        public String chyba { get; set; }
+        public string uspech { get; set; }
+        public string chyba { get; set; }
 
         public override string ToString()
         {

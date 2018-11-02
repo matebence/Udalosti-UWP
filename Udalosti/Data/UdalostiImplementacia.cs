@@ -6,23 +6,23 @@ namespace Udalosti.Udalosti.Data
 {
     interface UdalostiImplementacia
     {
-        Task zoznamUdalosti(String email, String stat, String token);
+        Task zoznamUdalosti(string email, string stat, string token);
 
-        Task zoznamUdalostiPodlaPozicie(String email, String stat, String okres, String mesto, String token);
+        Task zoznamUdalostiPodlaPozicie(string email, string stat, string okres, string mesto, string token);
 
         Dictionary<string, string> miestoPrihlasenia();
 
-        void automatickePrihlasenieVypnute(String email);
+        void automatickePrihlasenieVypnute(string email);
 
-        Task odhlasenie(String email, bool async);
+        Task odhlasenie(string email, bool async);
 
-        Task zoznamZaujmov(String email, String token);
+        Task zoznamZaujmov(string email, string token);
 
-        Task zaujem(String email, String token, int idUdalost);
+        Task zaujem(string email, string token, int idUdalost);
 
-        Task potvrdZaujem(String email, String token, int idUdalost);
+        Task potvrdZaujem(string email, string token, int idUdalost);
 
-        Task odstranZaujem(String email, String token, int idUdalost);
+        Task odstranZaujem(string email, string token, int idUdalost);
 
         Task<bool> obrazokJeDostupnny(string adresa, bool podrobnosti);
     }

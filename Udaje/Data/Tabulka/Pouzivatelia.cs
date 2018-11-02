@@ -6,9 +6,9 @@ namespace Udalosti.Udaje.Data.Tabulka
     {
         [SQLite.Net.Attributes.PrimaryKey, SQLite.Net.Attributes.AutoIncrement]
         public int idPouzivatel { get; set; }
-        public String email { get; set; }
-        public String heslo { get; set; }
-        public String token { get; set; }
+        public string email { get; set; }
+        public string heslo { get; set; }
+        public string token { get; set; }
 
         public Pouzivatelia()
         {

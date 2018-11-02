@@ -83,14 +83,29 @@ namespace Udalosti.Udalosti.UI
 
             if (this.stavTlacidla == 1)
             {
-                this.stavTlacidla = 0;
-                await this.udalostiUdaje.odstranZaujem(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], idUdalost);
-
+                try
+                {
+                    this.stavTlacidla = 0;
+                    await this.udalostiUdaje.odstranZaujem(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], idUdalost);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("CHYBA: " + ex.Message);
+                    await DialogOznameni.kommunikaciaAsync("Chyba", "Server je momentalne nedostupný!", "Zatvoriť", false, null);
+                }
             }
             else
             {
-                this.stavTlacidla = 1;
-                await this.udalostiUdaje.zaujem(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], idUdalost);
+                try
+                {
+                    this.stavTlacidla = 1;
+                    await this.udalostiUdaje.zaujem(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], idUdalost);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("CHYBA: " + ex.Message);
+                    await DialogOznameni.kommunikaciaAsync("Chyba", "Server je momentalne nedostupný!", "Zatvoriť", false, null);
+                }
             }
         }
 
@@ -198,7 +213,17 @@ namespace Udalosti.Udalosti.UI
 
                 if (NetworkInterface.GetIsNetworkAvailable())
                 {
-                    await this.udalostiUdaje.potvrdZaujem(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], udalost.idUdalost);
+                    try
+                    {
+                        await this.udalostiUdaje.potvrdZaujem(this.pouzivatelskeUdaje["email"], this.pouzivatelskeUdaje["token"], udalost.idUdalost);
+                    }
+                    catch (Exception ex)
+                    {
+                        nacitavanie.Visibility = Visibility.Collapsed;
+
+                        Debug.WriteLine("CHYBA: " + ex.Message);
+                        await DialogOznameni.kommunikaciaAsync("Chyba", "Server je momentalne nedostupný!", "Zatvoriť", false, null);
+                    }
                 }
                 else
                 {
@@ -207,7 +232,7 @@ namespace Udalosti.Udalosti.UI
             }
         }
 
-        private async void nacitajUdalosti(Udalost udalost, bool server, String host)
+        private async void nacitajUdalosti(Udalost udalost, bool server, string host)
         {
             Debug.WriteLine("Metoda nacitajUdalosti bola vykonana");
 

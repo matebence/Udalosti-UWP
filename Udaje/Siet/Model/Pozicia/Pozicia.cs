@@ -14,12 +14,12 @@ namespace Udalosti.Udaje.Siet.Model.Pozicia
             this.country_code = country_code;
         }
 
-        public String city_district { get; set; }
-        public String city { get; set; }
-        public String state { get; set; }
-        public String postcode { get; set; }
-        public String country { get; set; }
-        public String country_code { get; set; }
+        public string city_district { get; set; }
+        public string city { get; set; }
+        public string state { get; set; }
+        public string postcode { get; set; }
+        public string country { get; set; }
+        public string country_code { get; set; }
 
         public override string ToString()
         {

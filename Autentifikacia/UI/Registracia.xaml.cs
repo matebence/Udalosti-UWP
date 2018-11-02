@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
@@ -44,7 +45,18 @@ namespace Udalosti
                 nacitavanie.IsActive = true;
                 nacitavanie.Visibility = Visibility.Visible;
 
-                await this.autentifkaciaUdaje.registracia(meno.Text, email.Text, heslo.Password, potvrd.Password);
+                try
+                {
+                    await this.autentifkaciaUdaje.registracia(meno.Text, email.Text, heslo.Password, potvrd.Password);
+                }
+                catch (Exception ex)
+                {
+                    nacitavanie.IsActive = false;
+                    nacitavanie.Visibility = Visibility.Collapsed;
+
+                    Debug.WriteLine("CHYBA: " + ex.Message);
+                    await DialogOznameni.kommunikaciaAsync("Chyba", "Server je momentalne nedostupný!", "Zatvoriť", false, registracia);
+                }
             }
             else
             {
