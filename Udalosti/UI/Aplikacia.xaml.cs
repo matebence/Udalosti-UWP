@@ -152,7 +152,10 @@ namespace Udalosti.Udalosti.UI
         {
             Debug.WriteLine("Metoda aktualizujUdalosti bola vykonana");
 
-            SpravcaDat.getUdalosti().Clear();
+            if (SpravcaDat.getUdalosti() != null)
+            {
+                SpravcaDat.getUdalosti().Clear();
+            }
             SpravcaDat.setUdalosti(true);
 
             chybaUdalosti.Visibility = Visibility.Collapsed;
@@ -177,7 +180,10 @@ namespace Udalosti.Udalosti.UI
         {
             Debug.WriteLine("Metoda aktualizujUdalostiPodlaPozicie bola vykonana");
 
-            SpravcaDat.getUdalostiPodlaPozicie().Clear();
+            if (SpravcaDat.getUdalostiPodlaPozicie() != null)
+            {
+                SpravcaDat.getUdalostiPodlaPozicie().Clear();
+            }
             SpravcaDat.setUdalostiPodlaPozicie(true);
 
             chybaUdalostiPodlaPozicie.Visibility = Visibility.Collapsed;
