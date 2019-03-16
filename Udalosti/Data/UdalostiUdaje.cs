@@ -57,7 +57,7 @@ namespace Udalosti.Udalosti.Data
             {
                { "email", email },
                { "stat", stat },
-               { "okres", okres },
+               { "okres", "okres " + okres },
                { "mesto", mesto },
                { "token", token }
             };
