@@ -43,6 +43,7 @@ _NuGet <br />
 <p float="left">
 <img src="https://i.imgur.com/VUrzEEx.png" alt="Screenshoot Udalosti 1" width="200"/>
 <img src="https://i.imgur.com/ydscD78.png" alt="Screenshoot Udalosti 2" width="200"/>
+<img src="https://i.imgur.com/HUgnzDB.png" alt="Screenshoot Udalosti 8" width="200"/>
 </p>
 <br />
 <p float="left">
@@ -54,5 +55,4 @@ _NuGet <br />
 <p float="left">
 <img src="https://i.imgur.com/ROvaUXX.png" alt="Screenshoot Udalosti 6" width="200"/>
 <img src="https://i.imgur.com/P9p3MqQ.png" alt="Screenshoot Udalosti 7" width="200"/>
-<img src="https://i.imgur.com/HUgnzDB.png" alt="Screenshoot Udalosti 8" width="200"/>
 </p>
