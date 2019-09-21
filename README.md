@@ -1,8 +1,6 @@
-# Aplikácia Udalosti platforma UWP
+# Udalosti - UWP
 
-
-
-# Štruktúra aplikácie
+# Application structure
 
 __Assets<br />
 __Autentifikacia<br />
@@ -23,7 +21,7 @@ Udalosti.TemporaryKey.pfx<br />
 
 
 
-## Použité technológie
+## Technologies
 
 _C# <br />
 	__Threading <br />
@@ -38,7 +36,7 @@ _NuGet <br />
 
 
 
-## Screenshooty aplikácie
+## Screenshots
 
 <p float="left">
 <img src="https://i.imgur.com/VUrzEEx.png" alt="Screenshoot Udalosti 1" width="200"/>
