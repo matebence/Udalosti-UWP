@@ -296,7 +296,7 @@
       <Version>6.1.7</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>11.0.2</Version>
+      <Version>13.0.1</Version>
     </PackageReference>
     <PackageReference Include="PullToRefresh.UWP">
       <Version>0.3.4</Version>
