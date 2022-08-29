@@ -38,19 +38,11 @@ _NuGet <br />
 
 ## Screenshots
 
-<p float="left">
-<img src="https://i.imgur.com/VUrzEEx.png" alt="Screenshoot Udalosti 1" width="200"/>
-<img src="https://i.imgur.com/ydscD78.png" alt="Screenshoot Udalosti 2" width="200"/>
-<img src="https://i.imgur.com/HUgnzDB.png" alt="Screenshoot Udalosti 3" width="200"/>
-</p>
-<br />
-<p float="left">
-<img src="https://i.imgur.com/ZTFvNcY.png" alt="Screenshoot Udalosti 4" width="200"/>
-<img src="https://i.imgur.com/v4pY1Eo.png" alt="Screenshoot Udalosti 5" width="200"/>
-<img src="https://i.imgur.com/is3IpZY.png" alt="Screenshoot Udalosti 6" width="200"/>
-</p>
-<br />
-<p float="left">
-<img src="https://i.imgur.com/ROvaUXX.png" alt="Screenshoot Udalosti 7" width="200"/>
-<img src="https://i.imgur.com/P9p3MqQ.png" alt="Screenshoot Udalosti 8" width="200"/>
-</p>
+![Screenshot 1](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/1.png)
+![Screenshot 2](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/2.png)
+![Screenshot 3](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/3.png)
+![Screenshot 4](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/4.jpg)
+![Screenshot 5](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/5.jpg)
+![Screenshot 6](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/6.png)
+![Screenshot 7](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/7.png)
+![Screenshot 8](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/8.png)
