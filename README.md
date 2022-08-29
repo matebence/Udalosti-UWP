@@ -39,7 +39,7 @@ _NuGet <br />
 ## Screenshots
 
 <p float="left">
-<img src=https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/1.png" alt="Screenshoot Udalosti 1" width="200"/>
+<img src="https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/1.png" alt="Screenshoot Udalosti 1" width="200"/>
 <img src="https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/2.png" alt="Screenshoot Udalosti 2" width="200"/>
 <img src="https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/3.png" alt="Screenshoot Udalosti 3" width="200"/>
 </p>
