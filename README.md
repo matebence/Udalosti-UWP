@@ -38,11 +38,11 @@ _NuGet <br />
 
 ## Screenshots
 
-![Screenshot 1](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/1.png)
-![Screenshot 2](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/2.png)
-![Screenshot 3](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/3.png)
-![Screenshot 4](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/4.jpg)
-![Screenshot 5](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/5.jpg)
-![Screenshot 6](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/6.png)
-![Screenshot 7](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/7.png)
-![Screenshot 8](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/8.png)
+![Screenshot 1](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/1.png)
+![Screenshot 2](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/2.png)
+![Screenshot 3](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/3.png)
+![Screenshot 4](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/4.jpg)
+![Screenshot 5](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/5.jpg)
+![Screenshot 6](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/6.png)
+![Screenshot 7](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/7.png)
+![Screenshot 8](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/8.png)
