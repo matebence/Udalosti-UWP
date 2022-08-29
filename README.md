@@ -38,11 +38,19 @@ _NuGet <br />
 
 ## Screenshots
 
-![Screenshot 1](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/1.png)
-![Screenshot 2](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/2.png)
-![Screenshot 3](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/3.png)
-![Screenshot 4](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/4.jpg)
-![Screenshot 5](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/5.jpg)
-![Screenshot 6](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/6.png)
-![Screenshot 7](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/7.png)
-![Screenshot 8](https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/8.png)
+<p float="left">
+<img src=https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/1.png" alt="Screenshoot Udalosti 1" width="200"/>
+<img src="https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/2.png" alt="Screenshoot Udalosti 2" width="200"/>
+<img src="https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/3.png" alt="Screenshoot Udalosti 3" width="200"/>
+</p>
+<br />
+<p float="left">
+<img src="https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/4.jpg" alt="Screenshoot Udalosti 4" width="200"/>
+<img src="https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/5.jpg" alt="Screenshoot Udalosti 5" width="200"/>
+<img src="https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/6.png" alt="Screenshoot Udalosti 6" width="200"/>
+</p>
+<br />
+<p float="left">
+<img src="https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/7.png" alt="Screenshoot Udalosti 7" width="200"/>
+<img src="https://raw.githubusercontent.com/matebence/Udalosti-UWP/master/docs/8.png" alt="Screenshoot Udalosti 8" width="200"/>
+</p>
